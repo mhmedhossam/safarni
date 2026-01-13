@@ -1,20 +1,16 @@
 import 'package:flutter/material.dart';
+import 'package:gap/gap.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
-import 'package:round_8_mobile_safarni_team3/core/constants/routes.dart';
-import 'package:round_8_mobile_safarni_team3/core/di/service_locator.dart';
-import 'package:round_8_mobile_safarni_team3/features/Hotal_Booking/data/remote/RecommendationHotelsRemoteSource.dart';
-import 'package:round_8_mobile_safarni_team3/features/Hotal_Booking/data/repo_impl/Recommendation_Hotels_Repo_Impl.dart';
-import 'package:round_8_mobile_safarni_team3/features/Hotal_Booking/domain/usecases/Nearby_Hotels_Use_Case.dart';
-import 'package:round_8_mobile_safarni_team3/features/Hotal_Booking/domain/usecases/Recommendation_Hotels_UseCase.dart';
-import 'package:round_8_mobile_safarni_team3/features/Hotal_Booking/presentation/View/hotel_rooms_view.dart';
-import 'package:round_8_mobile_safarni_team3/features/Hotal_Booking/presentation/View/widget/nearby_hotel_card.dart';
-import 'package:round_8_mobile_safarni_team3/features/Hotal_Booking/presentation/View/widget/recommended_hotal_card.dart';
-import 'package:round_8_mobile_safarni_team3/core/utils/text_styles.dart';
-import 'package:round_8_mobile_safarni_team3/features/Hotal_Booking/presentation/manager/nearbyHotelCubit/nearby_hotels_cubit.dart';
-import 'package:round_8_mobile_safarni_team3/features/Hotal_Booking/presentation/manager/recommendation_hotelsCubit/recommendation_hotels_cubit.dart';
-
-import 'widget/custom_search_hotals.dart';
+import 'package:safarni/core/constants/routes.dart';
+import 'package:safarni/core/di/service_locator.dart';
+import 'package:safarni/features/Hotal_Booking/domain/usecases/Nearby_Hotels_Use_Case.dart';
+import 'package:safarni/features/Hotal_Booking/domain/usecases/Recommendation_Hotels_UseCase.dart';
+import 'package:safarni/features/Hotal_Booking/presentation/View/widget/nearby_hotel_card.dart';
+import 'package:safarni/features/Hotal_Booking/presentation/View/widget/recommended_hotal_card.dart';
+import 'package:safarni/core/utils/text_styles.dart';
+import 'package:safarni/features/Hotal_Booking/presentation/manager/nearbyHotelCubit/nearby_hotels_cubit.dart';
+import 'package:safarni/features/Hotal_Booking/presentation/manager/recommendation_hotelsCubit/recommendation_hotels_cubit.dart';
 
 class HotelsBookingView extends StatelessWidget {
   const HotelsBookingView({super.key});
@@ -73,7 +69,7 @@ class HotelsBookingView extends StatelessWidget {
                   ),
                 ),
 
-                SliverToBoxAdapter(child: SizedBox(height: 24)),
+                SliverToBoxAdapter(child: Gap(24)),
 
                 // Recommended Section Title
                 SliverToBoxAdapter(
@@ -87,7 +83,7 @@ class HotelsBookingView extends StatelessWidget {
                   ),
                 ),
 
-                SliverToBoxAdapter(child: SizedBox(height: 16)),
+                SliverToBoxAdapter(child: Gap(16)),
 
                 // Horizontal Scrollable Recommended Hotels
                 SliverToBoxAdapter(
@@ -129,7 +125,7 @@ class HotelsBookingView extends StatelessWidget {
                       ),
                 ),
 
-                SliverToBoxAdapter(child: SizedBox(height: 20)),
+                SliverToBoxAdapter(child: Gap(20)),
 
                 // Nearby Hotels Section Title
                 SliverToBoxAdapter(
@@ -143,7 +139,7 @@ class HotelsBookingView extends StatelessWidget {
                   ),
                 ),
 
-                SliverToBoxAdapter(child: SizedBox(height: 12)),
+                SliverToBoxAdapter(child: Gap(12)),
 
                 // Vertical List of Nearby Hotels
                 SliverToBoxAdapter(

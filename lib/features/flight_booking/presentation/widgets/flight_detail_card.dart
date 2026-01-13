@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:gap/gap.dart';
 
 import '../../../../core/functions/format_time.dart';
 import '../../../../core/utils/app_colors.dart';
@@ -21,13 +22,13 @@ class FlightDetailsCard extends StatelessWidget {
     return Column(
       children: [
         _buildFlightHeader(),
-        const SizedBox(height: 20),
+        const Gap(20),
         _buildFlightTimeDetails(),
-        const SizedBox(height: 20),
+        const Gap(20),
         const Divider(),
-        const SizedBox(height: 10),
+        const Gap(10),
         _buildFlightInfoGrid(),
-        const SizedBox(height: 20),
+        const Gap(20),
         _buildPassengerInfo(),
       ],
     );
@@ -40,7 +41,7 @@ class FlightDetailsCard extends StatelessWidget {
         Row(
           children: [
             const Icon(Icons.airplanemode_active, color: Colors.red),
-            const SizedBox(width: 8),
+            const Gap(8),
             Text(
               flight.airline?.name ?? "Airline",
               style: TextStyles.details.copyWith(fontWeight: FontWeight.bold),
@@ -49,7 +50,10 @@ class FlightDetailsCard extends StatelessWidget {
         ),
         Text(
           flight.flightNumber ?? "---",
-          style: TextStyles.details.copyWith(color: Colors.grey[600], fontSize: 13),
+          style: TextStyles.details.copyWith(
+            color: Colors.grey[600],
+            fontSize: 13,
+          ),
         ),
       ],
     );
@@ -60,18 +64,29 @@ class FlightDetailsCard extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
         _buildLocationInfo(
-            formatTime(flight.schedule?.departureTime), flight.origin?.code ?? "---"),
+          formatTime(flight.schedule?.departureTime),
+          flight.origin?.code ?? "---",
+        ),
         Column(
           children: [
-            const Icon(Icons.airplanemode_active, size: 20, color: Colors.black87),
+            const Icon(
+              Icons.airplanemode_active,
+              size: 20,
+              color: Colors.black87,
+            ),
             Text(
               flight.aircraft?.type.toString() ?? '',
-              style: TextStyles.details.copyWith(fontSize: 12, color: Colors.grey[600]),
+              style: TextStyles.details.copyWith(
+                fontSize: 12,
+                color: Colors.grey[600],
+              ),
             ),
           ],
         ),
         _buildLocationInfo(
-            formatTime(flight.schedule?.arrivalTime), flight.destination?.code ?? "---"),
+          formatTime(flight.schedule?.arrivalTime),
+          flight.destination?.code ?? "---",
+        ),
       ],
     );
   }
@@ -79,7 +94,13 @@ class FlightDetailsCard extends StatelessWidget {
   Widget _buildLocationInfo(String time, String code) {
     return Column(
       children: [
-        Text(time, style: TextStyles.details.copyWith(fontSize: 18, fontWeight: FontWeight.bold)),
+        Text(
+          time,
+          style: TextStyles.details.copyWith(
+            fontSize: 18,
+            fontWeight: FontWeight.bold,
+          ),
+        ),
         Text(code, style: TextStyles.details.copyWith(color: Colors.grey[600])),
       ],
     );
@@ -104,8 +125,17 @@ class FlightDetailsCard extends StatelessWidget {
   Widget _buildInfoItem(String label, String value) {
     return Column(
       children: [
-        Text(value, style: TextStyles.details.copyWith(fontWeight: FontWeight.bold)),
-        Text(label, style: TextStyles.details.copyWith(color: Colors.grey[600], fontSize: 12)),
+        Text(
+          value,
+          style: TextStyles.details.copyWith(fontWeight: FontWeight.bold),
+        ),
+        Text(
+          label,
+          style: TextStyles.details.copyWith(
+            color: Colors.grey[600],
+            fontSize: 12,
+          ),
+        ),
       ],
     );
   }
@@ -117,18 +147,31 @@ class FlightDetailsCard extends StatelessWidget {
           radius: 25,
           backgroundImage: AssetImage(Assets.imagesUserAvatar),
         ),
-        const SizedBox(width: 12),
+        const Gap(12),
         Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text("Catherine Dion", style: TextStyles.details.copyWith(fontWeight: FontWeight.bold)),
-            Text("24 years, Female", style: TextStyles.details.copyWith(color: Colors.grey[600], fontSize: 12)),
+            Text(
+              "Catherine Dion",
+              style: TextStyles.details.copyWith(fontWeight: FontWeight.bold),
+            ),
+            Text(
+              "24 years, Female",
+              style: TextStyles.details.copyWith(
+                color: Colors.grey[600],
+                fontSize: 12,
+              ),
+            ),
           ],
         ),
         const Spacer(),
         const Icon(Icons.chair, color: AppColors.primaryColor, size: 20),
-        const SizedBox(width: 5),
-        Text(selectedSeats.isNotEmpty ? "${selectedSeats.first.designation}A" : "--"),
+        const Gap(5),
+        Text(
+          selectedSeats.isNotEmpty
+              ? "${selectedSeats.first.designation}A"
+              : "--",
+        ),
       ],
     );
   }

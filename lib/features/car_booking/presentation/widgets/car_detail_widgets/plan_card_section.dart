@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:gap/gap.dart';
 
 import '../../../../../core/utils/app_colors.dart';
 
@@ -39,7 +40,7 @@ class PlanCardSection extends StatelessWidget {
                 ),
                 decoration: BoxDecoration(
                   color: isSelected
-                      ? AppColors.primaryColor.withOpacity(0.1)
+                      ? AppColors.primaryColor.withValues(alpha: 0.1)
                       : Colors.grey.shade100,
                   borderRadius: const BorderRadius.only(
                     topLeft: Radius.circular(10),
@@ -56,7 +57,7 @@ class PlanCardSection extends StatelessWidget {
                           ? AppColors.primaryColor
                           : Colors.grey.shade600,
                     ),
-                    const SizedBox(height: 4),
+                    const Gap(4),
                     Text(
                       "\$$price",
                       style: TextStyle(
@@ -85,7 +86,7 @@ class PlanCardSection extends StatelessWidget {
                           color: Color(0xFF1A1A1A),
                         ),
                       ),
-                      const SizedBox(height: 4),
+                      const Gap(4),
                       Text(
                         subTitle,
                         style: TextStyle(

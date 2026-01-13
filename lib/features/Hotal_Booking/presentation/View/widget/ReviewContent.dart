@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:gap/gap.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
-import 'package:round_8_mobile_safarni_team3/core/constants/routes.dart';
-import 'package:round_8_mobile_safarni_team3/core/utils/text_styles.dart';
-import 'package:round_8_mobile_safarni_team3/features/Hotal_Booking/presentation/manager/GalleryRoomCubit/gallery_room_cubit.dart';
-import 'package:round_8_mobile_safarni_team3/features/Hotal_Booking/presentation/manager/ReviewCubit/review_room_cubit.dart';
+import 'package:safarni/core/constants/routes.dart';
+import 'package:safarni/core/utils/text_styles.dart';
+import 'package:safarni/features/Hotal_Booking/presentation/manager/ReviewCubit/review_room_cubit.dart';
 
-class Reviewcontent extends StatelessWidget {
-  const Reviewcontent({super.key});
+class ReviewContent extends StatelessWidget {
+  const ReviewContent({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -77,7 +77,7 @@ class Reviewcontent extends StatelessWidget {
                                 color: Colors.grey,
                               ),
                             ),
-                            const SizedBox(width: 12),
+                            const Gap(12),
                             Expanded(
                               child: Column(
                                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -94,7 +94,7 @@ class Reviewcontent extends StatelessWidget {
                               ),
                             ),
                             Text(
-                              review.createdAt?.day.toString()??"0" ,
+                              review.createdAt?.day.toString() ?? "0",
                               style: TextStyles.details.copyWith(
                                 fontSize: 13,
                                 color: Color(0xFF4B5563),
@@ -102,7 +102,7 @@ class Reviewcontent extends StatelessWidget {
                             ),
                           ],
                         ),
-                        const SizedBox(height: 4),
+                        const Gap(4),
                         Row(
                           children: List.generate(
                             review.rating!,
@@ -113,7 +113,7 @@ class Reviewcontent extends StatelessWidget {
                             ),
                           ),
                         ),
-                        const SizedBox(height: 8),
+                        const Gap(8),
 
                         Text(
                           review.comment!,

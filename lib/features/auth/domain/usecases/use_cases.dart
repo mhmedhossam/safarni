@@ -1,7 +1,7 @@
 import 'package:dartz/dartz.dart';
-import 'package:round_8_mobile_safarni_team3/core/error/failure.dart';
-import 'package:round_8_mobile_safarni_team3/features/auth/domain/entity/entities.dart';
-import 'package:round_8_mobile_safarni_team3/features/auth/domain/repo/auth_repo.dart';
+import 'package:safarni/core/error/failure.dart';
+import 'package:safarni/features/auth/domain/entity/entities.dart';
+import 'package:safarni/features/auth/domain/repo/auth_repo.dart';
 
 //===================>Reqister
 class RegisterUseCase {

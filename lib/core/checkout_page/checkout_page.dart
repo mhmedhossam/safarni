@@ -1,17 +1,17 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
 import 'package:gap/gap.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:mask_text_input_formatter/mask_text_input_formatter.dart';
-import 'package:round_8_mobile_safarni_team3/core/constants/app_fonts.dart';
-import 'package:round_8_mobile_safarni_team3/core/constants/navigation.dart';
-import 'package:round_8_mobile_safarni_team3/core/constants/routes.dart';
-import 'package:round_8_mobile_safarni_team3/core/functions/validation.dart';
-import 'package:round_8_mobile_safarni_team3/core/utils/app_colors.dart';
-import 'package:round_8_mobile_safarni_team3/core/utils/text_styles.dart';
-import 'package:round_8_mobile_safarni_team3/core/widgets/custom_appbar.dart';
-import 'package:round_8_mobile_safarni_team3/core/widgets/custom_button.dart';
-import 'package:round_8_mobile_safarni_team3/core/widgets/custom_text_form_field.dart';
-import 'package:round_8_mobile_safarni_team3/generated/assets.dart';
+import 'package:safarni/core/constants/app_fonts.dart';
+import 'package:safarni/core/constants/navigation.dart';
+import 'package:safarni/core/constants/routes.dart';
+import 'package:safarni/core/functions/validation.dart';
+import 'package:safarni/core/utils/app_colors.dart';
+import 'package:safarni/core/utils/text_styles.dart';
+import 'package:safarni/core/widgets/custom_appbar.dart';
+import 'package:safarni/core/widgets/custom_button.dart';
+import 'package:safarni/core/widgets/custom_text_form_field.dart';
+import 'package:safarni/generated/assets.dart';
 
 class PaymentChoice {
   final String paymentName;

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:round_8_mobile_safarni_team3/core/utils/app_colors.dart';
+import 'package:gap/gap.dart';
+import 'package:safarni/core/utils/app_colors.dart';
 
 import '../utils/text_styles.dart';
 
@@ -88,7 +89,7 @@ class _IconWithText extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
         icon,
-        const SizedBox(width: 8),
+        const Gap(8),
         FittedBox(
           child: Text(
             title,

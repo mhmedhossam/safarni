@@ -1,5 +1,5 @@
-import 'package:round_8_mobile_safarni_team3/features/Home/domain/entities/category_entitiy.dart';
-import 'package:round_8_mobile_safarni_team3/features/Home/domain/entities/recommendation_entity.dart';
+import 'package:safarni/features/Home/domain/entities/category_entitiy.dart';
+import 'package:safarni/features/Home/domain/entities/recommendation_entity.dart';
 
 class HomeEntity {
   List<CategoryEntity> categories;

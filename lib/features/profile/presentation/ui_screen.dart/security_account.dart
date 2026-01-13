@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:round_8_mobile_safarni_team3/core/widgets/custom_appbar.dart';
+import 'package:gap/gap.dart';
+import 'package:safarni/core/widgets/custom_appbar.dart';
 
 import '../../../../core/utils/app_colors.dart';
 import '../widgets/account_settings_widget.dart';
@@ -46,7 +47,7 @@ class _SecurityAccountState extends State<SecurityAccount> {
                     ),
                   ],
                 ),
-                SizedBox(height: 10),
+                Gap(10),
                 Row(
                   children: [
                     Expanded(
@@ -68,7 +69,7 @@ class _SecurityAccountState extends State<SecurityAccount> {
                     ),
                   ],
                 ),
-                SizedBox(height: 40),
+                Gap(40),
                 AccountSettingsWidget(),
               ],
             ),

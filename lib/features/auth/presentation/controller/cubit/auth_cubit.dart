@@ -1,5 +1,3 @@
-import 'dart:developer';
-
 import 'package:bloc/bloc.dart';
 import 'package:meta/meta.dart';
 
@@ -41,7 +39,7 @@ class AuthCubit extends Cubit<AuthState> {
     );
   }
 
-  Future<void> verfiy({required String email, required String code}) async {
+  Future<void> verify({required String email, required String code}) async {
     emit(AuthLoading());
     final data = await verfiyUseCase.call(email: email, code: code);
 
@@ -62,25 +60,25 @@ class AuthCubit extends Cubit<AuthState> {
   }
 
   Future<void> logout() async {
-    log('🎬 Cubit: Logout called');
+    //log('🎬 Cubit: Logout called');
     emit(AuthLoading());
 
     final result = await logoutUseCase.call();
 
     result.fold(
       (failure) {
-        log('❌ Cubit: Logout failure - ${failure.message}');
+        //log('❌ Cubit: Logout failure - ${failure.message}');
         emit(AuthFailure(message: failure.message));
       },
       (_) {
-        log('✅ Cubit: Logout success');
+        //log('✅ Cubit: Logout success');
         emit(AuthInitial());
       },
     );
   }
 
   void reset() {
-    log('🔄 Cubit: Reset to initial state');
+    //log('🔄 Cubit: Reset to initial state');
     emit(AuthInitial());
   }
 

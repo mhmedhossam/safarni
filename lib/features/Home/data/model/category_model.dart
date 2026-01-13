@@ -1,4 +1,4 @@
-import 'package:round_8_mobile_safarni_team3/features/Home/domain/entities/category_entitiy.dart';
+import 'package:safarni/features/Home/domain/entities/category_entitiy.dart';
 
 class CategoryModel extends CategoryEntity {
   CategoryModel({
@@ -8,7 +8,7 @@ class CategoryModel extends CategoryEntity {
     required super.slug,
   });
 
-  factory CategoryModel.fromJson(json) {
+  factory CategoryModel.fromJson(dynamic json) {
     return CategoryModel(
       iconUrl: json["icon_url"],
       id: json["id"],

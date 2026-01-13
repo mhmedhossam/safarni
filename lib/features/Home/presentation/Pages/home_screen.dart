@@ -1,8 +1,9 @@
 import 'package:circular_bottom_navigation/circular_bottom_navigation.dart';
 import 'package:circular_bottom_navigation/tab_item.dart';
 import 'package:flutter/material.dart';
+import 'package:gap/gap.dart';
 
-import 'package:round_8_mobile_safarni_team3/generated/assets.dart';
+import 'package:safarni/generated/assets.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -137,7 +138,7 @@ class HomeBody extends StatelessWidget {
                   backgroundImage: AssetImage('assets/icons/Avatar.svg'),
                 ),
               ),
-              const SizedBox(height: 20),
+              const Gap(20),
 
               // Search Bar
               TextField(
@@ -152,13 +153,13 @@ class HomeBody extends StatelessWidget {
                   ),
                 ),
               ),
-              const SizedBox(height: 25),
+              const Gap(25),
 
               const Text(
                 'Categories',
                 style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
               ),
-              const SizedBox(height: 15),
+              const Gap(15),
 
               // Categories Row
               Row(
@@ -170,10 +171,10 @@ class HomeBody extends StatelessWidget {
                   CategoryItem(image: images[3], label: "Hotels"),
                 ],
               ),
-              const SizedBox(height: 30),
+              const Gap(30),
 
               _buildHeader("Recommendations"),
-              const SizedBox(height: 15),
+              const Gap(15),
 
               // Horizontal List
               SizedBox(
@@ -184,10 +185,10 @@ class HomeBody extends StatelessWidget {
                   itemBuilder: (context, index) => const HorizontalCard(),
                 ),
               ),
-              const SizedBox(height: 30),
+              const Gap(30),
 
               _buildHeader("Available Tours"),
-              const SizedBox(height: 15),
+              const Gap(15),
 
               // Vertical List - الجزء الذي يسبب مشاكل عادةً
               ListView.builder(
@@ -242,7 +243,7 @@ class CategoryItem extends StatelessWidget {
             ),
           ),
         ),
-        const SizedBox(height: 8),
+        const Gap(8),
         Text(label, style: const TextStyle(fontSize: 12)),
       ],
     );
@@ -279,7 +280,10 @@ class VerticalTourCard extends StatelessWidget {
         color: Colors.white,
         borderRadius: BorderRadius.circular(15),
         boxShadow: [
-          BoxShadow(color: Colors.black.withOpacity(0.05), blurRadius: 10),
+          BoxShadow(
+            color: Colors.black.withValues(alpha: 0.05),
+            blurRadius: 10,
+          ),
         ],
       ),
       child: Row(

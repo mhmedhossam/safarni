@@ -1,17 +1,16 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:gap/gap.dart';
-import 'package:round_8_mobile_safarni_team3/core/constants/navigation.dart';
-import 'package:round_8_mobile_safarni_team3/core/constants/routes.dart';
-import 'package:round_8_mobile_safarni_team3/core/utils/app_colors.dart';
-import 'package:round_8_mobile_safarni_team3/core/utils/text_styles.dart';
-import 'package:round_8_mobile_safarni_team3/core/widgets/custom_appbar.dart';
-import 'package:round_8_mobile_safarni_team3/core/widgets/custom_text_form_field.dart';
-import 'package:round_8_mobile_safarni_team3/features/Home/domain/entities/recommendation_entity.dart';
-import 'package:round_8_mobile_safarni_team3/features/Home/presentation/cubit/home_cubit/home_cubit.dart';
-import 'package:round_8_mobile_safarni_team3/features/Home/presentation/cubit/home_cubit/home_states.dart';
-import 'package:round_8_mobile_safarni_team3/generated/assets.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:safarni/core/constants/navigation.dart';
+import 'package:safarni/core/constants/routes.dart';
+import 'package:safarni/core/utils/app_colors.dart';
+import 'package:safarni/core/utils/text_styles.dart';
+import 'package:safarni/core/widgets/custom_appbar.dart';
+import 'package:safarni/core/widgets/custom_text_form_field.dart';
+import 'package:safarni/features/Home/domain/entities/recommendation_entity.dart';
+import 'package:safarni/features/Home/presentation/cubit/home_cubit/home_cubit.dart';
+import 'package:safarni/features/Home/presentation/cubit/home_cubit/home_states.dart';
+import 'package:safarni/generated/assets.dart';
 
 class InternalPage extends StatelessWidget {
   const InternalPage({super.key});

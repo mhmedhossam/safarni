@@ -1,7 +1,7 @@
 import 'package:bloc/bloc.dart';
 import 'package:meta/meta.dart';
-import 'package:round_8_mobile_safarni_team3/features/Hotal_Booking/data/model/HotelsModels/recommendation_models.dart';
-import 'package:round_8_mobile_safarni_team3/features/Hotal_Booking/domain/usecases/Hotels_Search_UseCase.dart';
+import 'package:safarni/features/Hotal_Booking/data/model/HotelsModels/recommendation_models.dart';
+import 'package:safarni/features/Hotal_Booking/domain/usecases/Hotels_Search_UseCase.dart';
 
 part 'search_hotels_state.dart';
 

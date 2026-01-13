@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
-import 'package:round_8_mobile_safarni_team3/core/constants/navigation.dart';
-import 'package:round_8_mobile_safarni_team3/core/constants/routes.dart';
-import 'package:round_8_mobile_safarni_team3/core/widgets/custom_button.dart';
+import 'package:safarni/core/constants/navigation.dart';
+import 'package:safarni/core/constants/routes.dart';
+import 'package:safarni/core/widgets/custom_button.dart';
 
 class HomeButtonNavigationBar extends StatelessWidget {
   const HomeButtonNavigationBar({super.key});

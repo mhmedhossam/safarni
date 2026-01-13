@@ -1,6 +1,6 @@
 import 'package:dartz/dartz.dart';
-import 'package:round_8_mobile_safarni_team3/core/error/failure.dart';
-import 'package:round_8_mobile_safarni_team3/features/auth/domain/entity/entities.dart';
+import 'package:safarni/core/error/failure.dart';
+import 'package:safarni/features/auth/domain/entity/entities.dart';
 
 abstract class AuthRepo {
   Future<Either<Failure, Map>> register({

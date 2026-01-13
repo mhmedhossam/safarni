@@ -1,14 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:round_8_mobile_safarni_team3/core/utils/app_colors.dart';
-import 'package:round_8_mobile_safarni_team3/core/widgets/custom_appbar.dart';
-import 'package:round_8_mobile_safarni_team3/core/widgets/custom_button.dart';
-import 'package:round_8_mobile_safarni_team3/features/flight_booking/presentation/widgets/flight_detail_card.dart';
-import 'package:round_8_mobile_safarni_team3/features/flight_booking/presentation/widgets/ticket_price_scan.dart';
-import 'package:round_8_mobile_safarni_team3/generated/assets.dart';
+
+import 'package:safarni/core/widgets/custom_appbar.dart';
+import 'package:safarni/core/widgets/custom_button.dart';
+import 'package:safarni/features/flight_booking/presentation/widgets/flight_detail_card.dart';
+import 'package:safarni/features/flight_booking/presentation/widgets/ticket_price_scan.dart';
 
 import '../../../../core/constants/navigation.dart';
 import '../../../../core/constants/routes.dart';
-import '../../../../core/utils/text_styles.dart';
 import '../../data/model/search_flight_model.dart';
 
 class BoardingPassScreen extends StatelessWidget {

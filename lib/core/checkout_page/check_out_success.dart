@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
-import 'package:round_8_mobile_safarni_team3/core/constants/navigation.dart';
-import 'package:round_8_mobile_safarni_team3/core/constants/routes.dart';
-import 'package:round_8_mobile_safarni_team3/core/utils/text_styles.dart';
-import 'package:round_8_mobile_safarni_team3/core/widgets/custom_appbar.dart';
-import 'package:round_8_mobile_safarni_team3/core/widgets/custom_button.dart';
-import 'package:round_8_mobile_safarni_team3/generated/assets.dart';
+import 'package:safarni/core/constants/navigation.dart';
+import 'package:safarni/core/constants/routes.dart';
+import 'package:safarni/core/utils/text_styles.dart';
+import 'package:safarni/core/widgets/custom_appbar.dart';
+import 'package:safarni/core/widgets/custom_button.dart';
+import 'package:safarni/generated/assets.dart';
 
 class CheckOutSuccess extends StatelessWidget {
   const CheckOutSuccess({super.key});

@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:round_8_mobile_safarni_team3/core/constants/routes.dart';
-import 'package:round_8_mobile_safarni_team3/core/utils/app_colors.dart';
-import 'package:round_8_mobile_safarni_team3/core/utils/text_styles.dart';
-import 'package:round_8_mobile_safarni_team3/core/widgets/custom_button.dart';
-import 'package:round_8_mobile_safarni_team3/core/widgets/custom_snack_bar.dart';
-import 'package:round_8_mobile_safarni_team3/features/flight_booking/presentation/widgets/select_flight_card.dart';
+import 'package:gap/gap.dart';
+import 'package:safarni/core/constants/routes.dart';
+import 'package:safarni/core/utils/app_colors.dart';
+import 'package:safarni/core/utils/text_styles.dart';
+import 'package:safarni/core/widgets/custom_button.dart';
+import 'package:safarni/core/widgets/custom_snack_bar.dart';
+import 'package:safarni/features/flight_booking/presentation/widgets/select_flight_card.dart';
 
 import '../../../../core/constants/navigation.dart';
 import '../../../../generated/assets.dart';
@@ -13,14 +14,13 @@ import '../../data/model/search_flight_model.dart';
 class SelectFlightScreen extends StatefulWidget {
   final List<SearchFlightModelData> flights;
 
-const SelectFlightScreen({super.key, required this.flights});
+  const SelectFlightScreen({super.key, required this.flights});
 
   @override
   State<SelectFlightScreen> createState() => _SelectFlightScreenState();
 }
 
 class _SelectFlightScreenState extends State<SelectFlightScreen> {
-
   int? _selectedFlightIndex;
 
   @override
@@ -60,102 +60,101 @@ class _SelectFlightScreenState extends State<SelectFlightScreen> {
                 ),
               ),
 
-              if ( isEmpty)
+              if (isEmpty)
                 SliverFillRemaining(
                   hasScrollBody: false,
                   child: _buildEmptyState(),
                 )
-              else ...[ SliverToBoxAdapter(
-                child: Padding(
-                  padding: EdgeInsets.symmetric(horizontal: 20),
-                  child: Column(
-                    children: [
-                      SizedBox(height: 20),
-                      Row(
-                        children: [
-                          Expanded(
-                            child: _buildDateInfo(
-                              "Dec 16th, 2025",
-                              Icons.calendar_today,
+              else ...[
+                SliverToBoxAdapter(
+                  child: Padding(
+                    padding: EdgeInsets.symmetric(horizontal: 20),
+                    child: Column(
+                      children: [
+                        Gap(20),
+                        Row(
+                          children: [
+                            Expanded(
+                              child: _buildDateInfo(
+                                "Dec 16th, 2025",
+                                Icons.calendar_today,
+                              ),
                             ),
-                          ),
-                          SizedBox(width: 15),
-                          Expanded(
-                            child: _buildDateInfo(
-                              "Jan 6th, 2025",
-                              Icons.person_outline,
+                            Gap(15),
+                            Expanded(
+                              child: _buildDateInfo(
+                                "Jan 6th, 2025",
+                                Icons.person_outline,
+                              ),
                             ),
-                          ),
-                        ],
-                      ),
-                    ],
-                  ),
-                ),
-              ),
-
-              SliverPadding(
-                padding: EdgeInsets.only(
-                  top: MediaQuery.of(context).size.height * 0.04,
-                  bottom: MediaQuery.of(context).size.height * 0.12,
-                ),
-                sliver: SliverFixedExtentList(
-                  itemExtent: height * 0.22,
-                  delegate: SliverChildBuilderDelegate(
-                    (context, index) {
-                      final isSelected = _selectedFlightIndex == index;
-                      final flight = widget.flights[index];
-                      return Padding(
-                        padding: EdgeInsets.symmetric(horizontal: 20),
-                        child: GestureDetector(
-                          onTap: () {
-                            setState(() {
-                              _selectedFlightIndex = index;
-                            });
-                          },
-                          child: SelectFlightCard(
-                            model: flight,
-                            isSelected: isSelected,
-                          ),
+                          ],
                         ),
-                      );
-                    },
-                    childCount: widget.flights.length,
-                    addAutomaticKeepAlives: true,
-                    addRepaintBoundaries: true,
+                      ],
+                    ),
                   ),
                 ),
-              ),]
+
+                SliverPadding(
+                  padding: EdgeInsets.only(
+                    top: MediaQuery.of(context).size.height * 0.04,
+                    bottom: MediaQuery.of(context).size.height * 0.12,
+                  ),
+                  sliver: SliverFixedExtentList(
+                    itemExtent: height * 0.22,
+                    delegate: SliverChildBuilderDelegate(
+                      (context, index) {
+                        final isSelected = _selectedFlightIndex == index;
+                        final flight = widget.flights[index];
+                        return Padding(
+                          padding: EdgeInsets.symmetric(horizontal: 20),
+                          child: GestureDetector(
+                            onTap: () {
+                              setState(() {
+                                _selectedFlightIndex = index;
+                              });
+                            },
+                            child: SelectFlightCard(
+                              model: flight,
+                              isSelected: isSelected,
+                            ),
+                          ),
+                        );
+                      },
+                      childCount: widget.flights.length,
+                      addAutomaticKeepAlives: true,
+                      addRepaintBoundaries: true,
+                    ),
+                  ),
+                ),
+              ],
             ],
           ),
 
-          if(!isEmpty)
-          Positioned(
-            bottom: height * 0.03,
-            left: 20,
-            right: 20,
-            child: CustomButton(
-              onPressed: () {
-                if (_selectedFlightIndex != null) {
-                  final selectedFlight = widget.flights[_selectedFlightIndex!];
+          if (!isEmpty)
+            Positioned(
+              bottom: height * 0.03,
+              left: 20,
+              right: 20,
+              child: CustomButton(
+                onPressed: () {
+                  if (_selectedFlightIndex != null) {
+                    final selectedFlight =
+                        widget.flights[_selectedFlightIndex!];
 
-                  Navigation.push(
-                    context,
-                    Routes.seatSelection,
-                    {
-                  'flight':selectedFlight,
-                  'flightId':selectedFlight.id,
-                   }
-                  );
-                } else {
-                  CustomSnackBar.showWarning(
-                    context,
-                    "Please select a flight first",
-                  );
-                }
-              },
-              title: "Continue",
+                    Navigation.push(context, Routes.seatSelection, {
+                      'flight': selectedFlight,
+                      'flightId': selectedFlight.id,
+                    });
+                  } else {
+                    CustomSnackBar.showWarning(
+                      context,
+                      "Please select a flight first",
+                    );
+                  }
+                },
+                title: "Continue",
+              ),
             ),
-          ),
         ],
       ),
     );
@@ -166,12 +165,16 @@ class _SelectFlightScreenState extends State<SelectFlightScreen> {
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
         Icon(Icons.flight_takeoff_outlined, size: 80, color: Colors.grey[300]),
-        const SizedBox(height: 20),
+        const Gap(20),
         Text(
           "No Flights Found",
-          style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold, color: Colors.grey[800]),
+          style: TextStyle(
+            fontSize: 20,
+            fontWeight: FontWeight.bold,
+            color: Colors.grey[800],
+          ),
         ),
-        const SizedBox(height: 10),
+        const Gap(10),
         Padding(
           padding: const EdgeInsets.symmetric(horizontal: 40),
           child: Text(
@@ -180,16 +183,17 @@ class _SelectFlightScreenState extends State<SelectFlightScreen> {
             style: TextStyle(color: Colors.grey[600], height: 1.5),
           ),
         ),
-        const SizedBox(height: 30),
+        const Gap(30),
         TextButton.icon(
           onPressed: () => Navigator.pop(context),
           icon: const Icon(Icons.search),
           label: const Text("Search Again"),
           style: TextButton.styleFrom(foregroundColor: AppColors.primaryColor),
-        )
+        ),
       ],
     );
   }
+
   Widget _buildDateInfo(String text, IconData icon) {
     return Container(
       padding: EdgeInsets.all(12),
@@ -206,11 +210,10 @@ class _SelectFlightScreenState extends State<SelectFlightScreen> {
       child: Row(
         children: [
           Icon(icon, size: 18, color: Colors.grey[700]),
-          SizedBox(width: 10),
+          Gap(10),
           Text(text, style: TextStyle(fontWeight: FontWeight.w500)),
         ],
       ),
     );
   }
 }
-

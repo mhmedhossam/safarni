@@ -1,7 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:round_8_mobile_safarni_team3/core/utils/text_styles.dart';
-import 'package:round_8_mobile_safarni_team3/generated/assets.dart';
+import 'package:gap/gap.dart';
+import 'package:safarni/core/utils/text_styles.dart';
+import 'package:safarni/generated/assets.dart';
 
 class FavoriteCard extends StatelessWidget {
   const FavoriteCard({super.key});
@@ -37,7 +38,7 @@ class FavoriteCard extends StatelessWidget {
                 fit: BoxFit.cover,
               ),
             ),
-            SizedBox(width: 20),
+            Gap(20),
             Padding(
               padding: const EdgeInsets.only(top: 8.0),
               child: Column(

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:round_8_mobile_safarni_team3/features/auth/presentation/widgets/r_eset_password_header.dart';
-import 'package:round_8_mobile_safarni_team3/features/auth/presentation/widgets/reset_password_body.dart';
+import 'package:gap/gap.dart';
+import 'package:safarni/features/auth/presentation/widgets/r_eset_password_header.dart';
+import 'package:safarni/features/auth/presentation/widgets/reset_password_body.dart';
 
 class ResetPassword extends StatefulWidget {
   const ResetPassword({super.key});
@@ -32,15 +33,15 @@ class _ResetPasswordState extends State<ResetPassword> {
             padding: const EdgeInsets.all(22.0),
             child: Column(
               children: [
-                SizedBox(height: height * 0.06),
+                Gap(height * 0.06),
                 REsetPasswordHeader(height: height),
-                SizedBox(height: height * 0.03),
+                Gap(height * 0.03),
                 ResetPasswordBody(
                   height: height,
                   passwordController: _passwordController,
                   confirmPasswordController: _confirmPasswordController,
                 ),
-                SizedBox(height: height * 0.04),
+                Gap(height * 0.04),
               ],
             ),
           ),

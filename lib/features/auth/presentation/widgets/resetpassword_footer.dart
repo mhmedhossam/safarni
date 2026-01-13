@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:round_8_mobile_safarni_team3/core/utils/app_colors.dart';
-import 'package:round_8_mobile_safarni_team3/core/widgets/custom_button.dart';
-import 'package:round_8_mobile_safarni_team3/features/auth/presentation/widgets/build_requirments.dart';
+import 'package:gap/gap.dart';
+import 'package:safarni/core/utils/app_colors.dart';
+import 'package:safarni/core/widgets/custom_button.dart';
+import 'package:safarni/features/auth/presentation/widgets/build_requirments.dart';
 
 class PasswordRequirements extends StatelessWidget {
   final VoidCallback onResetPassword;
@@ -22,15 +23,18 @@ class PasswordRequirements extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        BuildRequirments(text: "Must Be At Least 8 Characters", isval: is8Char),
-        SizedBox(height: 8),
-        BuildRequirments(
-          text: "Must Contain One Special Character",
-          isval: isSpecialOne,
+        BuildRequirements(
+          text: "Must Be At Least 8 Characters",
+          isVal: is8Char,
         ),
-        SizedBox(height: 24),
+        Gap(8),
+        BuildRequirements(
+          text: "Must Contain One Special Character",
+          isVal: isSpecialOne,
+        ),
+        Gap(24),
         CustomButton(title: "Reset Password", onPressed: onResetPassword),
-        SizedBox(height: 16),
+        Gap(16),
         Center(
           child: TextButton.icon(
             onPressed: onBackToLogin,

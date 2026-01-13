@@ -1,9 +1,8 @@
-import 'dart:developer';
-
 import 'package:flutter/material.dart';
-import 'package:round_8_mobile_safarni_team3/core/widgets/custom_appbar.dart';
-import 'package:round_8_mobile_safarni_team3/features/car_booking/presentation/widgets/book_car_widget/brand_card_widget.dart';
-import 'package:round_8_mobile_safarni_team3/generated/assets.dart';
+import 'package:gap/gap.dart';
+import 'package:safarni/core/widgets/custom_appbar.dart';
+import 'package:safarni/features/car_booking/presentation/widgets/book_car_widget/brand_card_widget.dart';
+import 'package:safarni/generated/assets.dart';
 import '../../../../../core/constants/navigation.dart';
 import '../../../../core/constants/routes.dart';
 import '../widgets/book_car_widget/car_card_widget.dart';
@@ -71,12 +70,12 @@ class CarBookingScreen extends StatelessWidget {
                   fit: BoxFit.cover,
                 ),
               ),
-              const SizedBox(height: 10),
+              const Gap(10),
               const Text(
                 "Brands",
                 style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
               ),
-              const SizedBox(height: 10),
+              const Gap(10),
               SizedBox(
                 height: 95, // ارتفاع الحاوية ليتناسب مع حجم الكارد
                 child: ListView.builder(
@@ -89,13 +88,13 @@ class CarBookingScreen extends StatelessWidget {
                       icon: brands[index]["icon"]!,
                       count: brands[index]["count"]!,
                       onTap: () {
-                        log("Selected Brand: ${brands[index]["name"]}");
+                        //log("Selected Brand: ${brands[index]["name"]}");
                       },
                     );
                   },
                 ),
               ),
-              const SizedBox(height: 20),
+              const Gap(20),
               const Text(
                 "Popular Cars",
                 style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),

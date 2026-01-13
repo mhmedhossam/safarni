@@ -1,12 +1,10 @@
-import 'dart:developer';
-
 import 'package:dartz/dartz.dart';
-import 'package:round_8_mobile_safarni_team3/core/error/failure.dart';
-import 'package:round_8_mobile_safarni_team3/core/models/base_model.dart';
-import 'package:round_8_mobile_safarni_team3/features/auth/data/model/models.dart';
-import 'package:round_8_mobile_safarni_team3/features/auth/data/remote/remote_data_source.dart';
-import 'package:round_8_mobile_safarni_team3/features/auth/domain/entity/entities.dart';
-import 'package:round_8_mobile_safarni_team3/features/auth/domain/repo/auth_repo.dart';
+import 'package:safarni/core/error/failure.dart';
+import 'package:safarni/core/models/base_model.dart';
+import 'package:safarni/features/auth/data/model/models.dart';
+import 'package:safarni/features/auth/data/remote/remote_data_source.dart';
+import 'package:safarni/features/auth/domain/entity/entities.dart';
+import 'package:safarni/features/auth/domain/repo/auth_repo.dart';
 
 import '../../../../core/services/local/shared_pref.dart';
 
@@ -87,15 +85,15 @@ class AuthRepoImpl extends AuthRepo {
   @override
   Future<Either<Failure, void>> logout() async {
     try {
-      log('🔵 Repo: Logging out');
+      //log('🔵 Repo: Logging out');
 
       // Clear token from SharedPreferences
       await SharedPref.delete(SharedPref.ktoken);
 
-      log('✅ Logout successful');
+      //log('✅ Logout successful');
       return const Right(null);
     } catch (e) {
-      log('❌ Logout error: $e');
+      //log('❌ Logout error: $e');
       return Left(ServerFailure('Logout failed: $e'));
     }
   }

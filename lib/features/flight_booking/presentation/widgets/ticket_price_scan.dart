@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:gap/gap.dart';
 
 import '../../../../core/utils/app_colors.dart';
 import '../../../../core/utils/text_styles.dart';
@@ -14,7 +15,7 @@ class TicketPriceAndScan extends StatelessWidget {
     return Column(
       children: [
         _buildTicketSeparator(),
-        const SizedBox(height: 20),
+        const Gap(20),
         Text(
           "Total Paid: ${totalPrice.toStringAsFixed(2)} EGP",
           style: TextStyles.details.copyWith(
@@ -48,10 +49,12 @@ class TicketPriceAndScan extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: List.generate(
                     (constraints.constrainWidth() / 10).floor(),
-                        (index) => const SizedBox(
+                    (index) => const SizedBox(
                       width: 5,
                       height: 1,
-                      child: DecoratedBox(decoration: BoxDecoration(color: Colors.grey)),
+                      child: DecoratedBox(
+                        decoration: BoxDecoration(color: Colors.grey),
+                      ),
                     ),
                   ),
                 );

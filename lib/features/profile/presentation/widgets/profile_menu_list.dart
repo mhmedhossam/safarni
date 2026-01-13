@@ -1,5 +1,3 @@
-import 'dart:developer';
-
 import 'package:flutter/material.dart';
 
 import '../../../../core/constants/navigation.dart';
@@ -38,7 +36,7 @@ class ProfileMenuList extends StatelessWidget {
           icon: Icons.language,
           title: 'App Language',
           onTap: () {
-            log('Navigate to App Language');
+            //log('Navigate to App Language');
           },
         ),
         ProfileMenuItem(

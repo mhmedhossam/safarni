@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:round_8_mobile_safarni_team3/features/Home/domain/entities/home_entitiy.dart';
-import 'package:round_8_mobile_safarni_team3/features/Home/domain/entities/recommendation_entity.dart';
-import 'package:round_8_mobile_safarni_team3/features/Home/domain/usecases/get_home_usecase.dart';
-import 'package:round_8_mobile_safarni_team3/features/Home/presentation/cubit/home_cubit/home_states.dart';
+import 'package:safarni/features/Home/domain/entities/home_entitiy.dart';
+import 'package:safarni/features/Home/domain/entities/recommendation_entity.dart';
+import 'package:safarni/features/Home/domain/usecases/get_home_usecase.dart';
+import 'package:safarni/features/Home/presentation/cubit/home_cubit/home_states.dart';
 
 class HomeCubit extends Cubit<HomeStates> {
   var searchController = TextEditingController();

@@ -1,10 +1,10 @@
 import 'package:get_it/get_it.dart';
-import 'package:round_8_mobile_safarni_team3/core/di/flight_service_locator.dart';
-import 'package:round_8_mobile_safarni_team3/core/services/local/shared_pref.dart';
-import 'package:round_8_mobile_safarni_team3/features/profile/domain/use_case/user_use_case.dart';
-import 'package:round_8_mobile_safarni_team3/features/profile/presentation/controller/cubit/profile_cubit.dart';
+import 'package:safarni/core/di/flight_service_locator.dart';
+import 'package:safarni/core/services/local/shared_pref.dart';
+import 'package:safarni/features/profile/domain/use_case/user_use_case.dart';
+import 'package:safarni/features/profile/presentation/controller/cubit/profile_cubit.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import 'package:round_8_mobile_safarni_team3/core/services/api/network/dio_provider.dart';
+import 'package:safarni/core/services/api/network/dio_provider.dart';
 
 // Home imports
 import '../../features/Home/data/data_source/remote_data_source/remote_data_source.dart';
@@ -14,29 +14,29 @@ import '../../features/Home/domain/home_repo/home_repo.dart';
 import '../../features/Home/domain/usecases/get_home_usecase.dart';
 
 // Auth imports
-import 'package:round_8_mobile_safarni_team3/features/Hotal_Booking/data/remote/Gallery_RoomsRemoteSource.dart';
-import 'package:round_8_mobile_safarni_team3/features/Hotal_Booking/data/remote/Hotels_RoomsRemoteSource.dart';
-import 'package:round_8_mobile_safarni_team3/features/Hotal_Booking/data/remote/Hotels_Seach_RemoteSource.dart';
-import 'package:round_8_mobile_safarni_team3/features/Hotal_Booking/data/remote/Nearby_HotelsRemoteSource.dart';
-import 'package:round_8_mobile_safarni_team3/features/Hotal_Booking/data/remote/RecommendationHotelsRemoteSource.dart';
-import 'package:round_8_mobile_safarni_team3/features/Hotal_Booking/data/remote/Review_RoomsRemoteSource.dart';
-import 'package:round_8_mobile_safarni_team3/features/Hotal_Booking/data/repo_impl/Gallery_Rooms_Repo_Impl.dart';
-import 'package:round_8_mobile_safarni_team3/features/Hotal_Booking/data/repo_impl/Hotels_Rooms_Repo_Impl.dart';
-import 'package:round_8_mobile_safarni_team3/features/Hotal_Booking/data/repo_impl/Hotels_Search_Repo_Impl.dart';
-import 'package:round_8_mobile_safarni_team3/features/Hotal_Booking/data/repo_impl/Nearby_hotels_Repo_Impl.dart';
-import 'package:round_8_mobile_safarni_team3/features/Hotal_Booking/data/repo_impl/Recommendation_Hotels_Repo_Impl.dart';
-import 'package:round_8_mobile_safarni_team3/features/Hotal_Booking/data/repo_impl/Review_Rooms_Repo_Impl.dart';
-import 'package:round_8_mobile_safarni_team3/features/Hotal_Booking/domain/usecases/Gallery_Use_Case.dart';
-import 'package:round_8_mobile_safarni_team3/features/Hotal_Booking/domain/usecases/Hotels_Room_UseCase.dart';
-import 'package:round_8_mobile_safarni_team3/features/Hotal_Booking/domain/usecases/Hotels_Search_UseCase.dart';
-import 'package:round_8_mobile_safarni_team3/features/Hotal_Booking/domain/usecases/Nearby_Hotels_Use_Case.dart';
-import 'package:round_8_mobile_safarni_team3/features/Hotal_Booking/domain/usecases/Recommendation_Hotels_UseCase.dart';
-import 'package:round_8_mobile_safarni_team3/features/Hotal_Booking/domain/usecases/Review_Use_Case.dart';
-import 'package:round_8_mobile_safarni_team3/features/auth/data/remote/remote_data_source_impl.dart';
-import 'package:round_8_mobile_safarni_team3/features/auth/data/repo_impl/auth_repo_impl.dart';
-import 'package:round_8_mobile_safarni_team3/features/auth/domain/repo/auth_repo.dart';
-import 'package:round_8_mobile_safarni_team3/features/auth/domain/usecases/use_cases.dart';
-import 'package:round_8_mobile_safarni_team3/features/auth/presentation/controller/cubit/auth_cubit.dart';
+import 'package:safarni/features/Hotal_Booking/data/remote/Gallery_RoomsRemoteSource.dart';
+import 'package:safarni/features/Hotal_Booking/data/remote/Hotels_RoomsRemoteSource.dart';
+import 'package:safarni/features/Hotal_Booking/data/remote/Hotels_Seach_RemoteSource.dart';
+import 'package:safarni/features/Hotal_Booking/data/remote/Nearby_HotelsRemoteSource.dart';
+import 'package:safarni/features/Hotal_Booking/data/remote/RecommendationHotelsRemoteSource.dart';
+import 'package:safarni/features/Hotal_Booking/data/remote/Review_RoomsRemoteSource.dart';
+import 'package:safarni/features/Hotal_Booking/data/repo_impl/Gallery_Rooms_Repo_Impl.dart';
+import 'package:safarni/features/Hotal_Booking/data/repo_impl/Hotels_Rooms_Repo_Impl.dart';
+import 'package:safarni/features/Hotal_Booking/data/repo_impl/Hotels_Search_Repo_Impl.dart';
+import 'package:safarni/features/Hotal_Booking/data/repo_impl/Nearby_hotels_Repo_Impl.dart';
+import 'package:safarni/features/Hotal_Booking/data/repo_impl/Recommendation_Hotels_Repo_Impl.dart';
+import 'package:safarni/features/Hotal_Booking/data/repo_impl/Review_Rooms_Repo_Impl.dart';
+import 'package:safarni/features/Hotal_Booking/domain/usecases/Gallery_Use_Case.dart';
+import 'package:safarni/features/Hotal_Booking/domain/usecases/Hotels_Room_UseCase.dart';
+import 'package:safarni/features/Hotal_Booking/domain/usecases/Hotels_Search_UseCase.dart';
+import 'package:safarni/features/Hotal_Booking/domain/usecases/Nearby_Hotels_Use_Case.dart';
+import 'package:safarni/features/Hotal_Booking/domain/usecases/Recommendation_Hotels_UseCase.dart';
+import 'package:safarni/features/Hotal_Booking/domain/usecases/Review_Use_Case.dart';
+import 'package:safarni/features/auth/data/remote/remote_data_source_impl.dart';
+import 'package:safarni/features/auth/data/repo_impl/auth_repo_impl.dart';
+import 'package:safarni/features/auth/domain/repo/auth_repo.dart';
+import 'package:safarni/features/auth/domain/usecases/use_cases.dart';
+import 'package:safarni/features/auth/presentation/controller/cubit/auth_cubit.dart';
 
 import '../../features/auth/data/remote/remote_data_source.dart';
 

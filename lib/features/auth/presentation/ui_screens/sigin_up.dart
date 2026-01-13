@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
-import 'package:round_8_mobile_safarni_team3/features/auth/presentation/widgets/footer.dart';
-import 'package:round_8_mobile_safarni_team3/features/auth/presentation/widgets/header_login.dart';
-import 'package:round_8_mobile_safarni_team3/features/auth/presentation/widgets/row_divider.dart';
-import 'package:round_8_mobile_safarni_team3/features/auth/presentation/widgets/social_l_accounts.dart';
+import 'package:safarni/features/auth/presentation/widgets/footer.dart';
+import 'package:safarni/features/auth/presentation/widgets/header_login.dart';
+import 'package:safarni/features/auth/presentation/widgets/row_divider.dart';
+import 'package:safarni/features/auth/presentation/widgets/social_l_accounts.dart';
 
 import '../../../../core/constants/navigation.dart';
 import '../../../../core/constants/routes.dart';

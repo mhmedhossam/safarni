@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:gap/gap.dart';
 
 import '../../../../../core/utils/app_colors.dart';
 import '../../../../../core/widgets/custom_button.dart';
@@ -44,7 +45,7 @@ class CarCardWidget extends StatelessWidget {
             name,
             style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
           ),
-          const SizedBox(height: 4),
+          const Gap(4),
           Row(
             children: [
               Text(
@@ -53,7 +54,7 @@ class CarCardWidget extends StatelessWidget {
               ),
             ],
           ),
-          const SizedBox(height: 15),
+          const Gap(15),
           Row(
             children: [
               Expanded(
@@ -62,7 +63,7 @@ class CarCardWidget extends StatelessWidget {
                   onPressed: onRentPressed,
                 ),
               ),
-              const SizedBox(width: 10),
+              const Gap(10),
               Expanded(
                 child: CustomButton(
                   title: "Detail",

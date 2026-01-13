@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:gap/gap.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:round_8_mobile_safarni_team3/core/utils/app_colors.dart';
-import 'package:round_8_mobile_safarni_team3/core/widgets/custom_appbar.dart';
-import 'package:round_8_mobile_safarni_team3/core/widgets/custom_snack_bar.dart';
+import 'package:safarni/core/utils/app_colors.dart';
+import 'package:safarni/core/widgets/custom_appbar.dart';
+import 'package:safarni/core/widgets/custom_snack_bar.dart';
 
 import '../../../../core/constants/navigation.dart';
 import '../../../../core/constants/routes.dart';
@@ -13,7 +14,7 @@ import '../widgets/choose_seat_widgets/price_section.dart';
 
 class SeatSelectionScreen extends StatefulWidget {
   final SearchFlightModelData flight;
-  const SeatSelectionScreen({super.key,required this.flight});
+  const SeatSelectionScreen({super.key, required this.flight});
 
   @override
   State<SeatSelectionScreen> createState() => _SeatSelectionScreenState();
@@ -22,7 +23,7 @@ class SeatSelectionScreen extends StatefulWidget {
 class _SeatSelectionScreenState extends State<SeatSelectionScreen> {
   Set<String> selectedSeatIds = {};
   List<dynamic> selectedSeatsObjects = [];
-  double totalPrice =0;
+  double totalPrice = 0;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -63,7 +64,7 @@ class _SeatSelectionScreenState extends State<SeatSelectionScreen> {
                       ),
                     ],
                   ),
-                  const SizedBox(height: 40),
+                  const Gap(40),
                   Expanded(
                     child: SingleChildScrollView(
                       child: Column(
@@ -84,7 +85,7 @@ class _SeatSelectionScreenState extends State<SeatSelectionScreen> {
                             ],
                           ),
 
-                          const SizedBox(width: 50),
+                          const Gap(50),
 
                           Column(
                             children: [
@@ -113,7 +114,6 @@ class _SeatSelectionScreenState extends State<SeatSelectionScreen> {
                     selectedSeats: selectedSeatsObjects,
                     totalPrice: totalPrice,
                     onContinue: () {
-
                       Navigation.push(context, Routes.boardingPassScreen, {
                         'flight': widget.flight,
                         'selectedSeats': selectedSeatsObjects,
@@ -208,7 +208,7 @@ class LegendItem extends StatelessWidget {
           height: 15,
           decoration: BoxDecoration(color: color, shape: BoxShape.circle),
         ),
-        const SizedBox(width: 5),
+        const Gap(5),
         Text(
           text,
           style: TextStyles.details.copyWith(

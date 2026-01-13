@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:round_8_mobile_safarni_team3/core/constants/routes.dart';
-import 'package:round_8_mobile_safarni_team3/core/utils/text_styles.dart';
-import 'package:round_8_mobile_safarni_team3/core/widgets/custom_appbar.dart';
-import 'package:round_8_mobile_safarni_team3/core/widgets/custom_button.dart';
+import 'package:gap/gap.dart';
+import 'package:safarni/core/constants/routes.dart';
+import 'package:safarni/core/utils/text_styles.dart';
+import 'package:safarni/core/widgets/custom_appbar.dart';
+import 'package:safarni/core/widgets/custom_button.dart';
 
 import '../../../../core/constants/navigation.dart';
 import '../../../../generated/assets.dart';
@@ -29,13 +30,13 @@ class CarDetailScreen extends StatelessWidget {
                 fit: BoxFit.cover,
               ),
             ),
-            const SizedBox(height: 20),
+            const Gap(20),
             const Text("Popular Cars", style: TextStyle(color: Colors.grey)),
             const Text(
               "S 500 Sedan",
               style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
             ),
-            const SizedBox(height: 20),
+            const Gap(20),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
@@ -44,9 +45,9 @@ class CarDetailScreen extends StatelessWidget {
                 _buildSpecItem("Acceleration", "4.9 sec"),
               ],
             ),
-            const SizedBox(height: 30),
+            const Gap(30),
             const Text("Plan", style: TextStyle(fontWeight: FontWeight.bold)),
-            const SizedBox(height: 10),
+            const Gap(10),
             Row(
               children: [
                 PlanCardSection(
@@ -56,7 +57,7 @@ class CarDetailScreen extends StatelessWidget {
                   icon: Icons.access_time,
                   isSelected: true,
                 ),
-                const SizedBox(width: 15),
+                const Gap(15),
                 PlanCardSection(
                   title: "Daily Rent",
                   subTitle: "Best for business appointments",

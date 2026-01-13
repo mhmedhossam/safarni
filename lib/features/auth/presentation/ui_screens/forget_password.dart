@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:gap/gap.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:round_8_mobile_safarni_team3/core/widgets/custom_button.dart';
+import 'package:safarni/core/widgets/custom_button.dart';
 import '../../../../core/constants/navigation.dart';
 import '../../../../core/constants/routes.dart';
 import '../../../../core/functions/validation.dart';
@@ -42,7 +43,7 @@ class _ForgetPasswordState extends State<ForgetPassword> {
           if (state is AuthSuccess) {
             CustomSnackBar.showSuccess(context, state.message);
 
-            Navigation.push(context, Routes.verfiy, _emailController.text);
+            Navigation.push(context, Routes.verify, _emailController.text);
           } else if (state is AuthFailure) {
             CustomSnackBar.showError(context, state.message);
           }
@@ -56,7 +57,7 @@ class _ForgetPasswordState extends State<ForgetPassword> {
                 child: Column(
                   children: [
                     Icon(Icons.key, size: 50, color: AppColors.greyColor),
-                    SizedBox(height: height * 0.02),
+                    Gap(height * 0.02),
                     const Text(
                       "Forget Password",
                       style: TextStyle(fontSize: 18),
@@ -65,7 +66,7 @@ class _ForgetPasswordState extends State<ForgetPassword> {
                       "Please enter your email to reset password",
                       style: TextStyle(color: AppColors.greyColor),
                     ),
-                    SizedBox(height: height * 0.03),
+                    Gap(height * 0.03),
                     Align(
                       alignment: Alignment.centerLeft,
                       child: const Text("Email"),
@@ -77,7 +78,7 @@ class _ForgetPasswordState extends State<ForgetPassword> {
                       prefix: const Icon(Icons.email),
                       validator: validEmail,
                     ),
-                    SizedBox(height: height * 0.03),
+                    Gap(height * 0.03),
                     state is AuthLoading
                         ? const CircularProgressIndicator()
                         : CustomButton(

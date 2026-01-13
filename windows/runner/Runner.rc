@@ -90,12 +90,12 @@ BEGIN
         BLOCK "040904e4"
         BEGIN
             VALUE "CompanyName", "com.example" "\0"
-            VALUE "FileDescription", "round_8_mobile_safarni_team3" "\0"
+            VALUE "FileDescription", "safarni" "\0"
             VALUE "FileVersion", VERSION_AS_STRING "\0"
-            VALUE "InternalName", "round_8_mobile_safarni_team3" "\0"
+            VALUE "InternalName", "safarni" "\0"
             VALUE "LegalCopyright", "Copyright (C) 2025 com.example. All rights reserved." "\0"
-            VALUE "OriginalFilename", "round_8_mobile_safarni_team3.exe" "\0"
-            VALUE "ProductName", "round_8_mobile_safarni_team3" "\0"
+            VALUE "OriginalFilename", "safarni.exe" "\0"
+            VALUE "ProductName", "safarni" "\0"
             VALUE "ProductVersion", VERSION_AS_STRING "\0"
         END
     END

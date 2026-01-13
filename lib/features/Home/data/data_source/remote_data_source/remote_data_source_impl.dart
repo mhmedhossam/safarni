@@ -1,10 +1,10 @@
-import 'package:round_8_mobile_safarni_team3/core/error/error_handler.dart';
-import 'package:round_8_mobile_safarni_team3/core/error/failure.dart';
-import 'package:round_8_mobile_safarni_team3/core/models/base_model.dart';
-import 'package:round_8_mobile_safarni_team3/core/services/api/network/dio_provider.dart';
-import 'package:round_8_mobile_safarni_team3/core/services/api/network/main_endpoint.dart';
-import 'package:round_8_mobile_safarni_team3/features/Home/data/data_source/remote_data_source/remote_data_source.dart';
-import 'package:round_8_mobile_safarni_team3/features/Home/data/model/home_model.dart';
+import 'package:safarni/core/error/error_handler.dart';
+import 'package:safarni/core/error/failure.dart';
+import 'package:safarni/core/models/base_model.dart';
+import 'package:safarni/core/services/api/network/dio_provider.dart';
+import 'package:safarni/core/services/api/network/main_endpoint.dart';
+import 'package:safarni/features/Home/data/data_source/remote_data_source/remote_data_source.dart';
+import 'package:safarni/features/Home/data/model/home_model.dart';
 
 class HomeRemoteDataSourceImpl extends HomeRemoteDataSource {
   @override
@@ -25,7 +25,7 @@ class HomeRemoteDataSourceImpl extends HomeRemoteDataSource {
         throw ServerFailure("error in server now try again later");
       }
     } catch (e) {
-      print(e.toString());
+      //print(e.toString());
 
       throw ErrorHandler.handle(e);
     }

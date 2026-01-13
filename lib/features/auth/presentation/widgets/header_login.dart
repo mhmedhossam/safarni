@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:gap/gap.dart';
+import 'package:safarni/generated/assets.dart';
 
 class HeaderLogin extends StatelessWidget {
   const HeaderLogin({
@@ -17,17 +19,24 @@ class HeaderLogin extends StatelessWidget {
     return Center(
       child: Column(
         children: [
-          SizedBox(height: height * 0.015),
+          Center(
+            child: Image.asset(
+              Assets.imagesLogo,
+              width: width * 0.4,
+              height: height * 0.10,
+            ),
+          ),
+          Gap(height * 0.015),
           Text(
             textAlign: TextAlign.center,
             "Welcome Again",
             style: TextStyle(fontSize: 18, fontWeight: FontWeight.w600),
           ),
-          SizedBox(height: height * 0.01),
+          Gap(height * 0.01),
 
           Text(
             textAlign: TextAlign.center,
-            "welcome back! please fill your Data",
+            "welcome back! please fill your Daata",
             style: TextStyle(fontSize: 14, fontWeight: FontWeight.w400),
           ),
         ],

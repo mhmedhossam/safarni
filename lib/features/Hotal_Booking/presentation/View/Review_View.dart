@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:round_8_mobile_safarni_team3/features/Hotal_Booking/presentation/View/Rooms_Details_View.dart';
-import 'package:round_8_mobile_safarni_team3/core/utils/text_styles.dart';
+import 'package:gap/gap.dart';
+import 'package:safarni/features/Hotal_Booking/presentation/View/Rooms_Details_View.dart';
+import 'package:safarni/core/utils/text_styles.dart';
 
 class ReviewView extends StatefulWidget {
   const ReviewView({super.key});
@@ -23,7 +24,7 @@ class ReviewViewState extends State<ReviewView> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  const SizedBox(height: 8),
+                  const Gap(8),
 
                   Row(
                     children: [
@@ -37,12 +38,12 @@ class ReviewViewState extends State<ReviewView> {
                       Spacer(),
                       const Icon(Icons.star, size: 14, color: Colors.amber),
 
-                      const SizedBox(width: 4),
+                      const Gap(4),
                       Text('4.5', style: TextStyles.details),
                       Text('(356 reviews)', style: TextStyles.details),
                     ],
                   ),
-                  const SizedBox(height: 8),
+                  const Gap(8),
                   Text(
                     "HarborHaven HIdeaway",
                     style: TextStyles.details.copyWith(
@@ -51,7 +52,7 @@ class ReviewViewState extends State<ReviewView> {
                       color: Color(0xFF111928),
                     ),
                   ),
-                  const SizedBox(height: 4),
+                  const Gap(4),
                   Text(
                     r'1012 oscean avanue, New Yourk ,USA',
                     style: TextStyles.details.copyWith(
@@ -61,10 +62,10 @@ class ReviewViewState extends State<ReviewView> {
                       color: Colors.grey,
                     ),
                   ),
-                  SizedBox(height: 16),
+                  Gap(16),
 
                   const Divider(),
-                  SizedBox(height: 16),
+                  Gap(16),
 
                   Center(
                     child: Text(
@@ -77,7 +78,7 @@ class ReviewViewState extends State<ReviewView> {
                       ),
                     ),
                   ),
-                  SizedBox(height: 16),
+                  Gap(16),
                   Center(
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.center,
@@ -91,7 +92,7 @@ class ReviewViewState extends State<ReviewView> {
                       ),
                     ),
                   ),
-                  SizedBox(height: 16),
+                  Gap(16),
                   //Add detailed review
                   Text(
                     'Add detailed review ',
@@ -102,7 +103,7 @@ class ReviewViewState extends State<ReviewView> {
                       color: Color(0xFF111928),
                     ),
                   ),
-                  SizedBox(height: 16),
+                  Gap(16),
                   Container(
                     margin: const EdgeInsets.symmetric(vertical: 16),
                     padding: const EdgeInsets.all(12),

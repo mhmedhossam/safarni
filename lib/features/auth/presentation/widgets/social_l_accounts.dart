@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:gap/gap.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:round_8_mobile_safarni_team3/core/utils/app_colors.dart';
-import 'package:round_8_mobile_safarni_team3/generated/assets.dart';
+import 'package:safarni/core/utils/app_colors.dart';
+import 'package:safarni/generated/assets.dart';
 
 class SocialLAccounts extends StatelessWidget {
   const SocialLAccounts({super.key, required this.height});
@@ -24,7 +25,7 @@ class SocialLAccounts extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 SvgPicture.asset(Assets.iconsGoogle, height: 24, width: 24),
-                SizedBox(width: 10),
+                Gap(10),
                 Text(
                   "Sign in with Google",
                   style: TextStyle(
@@ -37,7 +38,7 @@ class SocialLAccounts extends StatelessWidget {
             ),
           ),
         ),
-        SizedBox(height: height * 0.02),
+        Gap(height * 0.02),
 
         Container(
           height: 50,
@@ -51,7 +52,7 @@ class SocialLAccounts extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 SvgPicture.asset(Assets.iconsFacebook, height: 24, width: 24),
-                SizedBox(width: 10),
+                Gap(10),
                 Text(
                   "Sign in with Facebook",
                   style: TextStyle(
@@ -64,7 +65,7 @@ class SocialLAccounts extends StatelessWidget {
             ),
           ),
         ),
-        SizedBox(height: height * 0.02),
+        Gap(height * 0.02),
         Container(
           height: 50,
           width: double.infinity,
@@ -77,7 +78,7 @@ class SocialLAccounts extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 SvgPicture.asset(Assets.iconsApple, height: 24, width: 24),
-                SizedBox(width: 10),
+                Gap(10),
                 Text(
                   "Sign in with Apple",
                   style: TextStyle(

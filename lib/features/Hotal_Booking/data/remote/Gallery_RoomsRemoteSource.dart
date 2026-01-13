@@ -1,10 +1,7 @@
-import 'dart:developer';
-
-import 'package:round_8_mobile_safarni_team3/core/services/api/network/dio_provider.dart';
-import 'package:round_8_mobile_safarni_team3/core/services/api/network/main_endpoint.dart';
-import 'package:round_8_mobile_safarni_team3/core/services/local/shared_pref.dart';
-import 'package:round_8_mobile_safarni_team3/features/Hotal_Booking/data/model/Gallerymodels/gallery_models.dart';
-import 'package:round_8_mobile_safarni_team3/features/Hotal_Booking/data/model/Roos/rooms_models.dart';
+import 'package:safarni/core/services/api/network/dio_provider.dart';
+import 'package:safarni/core/services/api/network/main_endpoint.dart';
+import 'package:safarni/core/services/local/shared_pref.dart';
+import 'package:safarni/features/Hotal_Booking/data/model/Gallerymodels/gallery_models.dart';
 
 abstract class GalleryRoomsremotesource {
   Future<List<GalleryModels>> fetchGalleryRooms({required int hotelId});
@@ -13,9 +10,9 @@ abstract class GalleryRoomsremotesource {
 class GalleryRoomsRemoteSourceImpl extends GalleryRoomsremotesource {
   @override
   Future<List<GalleryModels>> fetchGalleryRooms({required int hotelId}) async {
-    log("////response.statusCode.toString()");
+    //log("////response.statusCode.toString()");
     // var response = await DioProvider.get(MainEndpoint.home);
-     var token = SharedPref.getData('token') ?? '';
+    var token = SharedPref.getData('token') ?? '';
 
     var response = await DioProvider.get(
       "${MainEndpoint.hotelsRooms}$hotelId/gallery",
@@ -23,16 +20,16 @@ class GalleryRoomsRemoteSourceImpl extends GalleryRoomsremotesource {
         'Content-Type': 'application/json',
         'Accept': 'application/json',
         'Authorization':
-            'Bearer $token',//21|FTOir1CRkQGr4ltvLoRuyodhqMdTSo8dgD0W1vs528d041cf', // لو موجود
+            'Bearer $token', //21|FTOir1CRkQGr4ltvLoRuyodhqMdTSo8dgD0W1vs528d041cf', // لو موجود
       },
     );
-    print(response.statusCode);
-    log("////response.statusCode.toString()");
+    //print(response.statusCode);
+    //log("////response.statusCode.toString()");
     List<GalleryModels> galleryHotels = [];
     for (var hotel in response.data!['data']) {
       galleryHotels.add(GalleryModels.fromJson(hotel));
     }
-    print(galleryHotels);
+    //print(galleryHotels);
     return galleryHotels;
   }
 }

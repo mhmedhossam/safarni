@@ -1,8 +1,8 @@
-import 'package:round_8_mobile_safarni_team3/core/error/error_handler.dart';
-import 'package:round_8_mobile_safarni_team3/core/error/failure.dart';
-import 'package:round_8_mobile_safarni_team3/core/services/api/network/dio_provider.dart';
-import 'package:round_8_mobile_safarni_team3/core/services/api/network/main_endpoint.dart';
-import 'package:round_8_mobile_safarni_team3/features/auth/data/remote/remote_data_source.dart';
+import 'package:safarni/core/error/error_handler.dart';
+import 'package:safarni/core/error/failure.dart';
+import 'package:safarni/core/services/api/network/dio_provider.dart';
+import 'package:safarni/core/services/api/network/main_endpoint.dart';
+import 'package:safarni/features/auth/data/remote/remote_data_source.dart';
 
 class RemoteDataSourceImpl extends RemoteDataSource {
   //===============================>login

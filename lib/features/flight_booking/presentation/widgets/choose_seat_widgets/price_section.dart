@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:round_8_mobile_safarni_team3/core/utils/app_colors.dart';
-import 'package:round_8_mobile_safarni_team3/core/utils/text_styles.dart';
+import 'package:gap/gap.dart';
+import 'package:safarni/core/utils/app_colors.dart';
+import 'package:safarni/core/utils/text_styles.dart';
 
 import '../../../../../core/widgets/custom_button.dart';
 
@@ -18,7 +19,6 @@ class PriceSection extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-
     return Column(
       children: [
         const Divider(),
@@ -26,7 +26,10 @@ class PriceSection extends StatelessWidget {
         //   label: "Ticket price",
         //   value: "\$${totalPrice.toStringAsFixed(2)} EGP",
         // ),
-        _PriceRow(label: "Total Price", value: "\$${totalPrice.toStringAsFixed(2)} EGP"),
+        _PriceRow(
+          label: "Total Price",
+          value: "\$${totalPrice.toStringAsFixed(2)} EGP",
+        ),
         _PriceRow(
           label: "your Seat",
           value: selectedSeats.isEmpty
@@ -34,7 +37,7 @@ class PriceSection extends StatelessWidget {
               : selectedSeats.map((s) => s.designation.toString()).join(", "),
           isBold: true,
         ),
-        const SizedBox(height: 20),
+        const Gap(20),
         SizedBox(
           width: double.infinity,
           height: 55,

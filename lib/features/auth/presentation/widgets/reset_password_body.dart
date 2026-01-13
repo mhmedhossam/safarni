@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
-import 'package:round_8_mobile_safarni_team3/core/constants/navigation.dart';
-import 'package:round_8_mobile_safarni_team3/core/constants/routes.dart';
-import 'package:round_8_mobile_safarni_team3/core/functions/validation.dart';
-import 'package:round_8_mobile_safarni_team3/core/utils/app_colors.dart';
-import 'package:round_8_mobile_safarni_team3/core/widgets/custom_text_form_field.dart';
-import 'package:round_8_mobile_safarni_team3/features/auth/presentation/widgets/resetpassword_footer.dart';
+import 'package:safarni/core/constants/navigation.dart';
+import 'package:safarni/core/constants/routes.dart';
+import 'package:safarni/core/functions/validation.dart';
+import 'package:safarni/core/utils/app_colors.dart';
+import 'package:safarni/core/widgets/custom_text_form_field.dart';
+import 'package:safarni/features/auth/presentation/widgets/resetpassword_footer.dart';
 
 class ResetPasswordBody extends StatefulWidget {
   const ResetPasswordBody({

@@ -1,4 +1,4 @@
-import 'package:round_8_mobile_safarni_team3/features/auth/domain/entity/entities.dart';
+import 'package:safarni/features/auth/domain/entity/entities.dart';
 
 class UserModel extends UserEntity {
   UserModel({

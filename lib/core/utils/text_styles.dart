@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:round_8_mobile_safarni_team3/core/constants/app_fonts.dart';
-import 'package:round_8_mobile_safarni_team3/core/utils/app_colors.dart';
+import 'package:safarni/core/constants/app_fonts.dart';
+import 'package:safarni/core/utils/app_colors.dart';
 
 class TextStyles {
   static final TextStyle title = const TextStyle(

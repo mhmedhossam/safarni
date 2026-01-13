@@ -1,17 +1,17 @@
 import 'package:flutter/material.dart';
-import 'package:round_8_mobile_safarni_team3/core/constants/navigation.dart';
-import 'package:round_8_mobile_safarni_team3/core/utils/app_colors.dart';
-import 'package:round_8_mobile_safarni_team3/core/widgets/custom_button.dart';
-import 'package:round_8_mobile_safarni_team3/generated/assets.dart';
+import 'package:gap/gap.dart';
+import 'package:safarni/core/constants/navigation.dart';
+import 'package:safarni/core/utils/app_colors.dart';
+import 'package:safarni/core/widgets/custom_button.dart';
+import 'package:safarni/generated/assets.dart';
 
 import '../../../../core/constants/routes.dart';
 
-class Welcom extends StatelessWidget {
-  const Welcom({super.key});
+class Welcome extends StatelessWidget {
+  const Welcome({super.key});
 
   @override
   Widget build(BuildContext context) {
-    // var width = MediaQuery.of(context).size.width;
     var height = MediaQuery.of(context).size.height;
     return Scaffold(
       body: Center(
@@ -20,7 +20,7 @@ class Welcom extends StatelessWidget {
           children: [
             Spacer(flex: 3),
             Image.asset(Assets.imagesLogo),
-            SizedBox(height: 8),
+            Gap(8),
             Text(
               "Safarni",
               style: TextStyle(
@@ -31,7 +31,7 @@ class Welcom extends StatelessWidget {
             ),
             Spacer(flex: 1),
             Text(
-              "Welcome",
+              "Welcome To Safarni",
               style: TextStyle(
                 color: AppColors.blackColor,
                 fontSize: 32,
@@ -39,12 +39,11 @@ class Welcom extends StatelessWidget {
               ),
             ),
 
-            SizedBox(height: height * 0.01),
             Padding(
-              padding: const EdgeInsets.all(20.0),
+              padding: const EdgeInsets.all(12.0),
               child: Text(
                 textAlign: TextAlign.center,
-                "Fitsync is a platform for gym and bodybuilding enthusiasts. Find nearby gyms, read reviews, get discounts, buy sports products, and access courses.",
+                "Safarni is your all-in-one travel guide. Discover destinations, compare trip prices, book flights, hotels, car rentals, and local tours — all through one interactive experience.",
                 style: TextStyle(
                   color: AppColors.iconColor,
                   fontSize: 14,
@@ -52,7 +51,7 @@ class Welcom extends StatelessWidget {
                 ),
               ),
             ),
-            SizedBox(height: height * 0.05),
+            Gap(height * 0.05),
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 16.0),
               child: CustomButton(
@@ -63,12 +62,12 @@ class Welcom extends StatelessWidget {
                 },
               ),
             ),
-            SizedBox(height: 15),
+            Gap(15),
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 16.0),
               child: CustomButton(
                 backgroundColor: AppColors.whiteColor,
-                title: "Log in",
+                title: "Log In",
                 borderColor: AppColors.primaryColor,
                 textColor: AppColors.primaryColor,
                 onPressed: () {

@@ -1,11 +1,11 @@
 import 'package:device_preview/device_preview.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:round_8_mobile_safarni_team3/core/bloc/app_bloc_observer.dart';
-import 'package:round_8_mobile_safarni_team3/core/constants/routes.dart';
-import 'package:round_8_mobile_safarni_team3/core/di/service_locator.dart';
-import 'package:round_8_mobile_safarni_team3/core/utils/app_theme.dart';
-import 'package:round_8_mobile_safarni_team3/features/auth/presentation/controller/cubit/auth_cubit.dart';
+import 'package:safarni/core/bloc/app_bloc_observer.dart';
+import 'package:safarni/core/constants/routes.dart';
+import 'package:safarni/core/di/service_locator.dart';
+import 'package:safarni/core/utils/app_theme.dart';
+import 'package:safarni/features/auth/presentation/controller/cubit/auth_cubit.dart';
 
 final GlobalKey<NavigatorState> navigatorKey = GlobalKey<NavigatorState>();
 

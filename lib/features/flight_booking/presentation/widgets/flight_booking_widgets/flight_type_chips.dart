@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:round_8_mobile_safarni_team3/core/utils/app_colors.dart';
-import 'package:round_8_mobile_safarni_team3/core/utils/text_styles.dart';
+import 'package:safarni/core/utils/app_colors.dart';
+import 'package:safarni/core/utils/text_styles.dart';
 
 import '../../../flight_type_model.dart';
 

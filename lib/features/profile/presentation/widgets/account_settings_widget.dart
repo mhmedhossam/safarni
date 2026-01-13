@@ -1,6 +1,6 @@
-import 'dart:developer';
 import 'package:flutter/material.dart';
-import 'package:round_8_mobile_safarni_team3/features/profile/presentation/widgets/setting_item.dart';
+import 'package:gap/gap.dart';
+import 'package:safarni/features/profile/presentation/widgets/setting_item.dart';
 
 class AccountSettingsWidget extends StatelessWidget {
   const AccountSettingsWidget({super.key});
@@ -19,20 +19,20 @@ class AccountSettingsWidget extends StatelessWidget {
                 subtitle: 'Manage your account on the various devices you own.',
                 onTap: () {
                   // Handle Device Management navigation
-                  log('Device Management tapped');
+                  //log('Device Management tapped');
                 },
               ),
-              const SizedBox(height: 16),
+              const Gap(16),
               SettingsItem(
                 title: 'Deactivate Account',
                 subtitle:
                     'Temporarily deactivate your account. Easily reactivate when you\'re ready.',
                 onTap: () {
                   // Handle Deactivate Account navigation
-                  log('Deactivate Account tapped');
+                  //log('Deactivate Account tapped');
                 },
               ),
-              const SizedBox(height: 16),
+              const Gap(16),
               SettingsItem(
                 title: 'Delete Account',
                 subtitle:
@@ -40,7 +40,7 @@ class AccountSettingsWidget extends StatelessWidget {
                 titleColor: Colors.red,
                 onTap: () {
                   // Handle Delete Account navigation
-                  log('Delete Account tapped');
+                  //log('Delete Account tapped');
                 },
               ),
             ],

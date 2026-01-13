@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:round_8_mobile_safarni_team3/core/utils/text_styles.dart';
-import 'package:round_8_mobile_safarni_team3/features/Hotal_Booking/presentation/manager/GalleryRoomCubit/gallery_room_cubit.dart';
+import 'package:safarni/core/utils/text_styles.dart';
+import 'package:safarni/features/Hotal_Booking/presentation/manager/GalleryRoomCubit/gallery_room_cubit.dart';
 
-class Gallerycontent extends StatelessWidget {
-  const Gallerycontent({super.key});
+class GalleryContent extends StatelessWidget {
+  const GalleryContent({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -62,7 +62,7 @@ class Gallerycontent extends StatelessWidget {
                       borderRadius: BorderRadius.circular(12),
                     ),
                     child: Image.network(
-                      state.galleryRooms[index].url??"",
+                      state.galleryRooms[index].url ?? "",
                       fit: BoxFit.fill,
                     ),
                   );

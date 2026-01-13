@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:round_8_mobile_safarni_team3/core/constants/navigation.dart';
-import 'package:round_8_mobile_safarni_team3/core/constants/routes.dart';
-import 'package:round_8_mobile_safarni_team3/core/utils/text_styles.dart';
+import 'package:gap/gap.dart';
+import 'package:safarni/core/constants/navigation.dart';
+import 'package:safarni/core/constants/routes.dart';
+import 'package:safarni/core/utils/text_styles.dart';
 
 class HotelBookingBottomSheet extends StatefulWidget {
   const HotelBookingBottomSheet({super.key});
@@ -68,7 +69,7 @@ class HotelBookingBottomSheetState extends State<HotelBookingBottomSheet> {
         children: [
           // Backline Section
           _buildBacklineSection(),
-          const SizedBox(height: 20),
+          const Gap(20),
         ],
       ),
     );
@@ -87,7 +88,7 @@ class HotelBookingBottomSheetState extends State<HotelBookingBottomSheet> {
           onDecrement: decrementAdult,
         ),
         Divider(color: Color(0xffE5E7EB)),
-        const SizedBox(height: 12),
+        const Gap(12),
 
         // Children
         _buildPassengerRow(
@@ -98,7 +99,7 @@ class HotelBookingBottomSheetState extends State<HotelBookingBottomSheet> {
           onDecrement: decrementChild,
         ),
         Divider(color: Color(0xffE5E7EB)),
-        const SizedBox(height: 12),
+        const Gap(12),
 
         // Infants
         _buildPassengerRow(
@@ -165,7 +166,7 @@ class HotelBookingBottomSheetState extends State<HotelBookingBottomSheet> {
                 color: const Color(0xFF111928),
               ),
             ),
-            const SizedBox(height: 4),
+            const Gap(4),
             Text(
               subtitle,
               style: TextStyles.details.copyWith(

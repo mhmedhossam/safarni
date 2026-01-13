@@ -1,8 +1,8 @@
 import 'package:dartz/dartz.dart';
-import 'package:round_8_mobile_safarni_team3/core/error/failure.dart';
-import 'package:round_8_mobile_safarni_team3/features/Hotal_Booking/data/model/HotelsModels/recommendation_models.dart';
-import 'package:round_8_mobile_safarni_team3/features/Hotal_Booking/data/remote/Hotels_Seach_RemoteSource.dart';
-import 'package:round_8_mobile_safarni_team3/features/Hotal_Booking/domain/repo/hotels_Search_Repos.dart';
+import 'package:safarni/core/error/failure.dart';
+import 'package:safarni/features/Hotal_Booking/data/model/HotelsModels/recommendation_models.dart';
+import 'package:safarni/features/Hotal_Booking/data/remote/Hotels_Seach_RemoteSource.dart';
+import 'package:safarni/features/Hotal_Booking/domain/repo/hotels_Search_Repos.dart';
 
 class HotelsSearchRepoImpl extends HotelsSearchRepos {
   final HotelsSearchRemoteSource hotelsSearchRemoteSource;

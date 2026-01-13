@@ -1,9 +1,9 @@
 import 'package:dartz/dartz.dart';
-import 'package:round_8_mobile_safarni_team3/core/error/failure.dart';
-import 'package:round_8_mobile_safarni_team3/features/flight_booking/data/model/flight_seat_model.dart';
-import 'package:round_8_mobile_safarni_team3/features/flight_booking/data/model/search_flight_model.dart';
-import 'package:round_8_mobile_safarni_team3/features/flight_booking/domain/entities/search_flight_param.dart';
-import 'package:round_8_mobile_safarni_team3/features/flight_booking/domain/repo/flight_repo.dart';
+import 'package:safarni/core/error/failure.dart';
+import 'package:safarni/features/flight_booking/data/model/flight_seat_model.dart';
+import 'package:safarni/features/flight_booking/data/model/search_flight_model.dart';
+import 'package:safarni/features/flight_booking/domain/entities/search_flight_param.dart';
+import 'package:safarni/features/flight_booking/domain/repo/flight_repo.dart';
 
 import '../../../../core/error/error_handler.dart';
 import '../data_source/flight_data_source.dart';

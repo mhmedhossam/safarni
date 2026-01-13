@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:gap/gap.dart';
 
 class ProfileMenuItem extends StatelessWidget {
   final IconData icon;
@@ -44,7 +45,7 @@ class ProfileMenuItem extends StatelessWidget {
             child: Row(
               children: [
                 Icon(icon, size: 24, color: iconColor ?? Colors.black87),
-                SizedBox(width: 16),
+                Gap(16),
                 Expanded(
                   child: Text(
                     title,

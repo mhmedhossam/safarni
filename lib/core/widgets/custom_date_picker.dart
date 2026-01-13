@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
-import 'package:round_8_mobile_safarni_team3/core/utils/app_colors.dart';
+import 'package:safarni/core/utils/app_colors.dart';
 
 class CustomDatePicker {
   static Future<void> selectDate({

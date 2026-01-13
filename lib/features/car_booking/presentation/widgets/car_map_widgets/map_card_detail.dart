@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:round_8_mobile_safarni_team3/core/utils/text_styles.dart';
-import 'package:round_8_mobile_safarni_team3/core/widgets/custom_button.dart';
+import 'package:gap/gap.dart';
+import 'package:safarni/core/utils/text_styles.dart';
+import 'package:safarni/core/widgets/custom_button.dart';
 
 import '../../../../../core/constants/navigation.dart';
 import '../../../../../core/constants/routes.dart';
@@ -41,7 +42,7 @@ class MapCardDetail extends StatelessWidget {
                       color: Colors.black,
                     ),
                   ),
-                  const SizedBox(height: 10),
+                  const Gap(10),
                   Row(
                     children: [
                       Text(
@@ -51,7 +52,7 @@ class MapCardDetail extends StatelessWidget {
                           fontSize: 12,
                         ),
                       ),
-                      const SizedBox(width: 10),
+                      const Gap(10),
 
                       Text(
                         "5 seats",
@@ -60,7 +61,7 @@ class MapCardDetail extends StatelessWidget {
                           fontSize: 12,
                         ),
                       ),
-                      const SizedBox(width: 10),
+                      const Gap(10),
                       Text(
                         "Diesel",
                         style: TextStyles.details.copyWith(

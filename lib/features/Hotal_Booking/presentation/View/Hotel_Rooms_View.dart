@@ -1,14 +1,15 @@
 import 'package:flutter/material.dart';
+import 'package:gap/gap.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
-import 'package:round_8_mobile_safarni_team3/core/constants/routes.dart';
-import 'package:round_8_mobile_safarni_team3/core/di/service_locator.dart';
-import 'package:round_8_mobile_safarni_team3/features/Hotal_Booking/data/model/HotelsAndRoomModels.dart';
-import 'package:round_8_mobile_safarni_team3/features/Hotal_Booking/data/model/HotelsModels/recommendation_models.dart';
-import 'package:round_8_mobile_safarni_team3/features/Hotal_Booking/domain/usecases/Hotels_Room_UseCase.dart';
-import 'package:round_8_mobile_safarni_team3/features/Hotal_Booking/presentation/View/widget/room_card.dart';
-import 'package:round_8_mobile_safarni_team3/core/utils/text_styles.dart';
-import 'package:round_8_mobile_safarni_team3/features/Hotal_Booking/presentation/manager/hotelsRoomsCubit/hotels_rooms_cubit.dart';
+import 'package:safarni/core/constants/routes.dart';
+import 'package:safarni/core/di/service_locator.dart';
+import 'package:safarni/features/Hotal_Booking/data/model/HotelsAndRoomModels.dart';
+import 'package:safarni/features/Hotal_Booking/data/model/HotelsModels/recommendation_models.dart';
+import 'package:safarni/features/Hotal_Booking/domain/usecases/Hotels_Room_UseCase.dart';
+import 'package:safarni/features/Hotal_Booking/presentation/View/widget/room_card.dart';
+import 'package:safarni/core/utils/text_styles.dart';
+import 'package:safarni/features/Hotal_Booking/presentation/manager/hotelsRoomsCubit/hotels_rooms_cubit.dart';
 
 class HotelRoomsView extends StatelessWidget {
   final HotelsModels hotelsmodels;
@@ -38,7 +39,7 @@ class HotelRoomsView extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               //  CustomSearchHotals(),
-              //    SizedBox(height: 18),
+              //    Gap(  18),
               Text(
                 'Available Rooms ',
                 style: TextStyles.details.copyWith(
@@ -47,7 +48,7 @@ class HotelRoomsView extends StatelessWidget {
                   color: Color(0xFF111928),
                 ),
               ),
-              SizedBox(height: 8),
+              Gap(8),
               BlocBuilder<HotelsRoomsCubit, HotelsRoomsState>(
                 builder: (context, state) {
                   if (state is HotelsRoomsSuccess) {

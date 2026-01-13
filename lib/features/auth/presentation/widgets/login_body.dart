@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:gap/gap.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:round_8_mobile_safarni_team3/core/functions/validation.dart';
-import 'package:round_8_mobile_safarni_team3/core/utils/app_colors.dart';
-import 'package:round_8_mobile_safarni_team3/core/widgets/custom_button.dart';
-import 'package:round_8_mobile_safarni_team3/core/widgets/custom_snack_bar.dart';
-import 'package:round_8_mobile_safarni_team3/core/widgets/custom_text_form_field.dart';
-import 'package:round_8_mobile_safarni_team3/features/auth/presentation/controller/cubit/auth_cubit.dart';
+import 'package:safarni/core/functions/validation.dart';
+import 'package:safarni/core/utils/app_colors.dart';
+import 'package:safarni/core/widgets/custom_button.dart';
+import 'package:safarni/core/widgets/custom_snack_bar.dart';
+import 'package:safarni/core/widgets/custom_text_form_field.dart';
+import 'package:safarni/features/auth/presentation/controller/cubit/auth_cubit.dart';
 
 import '../../../../core/constants/navigation.dart';
 import '../../../../core/constants/routes.dart';
@@ -44,7 +45,7 @@ class LoginBody extends StatelessWidget {
             "Email",
             style: TextStyle(fontSize: 16, fontWeight: FontWeight.w500),
           ),
-          SizedBox(height: height * 0.01),
+          Gap(height * 0.01),
           CustomTextForm(
             controller: _emailController,
             hint: "kneeDue@untitledui.com",
@@ -52,12 +53,12 @@ class LoginBody extends StatelessWidget {
             prefix: Icon(Icons.email, size: 33, color: AppColors.iconColor),
             validator: validEmail,
           ),
-          SizedBox(height: height * 0.02),
+          Gap(height * 0.02),
           const Text(
             "Password",
             style: TextStyle(fontSize: 16, fontWeight: FontWeight.w500),
           ),
-          SizedBox(height: height * 0.01),
+          Gap(height * 0.01),
           CustomTextForm(
             controller: _passwordController,
             isPassword: true,
@@ -70,7 +71,7 @@ class LoginBody extends StatelessWidget {
             ),
             validator: validatePassword,
           ),
-          SizedBox(height: height * 0.01),
+          Gap(height * 0.01),
           Align(
             alignment: Alignment.centerRight,
             child: TextButton(
@@ -87,7 +88,7 @@ class LoginBody extends StatelessWidget {
               },
             ),
           ),
-          SizedBox(height: height * 0.02),
+          Gap(height * 0.02),
 
           CustomButton(
             title: "Log In",

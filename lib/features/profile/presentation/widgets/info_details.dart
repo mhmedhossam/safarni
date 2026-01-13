@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:round_8_mobile_safarni_team3/core/utils/app_colors.dart';
+import 'package:gap/gap.dart';
+import 'package:safarni/core/utils/app_colors.dart';
 
 class InfoDetails extends StatelessWidget {
   final String name;
@@ -19,7 +20,7 @@ class InfoDetails extends StatelessWidget {
             fontWeight: FontWeight.w600,
           ),
         ),
-        const SizedBox(height: 10),
+        const Gap(10),
         Text(
           email,
           style: TextStyle(

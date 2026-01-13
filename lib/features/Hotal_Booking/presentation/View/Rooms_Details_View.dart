@@ -1,18 +1,19 @@
 import 'package:flutter/material.dart';
+import 'package:gap/gap.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:go_router/go_router.dart';
-import 'package:round_8_mobile_safarni_team3/core/di/service_locator.dart';
-import 'package:round_8_mobile_safarni_team3/features/Hotal_Booking/data/model/HotelsAndRoomModels.dart';
-import 'package:round_8_mobile_safarni_team3/features/Hotal_Booking/data/model/Roos/rooms_models.dart';
-import 'package:round_8_mobile_safarni_team3/features/Hotal_Booking/domain/usecases/Gallery_Use_Case.dart';
-import 'package:round_8_mobile_safarni_team3/features/Hotal_Booking/domain/usecases/Review_Use_Case.dart';
-import 'package:round_8_mobile_safarni_team3/features/Hotal_Booking/presentation/View/widget/GalleryContent.dart';
-import 'package:round_8_mobile_safarni_team3/features/Hotal_Booking/presentation/View/widget/ReviewContent.dart';
-import 'package:round_8_mobile_safarni_team3/core/constants/routes.dart';
-import 'package:round_8_mobile_safarni_team3/core/utils/text_styles.dart';
-import 'package:round_8_mobile_safarni_team3/features/Hotal_Booking/presentation/manager/GalleryRoomCubit/gallery_room_cubit.dart';
-import 'package:round_8_mobile_safarni_team3/features/Hotal_Booking/presentation/manager/ReviewCubit/review_room_cubit.dart';
+import 'package:safarni/core/di/service_locator.dart';
+import 'package:safarni/features/Hotal_Booking/data/model/HotelsAndRoomModels.dart';
+import 'package:safarni/features/Hotal_Booking/data/model/Roos/rooms_models.dart';
+import 'package:safarni/features/Hotal_Booking/domain/usecases/Gallery_Use_Case.dart';
+import 'package:safarni/features/Hotal_Booking/domain/usecases/Review_Use_Case.dart';
+import 'package:safarni/features/Hotal_Booking/presentation/View/widget/GalleryContent.dart';
+import 'package:safarni/features/Hotal_Booking/presentation/View/widget/ReviewContent.dart';
+import 'package:safarni/core/constants/routes.dart';
+import 'package:safarni/core/utils/text_styles.dart';
+import 'package:safarni/features/Hotal_Booking/presentation/manager/GalleryRoomCubit/gallery_room_cubit.dart';
+import 'package:safarni/features/Hotal_Booking/presentation/manager/ReviewCubit/review_room_cubit.dart';
 
 class RoomsDetailsView extends StatefulWidget {
   const RoomsDetailsView({super.key, required this.rooms});
@@ -27,203 +28,202 @@ class _RoomsDetailsViewState extends State<RoomsDetailsView> {
   @override
   Widget build(BuildContext context) {
     return MultiBlocProvider(
-        providers: [
-            BlocProvider(
+      providers: [
+        BlocProvider(
           create: (context) =>
               GalleryRoomCubit(ServiceLocator.gi<GalleryUseCase>())
                 ..fetchGalleryRooms(hotelId: widget.rooms.roomsModels.hotelId!),
-    
-    
         ),
-            BlocProvider(
-                create: (context) => ReviewRoomCubit(ServiceLocator.gi<ReviewUseCase>())
-                  ..fetchReviewRoom(hotelId: widget.rooms.roomsModels.hotelId!),
-            ),
-        ],
-              child: Scaffold(
-            body: CustomScrollView(
-              slivers: [
-                // صورة الفندق العلوية
-                CustomSliverAppBar(heigthmodels: false),
-                SliverToBoxAdapter(
-                  child: Padding(
-                    padding: const EdgeInsets.all(16),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
+        BlocProvider(
+          create: (context) =>
+              ReviewRoomCubit(ServiceLocator.gi<ReviewUseCase>())
+                ..fetchReviewRoom(hotelId: widget.rooms.roomsModels.hotelId!),
+        ),
+      ],
+      child: Scaffold(
+        body: CustomScrollView(
+          slivers: [
+            // صورة الفندق العلوية
+            CustomSliverAppBar(heigthmodels: false),
+            SliverToBoxAdapter(
+              child: Padding(
+                padding: const EdgeInsets.all(16),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    const Gap(8),
+
+                    Row(
                       children: [
-                        const SizedBox(height: 8),
-    
-                        Row(
-                          children: [
-                            Container(
-                              decoration: BoxDecoration(
-                                color: Color(0xFFEBF5FF),
-                                borderRadius: BorderRadius.circular(20),
+                        Container(
+                          decoration: BoxDecoration(
+                            color: Color(0xFFEBF5FF),
+                            borderRadius: BorderRadius.circular(20),
+                          ),
+                          child: Row(
+                            children: [
+                              Text(
+                                "${widget.rooms.hotelsModels.discount}% off",
+                                style: TextStyles.details.copyWith(
+                                  fontSize: 12,
+                                  color: Color(0xFF3A86FF),
+                                ),
                               ),
-                              child: Row(
-                                children: [
-                                  Text(
-                                    "${widget.rooms.hotelsModels.discount}% off",
-                                    style: TextStyles.details.copyWith(
-                                      fontSize: 12,
-                                      color: Color(0xFF3A86FF),
-                                    ),
-                                  ),
-                                ],
-                              ),
-                            ),
-                            Spacer(),
-                            const Icon(Icons.star, size: 14, color: Colors.amber),
-    
-                            const SizedBox(width: 4),
-                            Text(
-                              widget.rooms.hotelsModels.rating.toString(),
-                              style: TextStyles.details.copyWith(fontSize: 13),
-                            ),
-                            SizedBox(width: 4),
-                            Text(
-                              '(356 reviews)',
-                              style: TextStyles.details.copyWith(fontSize: 13),
-                            ),
-                          ],
-                        ),
-                        const SizedBox(height: 8),
-                        Text(
-                          widget.rooms.hotelsModels.name.toString(),
-                          style: TextStyles.details.copyWith(
-                            fontSize: 20,
-                            fontWeight: FontWeight.w500,
-                            color: Color(0xFF111928),
+                            ],
                           ),
                         ),
-                        const SizedBox(height: 4),
+                        Spacer(),
+                        const Icon(Icons.star, size: 14, color: Colors.amber),
+
+                        const Gap(4),
                         Text(
-                          widget.rooms.hotelsModels.address.toString(),
-                          style: TextStyles.details.copyWith(
-                            fontSize: 16,
-                            fontWeight: FontWeight.w400,
-    
-                            color: Colors.grey,
-                          ),
+                          widget.rooms.hotelsModels.rating.toString(),
+                          style: TextStyles.details.copyWith(fontSize: 13),
+                        ),
+                        Gap(4),
+                        Text(
+                          '(356 reviews)',
+                          style: TextStyles.details.copyWith(fontSize: 13),
                         ),
                       ],
                     ),
-                  ),
-                ),
-    
-                SliverList(
-                  delegate: SliverChildListDelegate([
-                    // Three Tabs Bar
-                    Padding(
-                      padding: const EdgeInsets.all(12),
-                      child: Row(
-                        //mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          _buildTab("About", 0),
-                          Spacer(),
-                          _buildTab("Gallery", 1),
-                          Spacer(),
-    
-                          _buildTab("Review", 2),
-                        ],
+                    const Gap(8),
+                    Text(
+                      widget.rooms.hotelsModels.name.toString(),
+                      style: TextStyles.details.copyWith(
+                        fontSize: 20,
+                        fontWeight: FontWeight.w500,
+                        color: Color(0xFF111928),
                       ),
                     ),
-    
-                    // Content based on selected tab
-                    Padding(
-                      padding: const EdgeInsets.all(16),
-                      child: selectedTab == 0
-                          ? _buildAboutContent(room: widget.rooms.roomsModels)
-                          : selectedTab == 1
-                          ? Gallerycontent()
-                          : Reviewcontent(),
+                    const Gap(4),
+                    Text(
+                      widget.rooms.hotelsModels.address.toString(),
+                      style: TextStyles.details.copyWith(
+                        fontSize: 16,
+                        fontWeight: FontWeight.w400,
+
+                        color: Colors.grey,
+                      ),
                     ),
-    
-                    const SizedBox(height: 100),
-                  ]),
+                  ],
                 ),
-              ],
-            ),
-            bottomNavigationBar: Container(
-              height: 125,
-              padding: const EdgeInsets.only(left: 16, right: 16),
-              decoration: BoxDecoration(
-                color: Colors.white,
-                boxShadow: [
-                  BoxShadow(
-                    color: Colors.grey.withValues(alpha: 0.2),
-                    spreadRadius: 1,
-                    blurRadius: 5,
-                    offset: const Offset(0, -2),
-                  ),
-                ],
               ),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Column(
-                    // mainAxisSize: MainAxisSize.min,
-                    crossAxisAlignment: CrossAxisAlignment.start,
+            ),
+
+            SliverList(
+              delegate: SliverChildListDelegate([
+                // Three Tabs Bar
+                Padding(
+                  padding: const EdgeInsets.all(12),
+                  child: Row(
+                    //mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      SizedBox(height: 16),
+                      _buildTab("About", 0),
+                      Spacer(),
+                      _buildTab("Gallery", 1),
+                      Spacer(),
+
+                      _buildTab("Review", 2),
+                    ],
+                  ),
+                ),
+
+                // Content based on selected tab
+                Padding(
+                  padding: const EdgeInsets.all(16),
+                  child: selectedTab == 0
+                      ? _buildAboutContent(room: widget.rooms.roomsModels)
+                      : selectedTab == 1
+                      ? GalleryContent()
+                      : ReviewContent(),
+                ),
+
+                const Gap(100),
+              ]),
+            ),
+          ],
+        ),
+        bottomNavigationBar: Container(
+          height: 125,
+          padding: const EdgeInsets.only(left: 16, right: 16),
+          decoration: BoxDecoration(
+            color: Colors.white,
+            boxShadow: [
+              BoxShadow(
+                color: Colors.grey.withValues(alpha: 0.2),
+                spreadRadius: 1,
+                blurRadius: 5,
+                offset: const Offset(0, -2),
+              ),
+            ],
+          ),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Column(
+                // mainAxisSize: MainAxisSize.min,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Gap(16),
+                  Text(
+                    'Total price',
+                    style: TextStyles.details.copyWith(
+                      fontSize: 16,
+                      fontWeight: FontWeight.w400,
+                      color: Color(0xFF111928),
+                    ),
+                  ),
+                  Gap(8),
+                  Row(
+                    children: [
                       Text(
-                        'Total price',
-                        style: TextStyles.details.copyWith(
-                          fontSize: 16,
-                          fontWeight: FontWeight.w400,
-                          color: Color(0xFF111928),
+                        '${widget.rooms.roomsModels.pricePerNight}',
+                        style: TextStyle(
+                          fontSize: 20,
+                          fontWeight: FontWeight.bold,
+                          color: Color(0xFF2E5CFF),
                         ),
                       ),
-                      SizedBox(height: 8),
-                      Row(
-                        children: [
-                          Text(
-                            '${widget.rooms.roomsModels.pricePerNight}',
-                            style: TextStyle(
-                              fontSize: 20,
-                              fontWeight: FontWeight.bold,
-                              color: Color(0xFF2E5CFF),
-                            ),
-                          ),
-                          Text(
-                            '/Night',
-                            style: TextStyle(
-                              fontSize: 15,
-                              fontWeight: FontWeight.bold,
-                              color: Color(0xFF6B7280),
-                            ),
-                          ),
-                        ],
+                      Text(
+                        '/Night',
+                        style: TextStyle(
+                          fontSize: 15,
+                          fontWeight: FontWeight.bold,
+                          color: Color(0xFF6B7280),
+                        ),
                       ),
                     ],
                   ),
-                  ElevatedButton(
-                    onPressed: () {
-                      GoRouter.of(context).push(Routes.checkoutandinScreen);
-                    },
-                    style: ElevatedButton.styleFrom(
-                      backgroundColor: const Color(0xFF1E429F),
-                      padding: const EdgeInsets.symmetric(
-                        horizontal: 48,
-                        vertical: 16,
-                      ),
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(12),
-                      ),
-                    ),
-                    child: Text(
-                      'Book Now',
-                      style: TextStyles.details.copyWith(
-                        fontSize: 16,
-                        fontWeight: FontWeight.bold,
-                        color: Colors.white,
-                      ),
-                    ),
-                  ),
                 ],
               ),
-            ),
+              ElevatedButton(
+                onPressed: () {
+                  GoRouter.of(context).push(Routes.checkoutandinScreen);
+                },
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: const Color(0xFF1E429F),
+                  padding: const EdgeInsets.symmetric(
+                    horizontal: 48,
+                    vertical: 16,
+                  ),
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(12),
+                  ),
+                ),
+                child: Text(
+                  'Book Now',
+                  style: TextStyles.details.copyWith(
+                    fontSize: 16,
+                    fontWeight: FontWeight.bold,
+                    color: Colors.white,
+                  ),
+                ),
+              ),
+            ],
           ),
+        ),
+      ),
     );
   }
 
@@ -236,7 +236,7 @@ class _RoomsDetailsViewState extends State<RoomsDetailsView> {
           mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: [
             SvgPicture.asset("assets/icons/bed_icon.svg"),
-            const SizedBox(width: 8),
+            const Gap(8),
             Text(
               '${room.bedType} Beds',
               style: TextStyles.details.copyWith(
@@ -247,7 +247,7 @@ class _RoomsDetailsViewState extends State<RoomsDetailsView> {
             ),
             Spacer(),
             SvgPicture.asset("assets/icons/bath_icon.svg"),
-            const SizedBox(width: 8),
+            const Gap(8),
             Text(
               '${room.bathrooms} Bath',
               style: TextStyles.details.copyWith(
@@ -259,7 +259,7 @@ class _RoomsDetailsViewState extends State<RoomsDetailsView> {
             Spacer(),
 
             SvgPicture.asset("assets/icons/Frame.svg"),
-            const SizedBox(width: 8),
+            const Gap(8),
             Text(
               '${room.area ?? "N/A"} Sqrt',
               style: TextStyles.details.copyWith(
@@ -270,7 +270,7 @@ class _RoomsDetailsViewState extends State<RoomsDetailsView> {
             ),
           ],
         ),
-        const SizedBox(height: 24),
+        const Gap(24),
 
         Text(
           'Description',
@@ -280,7 +280,7 @@ class _RoomsDetailsViewState extends State<RoomsDetailsView> {
             color: Color(0xFF111928),
           ),
         ),
-        const SizedBox(height: 8),
+        const Gap(8),
         Text(
           widget.rooms.hotelsModels.description.toString(),
           style: TextStyles.details.copyWith(
@@ -290,7 +290,7 @@ class _RoomsDetailsViewState extends State<RoomsDetailsView> {
           ),
         ),
 
-        const SizedBox(height: 24),
+        const Gap(24),
       ],
     );
   }
@@ -385,7 +385,7 @@ class CustomSliverAppBar extends StatelessWidget {
                               fontWeight: FontWeight.bold,
                             ),
                           ),
-                          SizedBox(height: 4),
+                          Gap(4),
                           Text(
                             'Hotel Merdeka',
                             style: TextStyle(color: Colors.white, fontSize: 14),

@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:round_8_mobile_safarni_team3/features/Hotal_Booking/presentation/View/Rooms_Details_View.dart';
-import 'package:round_8_mobile_safarni_team3/features/Hotal_Booking/presentation/View/widget/hotal_booking_buttom_sheet.dart';
-import 'package:round_8_mobile_safarni_team3/features/Hotal_Booking/presentation/View/widget/date_selector.dart';
-import 'package:round_8_mobile_safarni_team3/core/utils/text_styles.dart';
+import 'package:gap/gap.dart';
+import 'package:safarni/features/Hotal_Booking/presentation/View/Rooms_Details_View.dart';
+import 'package:safarni/features/Hotal_Booking/presentation/View/widget/hotal_booking_buttom_sheet.dart';
+import 'package:safarni/features/Hotal_Booking/presentation/View/widget/date_selector.dart';
+import 'package:safarni/core/utils/text_styles.dart';
 
 class CheckinandoutView extends StatelessWidget {
   const CheckinandoutView({super.key});
@@ -20,7 +21,7 @@ class CheckinandoutView extends StatelessWidget {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  const SizedBox(height: 8),
+                  const Gap(8),
 
                   Row(
                     children: [
@@ -34,12 +35,12 @@ class CheckinandoutView extends StatelessWidget {
                       Spacer(),
                       const Icon(Icons.star, size: 14, color: Colors.amber),
 
-                      const SizedBox(width: 4),
+                      const Gap(4),
                       Text('4.5', style: TextStyles.details),
                       Text('(356 reviews)', style: TextStyles.details),
                     ],
                   ),
-                  const SizedBox(height: 8),
+                  const Gap(8),
                   Text(
                     "HarborHaven HIdeaway",
                     style: TextStyles.details.copyWith(
@@ -48,7 +49,7 @@ class CheckinandoutView extends StatelessWidget {
                       color: Color(0xFF111928),
                     ),
                   ),
-                  const SizedBox(height: 4),
+                  const Gap(4),
                   Text(
                     r'1012 oscean avanue, New Yourk ,USA',
                     style: TextStyles.details.copyWith(
@@ -58,10 +59,10 @@ class CheckinandoutView extends StatelessWidget {
                       color: Colors.grey,
                     ),
                   ),
-                  SizedBox(height: 16),
+                  Gap(16),
 
                   const Divider(),
-                  SizedBox(height: 16),
+                  Gap(16),
                   Center(
                     child: Text(
                       "Book Hotel",
@@ -72,10 +73,10 @@ class CheckinandoutView extends StatelessWidget {
                       ),
                     ),
                   ),
-                  SizedBox(height: 16),
+                  Gap(16),
 
                   DateSelector(),
-                  SizedBox(height: 16),
+                  Gap(16),
                   Text(
                     "Note To Owner",
                     style: TextStyles.details.copyWith(
@@ -87,7 +88,7 @@ class CheckinandoutView extends StatelessWidget {
                   Container(
                     margin: const EdgeInsets.symmetric(vertical: 16),
                     padding: const EdgeInsets.all(12),
-                    height: 150,
+               height:      150,
                     decoration: BoxDecoration(
                       color: Colors.white,
                       borderRadius: BorderRadius.circular(12),
@@ -119,7 +120,7 @@ class CheckinandoutView extends StatelessWidget {
         ],
       ),
       bottomNavigationBar: Container(
-        height: 110,
+    height:     110,
 
         padding: const EdgeInsets.only(left: 16, right: 16),
         decoration: BoxDecoration(
@@ -134,7 +135,7 @@ class CheckinandoutView extends StatelessWidget {
           ],
         ),
         child: Container(
-          height: 50,
+      height:     50,
           margin: const EdgeInsets.symmetric(vertical: 30, horizontal: 20),
           child: ElevatedButton(
             onPressed: () {

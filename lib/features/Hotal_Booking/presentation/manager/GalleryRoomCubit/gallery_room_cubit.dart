@@ -1,7 +1,7 @@
 import 'package:bloc/bloc.dart';
 import 'package:meta/meta.dart';
-import 'package:round_8_mobile_safarni_team3/features/Hotal_Booking/data/model/Gallerymodels/gallery_models.dart';
-import 'package:round_8_mobile_safarni_team3/features/Hotal_Booking/domain/usecases/Gallery_Use_Case.dart';
+import 'package:safarni/features/Hotal_Booking/data/model/Gallerymodels/gallery_models.dart';
+import 'package:safarni/features/Hotal_Booking/domain/usecases/Gallery_Use_Case.dart';
 
 part 'gallery_room_state.dart';
 

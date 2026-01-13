@@ -1,6 +1,6 @@
-import 'package:round_8_mobile_safarni_team3/features/Home/data/model/category_model.dart';
-import 'package:round_8_mobile_safarni_team3/features/Home/data/model/recommendation_model.dart';
-import 'package:round_8_mobile_safarni_team3/features/Home/domain/entities/home_entitiy.dart';
+import 'package:safarni/features/Home/data/model/category_model.dart';
+import 'package:safarni/features/Home/data/model/recommendation_model.dart';
+import 'package:safarni/features/Home/domain/entities/home_entitiy.dart';
 
 class HomeModel extends HomeEntity {
   HomeModel({
@@ -9,7 +9,7 @@ class HomeModel extends HomeEntity {
     required super.tours,
   });
 
-  factory HomeModel.fromJson(json) {
+  factory HomeModel.fromJson(dynamic json) {
     return HomeModel(
       categories: (json["categories"] as List<dynamic>).map((e) {
         return CategoryModel.fromJson(e as Map<String, dynamic>);

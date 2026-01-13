@@ -1,4 +1,4 @@
-package com.example.round_8_mobile_safarni_team3
+package com.example.safarni
 
 import io.flutter.embedding.android.FlutterActivity
 

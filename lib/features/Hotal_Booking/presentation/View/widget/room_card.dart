@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:round_8_mobile_safarni_team3/core/utils/text_styles.dart';
-import 'package:round_8_mobile_safarni_team3/features/Hotal_Booking/data/model/Roos/rooms_models.dart';
+import 'package:gap/gap.dart';
+import 'package:safarni/core/utils/text_styles.dart';
+import 'package:safarni/features/Hotal_Booking/data/model/Roos/rooms_models.dart';
 
 class RoomCard extends StatelessWidget {
   final VoidCallback onTap;
@@ -50,7 +51,7 @@ class RoomCard extends StatelessWidget {
                       ),
                     ), //room.mainImage==null?Icon(Icons.bed_outlined): Image.network(room.mainImage.toString(), fit: BoxFit.fill),
             ),
-            Expanded(child: SizedBox(height: 4)),
+            Expanded(child: Gap(4)),
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 8),
               child: Column(
@@ -64,7 +65,7 @@ class RoomCard extends StatelessWidget {
                       color: Color(0xFF111928),
                     ),
                   ),
-                  const SizedBox(height: 4),
+                  const Gap(4),
                   Row(
                     children: [
                       Text(

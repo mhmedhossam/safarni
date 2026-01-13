@@ -29,7 +29,7 @@ class _CarMapScreenState extends State<CarMapScreen> {
   Future<void> getMyCurrentLocation() async {
     await LocationHelper.determinePosition();
     position = await Geolocator.getCurrentPosition();
-    Marker? currentLocationMarker;
+    // Marker? currentLocationMarker;
 
     setState(() {
       _mapController.move(

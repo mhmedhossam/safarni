@@ -1,6 +1,6 @@
 import 'package:bloc/bloc.dart';
-import 'package:round_8_mobile_safarni_team3/features/profile/domain/use_case/user_use_case.dart';
-import 'package:round_8_mobile_safarni_team3/features/profile/presentation/controller/cubit/profile_state.dart';
+import 'package:safarni/features/profile/domain/use_case/user_use_case.dart';
+import 'package:safarni/features/profile/presentation/controller/cubit/profile_state.dart';
 
 class ProfileCubit extends Cubit<ProfileState> {
   final GetProfileUseCase getProfileUseCase;

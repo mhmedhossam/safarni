@@ -2,7 +2,6 @@ import 'package:dio/dio.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import '../../../../core/services/api/network/main_endpoint.dart';
-import '../../../../core/services/local/shared_pref.dart';
 import '../model/user_model.dart';
 
 abstract class ProfileRemoteDataSource {

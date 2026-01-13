@@ -1,10 +1,7 @@
-import 'package:intl/intl.dart';
-
 class SearchFlightParam {
   final String origin;
   final String destination;
   final String date;
-
 
   SearchFlightParam({
     required this.origin,

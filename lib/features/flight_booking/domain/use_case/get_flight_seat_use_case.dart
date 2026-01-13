@@ -1,5 +1,5 @@
 import 'package:dartz/dartz.dart';
-import 'package:round_8_mobile_safarni_team3/features/flight_booking/data/model/flight_seat_model.dart';
+import 'package:safarni/features/flight_booking/data/model/flight_seat_model.dart';
 
 import '../../../../core/error/failure.dart';
 import '../repo/flight_repo.dart';

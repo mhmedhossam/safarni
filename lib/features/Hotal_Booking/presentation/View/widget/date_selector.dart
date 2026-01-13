@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:round_8_mobile_safarni_team3/core/utils/text_styles.dart';
+import 'package:gap/gap.dart';
+import 'package:safarni/core/utils/text_styles.dart';
 
 class DateSelector extends StatefulWidget {
   const DateSelector({super.key});
@@ -37,7 +38,7 @@ class DateSelectorState extends State<DateSelector> {
             color: Color(0xFF111928),
           ),
         ),
-        SizedBox(height: 16),
+        Gap(16),
         SingleChildScrollView(
           scrollDirection: Axis.horizontal,
           child: Row(
@@ -70,7 +71,7 @@ class DateSelectorState extends State<DateSelector> {
             ],
           ),
         ),
-        SizedBox(height: 16),
+        Gap(16),
         Text(
           "Check Out",
           style: TextStyles.details.copyWith(

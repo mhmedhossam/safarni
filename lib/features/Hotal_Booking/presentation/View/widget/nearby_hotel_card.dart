@@ -1,9 +1,10 @@
 // Nearby Hotel Card (Vertical)
 import 'package:flutter/material.dart';
+import 'package:gap/gap.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:round_8_mobile_safarni_team3/core/utils/text_styles.dart';
-import 'package:round_8_mobile_safarni_team3/features/Hotal_Booking/data/model/HotelsModels/recommendation_models.dart';
-import 'package:round_8_mobile_safarni_team3/generated/assets.dart';
+import 'package:safarni/core/utils/text_styles.dart';
+import 'package:safarni/features/Hotal_Booking/data/model/HotelsModels/recommendation_models.dart';
+import 'package:safarni/generated/assets.dart';
 
 class NearbyHotelCard extends StatelessWidget {
   final VoidCallback onTap;
@@ -52,7 +53,7 @@ class NearbyHotelCard extends StatelessWidget {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    // const SizedBox(height: 4),
+                    // const Gap(  4),
                     Row(
                       children: [
                         Container(
@@ -75,14 +76,14 @@ class NearbyHotelCard extends StatelessWidget {
                         Spacer(),
                         const Icon(Icons.star, size: 14, color: Colors.amber),
 
-                        const SizedBox(width: 4),
+                        const Gap(4),
                         Text(
                           hotel.rating.toString(),
                           style: TextStyles.details.copyWith(fontSize: 13),
                         ),
                       ],
                     ),
-                    Expanded(child: const SizedBox(height: 4)),
+                    Expanded(child: const Gap(4)),
                     Text(
                       hotel.name.toString(),
                       style: TextStyles.title.copyWith(
@@ -93,11 +94,11 @@ class NearbyHotelCard extends StatelessWidget {
                       maxLines: 1,
                       overflow: TextOverflow.ellipsis,
                     ),
-                    Expanded(child: const SizedBox(height: 4)),
+                    Expanded(child: const Gap(4)),
                     Row(
                       children: [
                         SvgPicture.asset("assets/icons/Location.svg"),
-                        const SizedBox(width: 8),
+                        const Gap(8),
                         Expanded(
                           child: Text(
                             hotel.address.toString(),
@@ -108,7 +109,7 @@ class NearbyHotelCard extends StatelessWidget {
                         ),
                       ],
                     ),
-                    //  const SizedBox(height: 8),
+                    //  const Gap(  8),
                   ],
                 ),
               ),

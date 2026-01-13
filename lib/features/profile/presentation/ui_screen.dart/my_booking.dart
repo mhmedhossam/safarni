@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:round_8_mobile_safarni_team3/core/utils/text_styles.dart';
-import 'package:round_8_mobile_safarni_team3/features/Hotal_Booking/presentation/View/widget/nearby_hotel_card.dart';
-import 'package:round_8_mobile_safarni_team3/features/flight_booking/data/model/search_flight_model.dart';
-import 'package:round_8_mobile_safarni_team3/features/flight_booking/presentation/widgets/select_flight_card.dart';
+import 'package:gap/gap.dart';
+import 'package:safarni/core/utils/text_styles.dart';
+import 'package:safarni/features/flight_booking/data/model/search_flight_model.dart';
+import 'package:safarni/features/flight_booking/presentation/widgets/select_flight_card.dart';
 
 class MyBookingView extends StatefulWidget {
   const MyBookingView({super.key});
@@ -34,7 +34,7 @@ class _MyBookingViewState extends State<MyBookingView> {
       ),
       body: Column(
         children: [
-          const SizedBox(height: 12),
+          const Gap(12),
 
           /// Categories
           SingleChildScrollView(
@@ -50,7 +50,7 @@ class _MyBookingViewState extends State<MyBookingView> {
             ),
           ),
 
-          const SizedBox(height: 16),
+          const Gap(16),
 
           /// Content
           Expanded(child: _buildContent()),
@@ -86,7 +86,7 @@ class _MyBookingViewState extends State<MyBookingView> {
               color: isSelected ? Color(0xFF1E40AF) : Color(0xff111928),
               size: 18,
             ),
-            const SizedBox(width: 6),
+            const Gap(6),
             Text(
               title,
               style: TextStyles.details.copyWith(
@@ -121,7 +121,7 @@ class _MyBookingViewState extends State<MyBookingView> {
       itemCount: 1,
       itemBuilder: (context, index) {
         return SelectFlightCard(
-          model:SearchFlightModelData() ,
+          model: SearchFlightModelData(),
           isSelected: true,
         );
       },
@@ -152,7 +152,7 @@ class _MyBookingViewState extends State<MyBookingView> {
                         color: Colors.black,
                       ),
                     ),
-                    const SizedBox(height: 12),
+                    const Gap(12),
                     SizedBox(
                       height: 30,
                       width: MediaQuery.sizeOf(context).width * 0.7,
@@ -205,7 +205,7 @@ class _MyBookingViewState extends State<MyBookingView> {
                         ],
                       ),
                     ),
-                    const SizedBox(height: 8),
+                    const Gap(8),
                   ],
                 ),
               ),
@@ -248,6 +248,8 @@ class _MyBookingViewState extends State<MyBookingView> {
     return ListView.builder(
       itemCount: 3,
       itemBuilder: (context, index) {
+        return null;
+
         //   return NearbyHotelCard(onTap: () {});
       },
     );
@@ -257,7 +259,9 @@ class _MyBookingViewState extends State<MyBookingView> {
   Widget _hotelUI() {
     return ListView.builder(
       itemCount: 2,
-      itemBuilder: (context, index) {}, //NearbyHotelCard(onTap: () {}),
+      itemBuilder: (context, index) {
+        return null;
+      }, //NearbyHotelCard(onTap: () {}),
     );
   }
 }

@@ -1,6 +1,6 @@
 {
-    "name": "round_8_mobile_safarni_team3",
-    "short_name": "round_8_mobile_safarni_team3",
+    "name": "safarni",
+    "short_name": "safarni",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",

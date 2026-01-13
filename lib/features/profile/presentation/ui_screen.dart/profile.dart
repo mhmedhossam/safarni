@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:gap/gap.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:round_8_mobile_safarni_team3/core/di/service_locator.dart';
-import 'package:round_8_mobile_safarni_team3/core/widgets/custom_appbar.dart';
-import 'package:round_8_mobile_safarni_team3/features/profile/presentation/controller/cubit/profile_cubit.dart';
+import 'package:safarni/core/di/service_locator.dart';
+import 'package:safarni/core/widgets/custom_appbar.dart';
+import 'package:safarni/features/profile/presentation/controller/cubit/profile_cubit.dart';
 import '../controller/cubit/profile_state.dart';
 import '../widgets/info_details.dart';
 import '../widgets/profile_image.dart';
@@ -40,9 +41,9 @@ class ProfileView extends StatelessWidget {
                   return Column(
                     children: [
                       ProfileImage(imageUrl: profile.profileImage),
-                      const SizedBox(height: 10),
+                      const Gap(10),
                       InfoDetails(name: profile.name, email: profile.email),
-                      const SizedBox(height: 20),
+                      const Gap(20),
                       ProfileMenuList(),
                     ],
                   );

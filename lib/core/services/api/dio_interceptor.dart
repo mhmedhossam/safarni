@@ -1,8 +1,7 @@
 import 'dart:async';
-import 'dart:developer';
 
 import 'package:dio/dio.dart';
-import 'package:round_8_mobile_safarni_team3/core/services/api/network/dio_provider.dart';
+import 'package:safarni/core/services/api/network/dio_provider.dart';
 
 class DioInterceptor extends Interceptor {
   final Dio dio;
@@ -19,12 +18,10 @@ class DioInterceptor extends Interceptor {
   ) async {
     var res = await DioProvider.get("/health");
 
-    if (res.data!["status"] == "ok") {
-      print(res.data!["status"]);
-    }
+    if (res.data!["status"] == "ok") {}
 
     if (err.response != null && err.response!.statusCode == 401) {
-      log('unauthorized');
+      //log('unauthorized');
       if (_isReAuthenticating) {
         if (_reAuthCompleter != null) {
           await _reAuthCompleter!.future;

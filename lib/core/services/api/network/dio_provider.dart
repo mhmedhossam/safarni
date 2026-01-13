@@ -1,12 +1,12 @@
 import 'package:dio/dio.dart';
-import 'package:round_8_mobile_safarni_team3/core/services/api/network/main_endpoint.dart';
+import 'package:safarni/core/services/api/network/main_endpoint.dart';
 
 import '../dio_interceptor.dart';
 
 class DioProvider {
   static late Dio dio;
 
-   static void init() {
+  static void init() {
     dio = Dio(BaseOptions(baseUrl: MainEndpoint.baseUrl));
     dio.interceptors.add(DioInterceptor(dio));
   }

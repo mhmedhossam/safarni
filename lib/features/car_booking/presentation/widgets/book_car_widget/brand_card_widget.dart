@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:gap/gap.dart';
 
 import '../../../../../core/utils/app_colors.dart';
 
@@ -41,7 +42,7 @@ class BrandCardWidget extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Image.asset(icon, height: 35),
-              const SizedBox(height: 5),
+              const Gap(5),
               Text(
                 name,
                 maxLines: 1,

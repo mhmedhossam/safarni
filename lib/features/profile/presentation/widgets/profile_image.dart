@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:round_8_mobile_safarni_team3/core/utils/app_colors.dart';
-import 'package:round_8_mobile_safarni_team3/generated/assets.dart';
+import 'package:safarni/core/utils/app_colors.dart';
+import 'package:safarni/generated/assets.dart';
 
 class ProfileImage extends StatelessWidget {
   final String? imageUrl; // optional user profile image

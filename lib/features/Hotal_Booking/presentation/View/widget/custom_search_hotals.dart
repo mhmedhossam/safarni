@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:gap/gap.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
-import 'package:round_8_mobile_safarni_team3/core/constants/routes.dart';
-import 'package:round_8_mobile_safarni_team3/core/di/service_locator.dart';
-import 'package:round_8_mobile_safarni_team3/features/Hotal_Booking/domain/usecases/Hotels_Search_UseCase.dart';
-import 'package:round_8_mobile_safarni_team3/features/Hotal_Booking/presentation/View/widget/nearby_hotel_card.dart';
-import 'package:round_8_mobile_safarni_team3/features/Hotal_Booking/presentation/manager/SearchHotelsCubit/search_hotels_cubit.dart';
+import 'package:safarni/core/constants/routes.dart';
+import 'package:safarni/core/di/service_locator.dart';
+import 'package:safarni/features/Hotal_Booking/domain/usecases/Hotels_Search_UseCase.dart';
+import 'package:safarni/features/Hotal_Booking/presentation/View/widget/nearby_hotel_card.dart';
+import 'package:safarni/features/Hotal_Booking/presentation/manager/SearchHotelsCubit/search_hotels_cubit.dart';
 
 class CustomSearchHotels extends StatefulWidget {
   final String? hintText;
@@ -115,7 +116,7 @@ class HotelListScreen extends StatelessWidget {
                             size: 60,
                             color: Colors.red,
                           ),
-                          const SizedBox(height: 16),
+                          const Gap(16),
                           Text(
                             state.message,
                             textAlign: TextAlign.center,
@@ -130,7 +131,7 @@ class HotelListScreen extends StatelessWidget {
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
                           Icon(Icons.search, size: 80, color: Colors.grey),
-                          SizedBox(height: 16),
+                          Gap(16),
                           Text(
                             'Please enter a city to search hotels.',
                             style: TextStyle(fontSize: 16, color: Colors.grey),

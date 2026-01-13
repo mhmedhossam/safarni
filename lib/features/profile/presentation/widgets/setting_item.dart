@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:gap/gap.dart';
 
 class SettingsItem extends StatelessWidget {
   final String title;
@@ -40,7 +41,7 @@ class SettingsItem extends StatelessWidget {
                       color: titleColor ?? Colors.black,
                     ),
                   ),
-                  const SizedBox(height: 4),
+                  const Gap(4),
                   Text(
                     subtitle,
                     style: TextStyle(
@@ -52,7 +53,7 @@ class SettingsItem extends StatelessWidget {
                 ],
               ),
             ),
-            const SizedBox(width: 8),
+            const Gap(8),
             Icon(Icons.chevron_right, color: Colors.grey.shade400, size: 24),
           ],
         ),

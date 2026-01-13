@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:gap/gap.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:round_8_mobile_safarni_team3/core/functions/validation.dart';
-import 'package:round_8_mobile_safarni_team3/core/utils/app_colors.dart';
-import 'package:round_8_mobile_safarni_team3/core/widgets/custom_button.dart';
-import 'package:round_8_mobile_safarni_team3/core/widgets/custom_text_form_field.dart';
-import 'package:round_8_mobile_safarni_team3/features/auth/presentation/controller/cubit/auth_cubit.dart';
-import 'package:round_8_mobile_safarni_team3/features/auth/presentation/widgets/build_requirments.dart';
+import 'package:safarni/core/functions/validation.dart';
+import 'package:safarni/core/utils/app_colors.dart';
+import 'package:safarni/core/widgets/custom_button.dart';
+import 'package:safarni/core/widgets/custom_text_form_field.dart';
+import 'package:safarni/features/auth/presentation/controller/cubit/auth_cubit.dart';
+import 'package:safarni/features/auth/presentation/widgets/build_requirments.dart';
 
 import '../../../../core/constants/navigation.dart';
 import '../../../../core/constants/routes.dart';
@@ -42,7 +43,7 @@ class _RegistreBodyState extends State<RegistreBody> {
       listener: (context, state) {
         if (state is AuthSuccess) {
           CustomSnackBar.showSuccess(context, state.message);
-          Navigation.push(context, Routes.verfiy, widget._emailController.text);
+          Navigation.push(context, Routes.verify, widget._emailController.text);
         }
         if (state is AuthFailure) {
           CustomSnackBar.showError(context, state.message);
@@ -56,7 +57,7 @@ class _RegistreBodyState extends State<RegistreBody> {
               "name",
               style: TextStyle(fontSize: 16, fontWeight: FontWeight.w500),
             ),
-            SizedBox(height: widget.height * 0.01),
+            Gap(widget.height * 0.01),
             CustomTextForm(
               controller: widget._nameController,
               hint: "kneeDue",
@@ -64,12 +65,12 @@ class _RegistreBodyState extends State<RegistreBody> {
               prefix: Icon(Icons.person, size: 33, color: AppColors.iconColor),
               validator: validName,
             ),
-            SizedBox(height: widget.height * 0.02),
+            Gap(widget.height * 0.01),
             Text(
               "Email",
               style: TextStyle(fontSize: 16, fontWeight: FontWeight.w500),
             ),
-            SizedBox(height: widget.height * 0.01),
+            Gap(widget.height * 0.01),
             CustomTextForm(
               controller: widget._emailController,
               hint: "kneeDue@untitledui.com",
@@ -77,12 +78,12 @@ class _RegistreBodyState extends State<RegistreBody> {
               prefix: Icon(Icons.email, size: 33, color: AppColors.iconColor),
               validator: validEmail,
             ),
-            SizedBox(height: widget.height * 0.02),
+            Gap(widget.height * 0.01),
             Text(
               "Password",
               style: TextStyle(fontSize: 16, fontWeight: FontWeight.w500),
             ),
-            SizedBox(height: widget.height * 0.01),
+            Gap(widget.height * 0.01),
             CustomTextForm(
               onChanged: (value) {
                 setState(() {});
@@ -98,21 +99,21 @@ class _RegistreBodyState extends State<RegistreBody> {
               ),
               validator: validatePassword,
             ),
-            SizedBox(height: 8),
+            Gap(8),
 
-            BuildRequirments(
+            BuildRequirements(
               text: "Must Be At Least 8 Characters",
-              isval: widget._passwordController.text.length >= 8,
+              isVal: widget._passwordController.text.length >= 8,
             ),
-            SizedBox(height: 8),
-            BuildRequirments(
+            Gap(8),
+            BuildRequirements(
               text: "Must Contain One Special Character",
-              isval: widget._passwordController.text.contains(
+              isVal: widget._passwordController.text.contains(
                 RegExp(r'[!@#$%^&*(),.?":{}|<>]'),
               ),
             ),
 
-            SizedBox(height: widget.height * 0.02),
+            Gap(widget.height * 0.02),
 
             CustomButton(
               title: state is AuthLoading ? "signing up...." : "Sign Up",

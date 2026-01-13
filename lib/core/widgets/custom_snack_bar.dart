@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:gap/gap.dart';
 
 class CustomSnackBar {
   static void show(
@@ -12,7 +13,7 @@ class CustomSnackBar {
         content: Row(
           children: [
             Icon(icon, color: Colors.white, size: 28),
-            const SizedBox(width: 12),
+            const Gap(12),
             Expanded(
               child: Text(
                 message,

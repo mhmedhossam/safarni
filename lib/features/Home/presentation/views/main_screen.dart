@@ -2,13 +2,13 @@ import 'package:circular_bottom_navigation/circular_bottom_navigation.dart';
 import 'package:circular_bottom_navigation/tab_item.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:round_8_mobile_safarni_team3/core/di/service_locator.dart';
-import 'package:round_8_mobile_safarni_team3/features/Home/domain/usecases/get_home_usecase.dart';
-import 'package:round_8_mobile_safarni_team3/features/Home/presentation/cubit/home_cubit/home_cubit.dart';
-import 'package:round_8_mobile_safarni_team3/features/Home/presentation/views/home_screen.dart';
-import 'package:round_8_mobile_safarni_team3/features/Home/presentation/views/internal_page.dart';
-import 'package:round_8_mobile_safarni_team3/features/favourite/presentation/screens/favorite_screen.dart';
-import 'package:round_8_mobile_safarni_team3/features/map/presentation/map_screen.dart';
+import 'package:safarni/core/di/service_locator.dart';
+import 'package:safarni/features/Home/domain/usecases/get_home_usecase.dart';
+import 'package:safarni/features/Home/presentation/cubit/home_cubit/home_cubit.dart';
+import 'package:safarni/features/Home/presentation/views/home_screen.dart';
+import 'package:safarni/features/Home/presentation/views/internal_page.dart';
+import 'package:safarni/features/favourite/presentation/screens/favorite_screen.dart';
+import 'package:safarni/features/map/presentation/map_screen.dart';
 
 class MainNavigationScreen extends StatefulWidget {
   const MainNavigationScreen({super.key});

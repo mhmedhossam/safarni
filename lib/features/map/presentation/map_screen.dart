@@ -27,7 +27,7 @@ class _MapScreenState extends State<MapScreen> {
   Future<void> getMyCurrentLocation() async {
     await LocationHelper.determinePosition();
     position = await Geolocator.getCurrentPosition();
-    Marker? currentLocationMarker;
+    // Marker? currentLocationMarker;
 
     setState(() {
       _mapController.move(

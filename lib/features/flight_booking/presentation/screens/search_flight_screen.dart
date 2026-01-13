@@ -1,13 +1,11 @@
-import 'dart:developer';
-
 import 'package:flutter/material.dart';
+import 'package:gap/gap.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:modal_progress_hud_nsn/modal_progress_hud_nsn.dart';
-import 'package:round_8_mobile_safarni_team3/core/utils/app_colors.dart';
-import 'package:round_8_mobile_safarni_team3/core/widgets/custom_date_picker.dart';
-import 'package:round_8_mobile_safarni_team3/features/flight_booking/presentation/cubit/flight_cubit.dart';
-import 'package:round_8_mobile_safarni_team3/features/flight_booking/presentation/cubit/flight_cubit.dart';
-import 'package:round_8_mobile_safarni_team3/features/flight_booking/presentation/widgets/flight_booking_widgets/flight_type_chips.dart';
+import 'package:safarni/core/utils/app_colors.dart';
+import 'package:safarni/core/widgets/custom_date_picker.dart';
+import 'package:safarni/features/flight_booking/presentation/cubit/flight_cubit.dart';
+import 'package:safarni/features/flight_booking/presentation/widgets/flight_booking_widgets/flight_type_chips.dart';
 
 import '../../../../core/constants/navigation.dart';
 import '../../../../core/constants/routes.dart';
@@ -94,7 +92,7 @@ class _SearchFlightScreenState extends State<SearchFlightScreen> {
           }
           if (state is SearchFlightFailure) {
             CustomSnackBar.showError(context, state.errorMessage);
-            log(state.errorMessage);
+            //log(state.errorMessage);
           }
         },
         builder: (context, state) {
@@ -105,12 +103,12 @@ class _SearchFlightScreenState extends State<SearchFlightScreen> {
                 mainAxisSize: MainAxisSize.min,
                 children: [
                   CircularProgressIndicator(color: AppColors.primaryColor),
-                  const SizedBox(height: 15),
+                  const Gap(15),
                   Text(
                     "Searching Flights...",
                     style: TextStyles.title.copyWith(
                       fontWeight: FontWeight.w600,
-                      color: AppColors.primaryColor
+                      color: AppColors.primaryColor,
                     ),
                   ),
                 ],
@@ -162,7 +160,7 @@ class _SearchFlightScreenState extends State<SearchFlightScreen> {
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               FlightTypeChips(),
-                              const SizedBox(height: 25),
+                              const Gap(25),
                               _buildLabel("Location"),
                               CustomTextForm(
                                 focusNode: _locationFocus,
@@ -172,7 +170,7 @@ class _SearchFlightScreenState extends State<SearchFlightScreen> {
                                 maxLength: 3,
                               ),
 
-                              const SizedBox(height: 15),
+                              const Gap(15),
                               _buildLabel("Destination"),
                               CustomTextForm(
                                 focusNode: _destinationFocus,
@@ -182,7 +180,7 @@ class _SearchFlightScreenState extends State<SearchFlightScreen> {
                                 maxLength: 3,
                               ),
 
-                              const SizedBox(height: 15),
+                              const Gap(15),
 
                               Row(
                                 children: [
@@ -205,7 +203,7 @@ class _SearchFlightScreenState extends State<SearchFlightScreen> {
                                       ],
                                     ),
                                   ),
-                                  const SizedBox(width: 15),
+                                  const Gap(15),
                                   Expanded(
                                     child: Column(
                                       crossAxisAlignment:
@@ -228,7 +226,7 @@ class _SearchFlightScreenState extends State<SearchFlightScreen> {
                                 ],
                               ),
 
-                              const SizedBox(height: 15),
+                              const Gap(15),
 
                               _buildLabel("Passenger"),
                               CustomDropdownField(

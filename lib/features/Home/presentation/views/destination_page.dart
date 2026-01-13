@@ -1,16 +1,16 @@
 import 'package:five_pointed_star/five_pointed_star.dart';
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
-import 'package:round_8_mobile_safarni_team3/core/utils/app_colors.dart';
-import 'package:round_8_mobile_safarni_team3/core/utils/text_styles.dart';
-import 'package:round_8_mobile_safarni_team3/core/widgets/custom_button.dart';
-import 'package:round_8_mobile_safarni_team3/features/Home/domain/entities/recommendation_entity.dart';
-import 'package:round_8_mobile_safarni_team3/features/Home/presentation/widgets/destination_widgets/custom_sliver_app_bar_home.dart';
-import 'package:round_8_mobile_safarni_team3/features/Home/presentation/widgets/destination_widgets/home_buttom_navigation_bar.dart';
-import 'package:round_8_mobile_safarni_team3/features/Home/presentation/widgets/destination_widgets/review_card_widget.dart';
-import 'package:round_8_mobile_safarni_team3/features/Home/presentation/widgets/destination_widgets/title_widget.dart';
-import 'package:round_8_mobile_safarni_team3/features/Home/presentation/widgets/destination_widgets/top_activaites_card_widget.dart';
-import 'package:round_8_mobile_safarni_team3/generated/assets.dart';
+import 'package:safarni/core/utils/app_colors.dart';
+import 'package:safarni/core/utils/text_styles.dart';
+import 'package:safarni/core/widgets/custom_button.dart';
+import 'package:safarni/features/Home/domain/entities/recommendation_entity.dart';
+import 'package:safarni/features/Home/presentation/widgets/destination_widgets/custom_sliver_app_bar_home.dart';
+import 'package:safarni/features/Home/presentation/widgets/destination_widgets/home_buttom_navigation_bar.dart';
+import 'package:safarni/features/Home/presentation/widgets/destination_widgets/review_card_widget.dart';
+import 'package:safarni/features/Home/presentation/widgets/destination_widgets/title_widget.dart';
+import 'package:safarni/features/Home/presentation/widgets/destination_widgets/top_activaites_card_widget.dart';
+import 'package:safarni/generated/assets.dart';
 
 class DestinationPage extends StatelessWidget {
   final RecommendationEntity recommendationEntity;

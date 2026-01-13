@@ -1,49 +1,47 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
-import 'package:round_8_mobile_safarni_team3/core/checkout_page/check_out_success.dart';
-import 'package:round_8_mobile_safarni_team3/core/checkout_page/checkout_page.dart';
-import 'package:round_8_mobile_safarni_team3/core/di/service_locator.dart';
-import 'package:round_8_mobile_safarni_team3/features/Home/domain/entities/recommendation_entity.dart';
-import 'package:round_8_mobile_safarni_team3/features/Home/domain/usecases/get_home_usecase.dart';
-import 'package:round_8_mobile_safarni_team3/features/Home/presentation/cubit/home_cubit/home_cubit.dart';
-import 'package:round_8_mobile_safarni_team3/features/Home/presentation/views/destination_page.dart';
-import 'package:round_8_mobile_safarni_team3/features/Home/presentation/views/internal_page.dart';
-import 'package:round_8_mobile_safarni_team3/features/Home/presentation/views/main_screen.dart';
-import 'package:round_8_mobile_safarni_team3/features/Hotal_Booking/data/model/HotelsAndRoomModels.dart';
-import 'package:round_8_mobile_safarni_team3/features/Hotal_Booking/data/model/HotelsModels/recommendation_models.dart';
-import 'package:round_8_mobile_safarni_team3/features/Hotal_Booking/data/model/Roos/rooms_models.dart';
-import 'package:round_8_mobile_safarni_team3/features/Hotal_Booking/presentation/View/Hotel_Rooms_View.dart';
-import 'package:round_8_mobile_safarni_team3/features/Hotal_Booking/presentation/View/Review_View.dart';
-import 'package:round_8_mobile_safarni_team3/features/Hotal_Booking/presentation/View/Rooms_Details_View.dart';
-import 'package:round_8_mobile_safarni_team3/features/Hotal_Booking/presentation/View/widget/custom_search_hotals.dart';
-import 'package:round_8_mobile_safarni_team3/features/car_booking/presentation/screens/car_booking_screen.dart';
-import 'package:round_8_mobile_safarni_team3/features/favourite/presentation/screens/favorite_screen.dart';
-import 'package:round_8_mobile_safarni_team3/features/flight_booking/data/model/search_flight_model.dart';
-import 'package:round_8_mobile_safarni_team3/features/flight_booking/presentation/screens/boarding_pass_screen.dart';
-import 'package:round_8_mobile_safarni_team3/features/flight_booking/presentation/screens/choose_seat_screen.dart';
-import 'package:round_8_mobile_safarni_team3/features/flight_booking/presentation/screens/search_flight_screen.dart';
-import 'package:round_8_mobile_safarni_team3/features/flight_booking/presentation/screens/select_flight_screen.dart';
-import 'package:round_8_mobile_safarni_team3/features/auth/presentation/ui_screens/forget_password.dart';
-import 'package:round_8_mobile_safarni_team3/features/auth/presentation/ui_screens/login_screen.dart';
-import 'package:round_8_mobile_safarni_team3/features/auth/presentation/ui_screens/sigin_up.dart';
-import 'package:round_8_mobile_safarni_team3/features/auth/presentation/ui_screens/verfiy_email.dart';
-import 'package:round_8_mobile_safarni_team3/features/intro/presentation/ui_screens/intro.dart';
-import 'package:round_8_mobile_safarni_team3/features/page_view.dart/presentation/ui_screens/on_boarding.dart';
-import 'package:round_8_mobile_safarni_team3/features/profile/presentation/controller/cubit/profile_cubit.dart';
-import 'package:round_8_mobile_safarni_team3/features/profile/presentation/ui_screen.dart/my_booking.dart';
-import 'package:round_8_mobile_safarni_team3/features/profile/presentation/ui_screen.dart/personal_info.dart';
-import 'package:round_8_mobile_safarni_team3/features/profile/presentation/ui_screen.dart/profile.dart';
-import 'package:round_8_mobile_safarni_team3/features/profile/presentation/ui_screen.dart/security_account.dart';
+import 'package:safarni/core/checkout_page/check_out_success.dart';
+import 'package:safarni/core/checkout_page/checkout_page.dart';
+import 'package:safarni/core/di/service_locator.dart';
+import 'package:safarni/features/Home/domain/entities/recommendation_entity.dart';
+import 'package:safarni/features/Home/domain/usecases/get_home_usecase.dart';
+import 'package:safarni/features/Home/presentation/cubit/home_cubit/home_cubit.dart';
+import 'package:safarni/features/Home/presentation/views/destination_page.dart';
+import 'package:safarni/features/Home/presentation/views/internal_page.dart';
+import 'package:safarni/features/Home/presentation/views/main_screen.dart';
+import 'package:safarni/features/Hotal_Booking/data/model/HotelsAndRoomModels.dart';
+import 'package:safarni/features/Hotal_Booking/data/model/HotelsModels/recommendation_models.dart';
+import 'package:safarni/features/Hotal_Booking/presentation/View/Hotel_Rooms_View.dart';
+import 'package:safarni/features/Hotal_Booking/presentation/View/Review_View.dart';
+import 'package:safarni/features/Hotal_Booking/presentation/View/Rooms_Details_View.dart';
+import 'package:safarni/features/Hotal_Booking/presentation/View/widget/custom_search_hotals.dart';
+import 'package:safarni/features/car_booking/presentation/screens/car_booking_screen.dart';
+import 'package:safarni/features/favourite/presentation/screens/favorite_screen.dart';
+import 'package:safarni/features/flight_booking/data/model/search_flight_model.dart';
+import 'package:safarni/features/flight_booking/presentation/screens/boarding_pass_screen.dart';
+import 'package:safarni/features/flight_booking/presentation/screens/choose_seat_screen.dart';
+import 'package:safarni/features/flight_booking/presentation/screens/search_flight_screen.dart';
+import 'package:safarni/features/flight_booking/presentation/screens/select_flight_screen.dart';
+import 'package:safarni/features/auth/presentation/ui_screens/forget_password.dart';
+import 'package:safarni/features/auth/presentation/ui_screens/login_screen.dart';
+import 'package:safarni/features/auth/presentation/ui_screens/sigin_up.dart';
+import 'package:safarni/features/auth/presentation/ui_screens/verfiy_email.dart';
+import 'package:safarni/features/intro/presentation/ui_screens/intro.dart';
+import 'package:safarni/features/page_view.dart/presentation/ui_screens/on_boarding.dart';
+import 'package:safarni/features/profile/presentation/controller/cubit/profile_cubit.dart';
+import 'package:safarni/features/profile/presentation/ui_screen.dart/my_booking.dart';
+import 'package:safarni/features/profile/presentation/ui_screen.dart/personal_info.dart';
+import 'package:safarni/features/profile/presentation/ui_screen.dart/profile.dart';
+import 'package:safarni/features/profile/presentation/ui_screen.dart/security_account.dart';
 
 import '../../features/auth/presentation/ui_screens/password_reseted.dart';
 import '../../features/auth/presentation/ui_screens/reset_password.dart';
 import '../../features/car_booking/presentation/screens/car_detail_screen.dart';
 import '../../features/car_booking/presentation/screens/car_map_screen.dart';
 import '../../features/flight_booking/presentation/cubit/flight_cubit.dart';
-import '../../features/flight_booking/selct_flight_model.dart';
 import '../../features/page_view.dart/presentation/ui_screens/welcom_screen.dart';
-import 'package:round_8_mobile_safarni_team3/features/Hotal_Booking/presentation/View/hotels_booking_view.dart';
-import 'package:round_8_mobile_safarni_team3/features/Hotal_Booking/presentation/View/checkin_andout_view.dart';
+import 'package:safarni/features/Hotal_Booking/presentation/View/hotels_booking_view.dart';
+import 'package:safarni/features/Hotal_Booking/presentation/View/checkin_andout_view.dart';
 import '../../main.dart';
 import 'package:get_it/get_it.dart';
 
@@ -62,7 +60,7 @@ class Routes {
   static String forgetPassword = "/forget_password_screen";
   static String resetPassword = "/reset_password_screen";
   static String passwordReseted = "/password_reseted_screen";
-  static String verfiy = "/verfiy_screen";
+  static String verify = "/verfiy_screen";
   static String profile = "/profile_screen";
   static String persoalInfo = "/personal_info_screen";
   static String security = "/security&account_screen";
@@ -189,7 +187,7 @@ class Routes {
           child: const InternalPage(),
         ),
       ),
-      GoRoute(path: welcom, builder: (context, state) => const Welcom()),
+      GoRoute(path: welcom, builder: (context, state) => const Welcome()),
       GoRoute(path: login, builder: (context, state) => const Login()),
       GoRoute(path: siginUp, builder: (context, state) => const SiginUp()),
       GoRoute(
@@ -198,7 +196,7 @@ class Routes {
       ),
 
       GoRoute(
-        path: verfiy,
+        path: verify,
         builder: (context, state) {
           final email = state.extra as String;
           return VerifyEmail(email: email);

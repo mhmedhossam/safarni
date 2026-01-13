@@ -1,10 +1,10 @@
 import 'package:carousel_slider_plus/carousel_slider_plus.dart';
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
-import 'package:round_8_mobile_safarni_team3/core/widgets/custom_button.dart';
-import 'package:round_8_mobile_safarni_team3/features/page_view.dart/presentation/widgets/on__boarding__header.dart';
-import 'package:round_8_mobile_safarni_team3/features/page_view.dart/presentation/widgets/smoth_indicator.dart';
-import 'package:round_8_mobile_safarni_team3/generated/assets.dart';
+import 'package:safarni/core/widgets/custom_button.dart';
+import 'package:safarni/features/page_view.dart/presentation/widgets/on__boarding__header.dart';
+import 'package:safarni/features/page_view.dart/presentation/widgets/smoth_indicator.dart';
+import 'package:safarni/generated/assets.dart';
 
 import '../../../../core/constants/navigation.dart';
 import '../../../../core/constants/routes.dart';
@@ -86,7 +86,7 @@ class _OnBoardingState extends State<OnBoarding> with TickerProviderStateMixin {
                   ),
                   //header
                   OnBoardingHeader(currentIndex: currentIndex),
-                  SizedBox(height: 20),
+                  Gap(20),
                   //sliders
                   Positioned(
                     top: height * 0.12,

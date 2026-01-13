@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:round_8_mobile_safarni_team3/core/utils/app_colors.dart';
+import 'package:gap/gap.dart';
+import 'package:safarni/core/utils/app_colors.dart';
 
 import '../../../../core/functions/format_time.dart';
 import '../../data/model/search_flight_model.dart';
@@ -48,7 +49,7 @@ class SelectFlightCard extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               _buildTimeColumn(
-                formatTime(model.schedule?.departureTime) ,
+                formatTime(model.schedule?.departureTime),
                 model.origin?.code ?? "---",
               ),
               Column(
@@ -61,22 +62,22 @@ class SelectFlightCard extends StatelessWidget {
                 ],
               ),
               _buildTimeColumn(
-                formatTime(model.schedule?.arrivalTime)   ,
+                formatTime(model.schedule?.arrivalTime),
                 model.destination?.code ?? "---",
               ),
             ],
           ),
           if (layoverText != null) ...[
-            const SizedBox(height: 4),
+            const Gap(4),
 
             Text(
               layoverText,
               style: TextStyle(color: Colors.grey[400], fontSize: 11),
             ),
           ],
-          SizedBox(height: 5),
+          Gap(5),
           Divider(color: Colors.grey[100], thickness: 1),
-          SizedBox(height: 5),
+          Gap(5),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [

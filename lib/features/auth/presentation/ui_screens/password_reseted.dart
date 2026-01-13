@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:gap/gap.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:round_8_mobile_safarni_team3/core/widgets/custom_button.dart';
+import 'package:safarni/core/widgets/custom_button.dart';
 import '../../../../core/constants/navigation.dart';
 import '../../../../core/constants/routes.dart';
 import '../../../../core/utils/app_colors.dart';
@@ -33,7 +34,7 @@ class _PasswordResetedState extends State<PasswordReseted> {
             child: Column(
               children: [
                 SvgPicture.asset(Assets.iconsCorrect),
-                SizedBox(height: height * 0.02),
+                Gap(height * 0.02),
 
                 Text(
                   "password reset",
@@ -43,7 +44,7 @@ class _PasswordResetedState extends State<PasswordReseted> {
                     fontWeight: FontWeight.w400,
                   ),
                 ),
-                SizedBox(height: height * 0.02),
+                Gap(height * 0.02),
                 Text(
                   textAlign: TextAlign.center,
                   "your password has been  successfully reset click below to log in magically.",
@@ -53,8 +54,8 @@ class _PasswordResetedState extends State<PasswordReseted> {
                     fontWeight: FontWeight.w400,
                   ),
                 ),
-                SizedBox(height: height * 0.03),
-                SizedBox(height: height * 0.02),
+                Gap(height * 0.03),
+                Gap(height * 0.02),
                 CustomButton(
                   title: "Log In",
                   onPressed: () {

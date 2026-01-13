@@ -1,10 +1,11 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
+import 'package:gap/gap.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:pin_code_fields/pin_code_fields.dart';
-import 'package:round_8_mobile_safarni_team3/core/widgets/custom_button.dart';
-import 'package:round_8_mobile_safarni_team3/core/widgets/custom_snack_bar.dart';
-import 'package:round_8_mobile_safarni_team3/features/auth/presentation/controller/cubit/auth_cubit.dart';
+import 'package:safarni/core/widgets/custom_button.dart';
+import 'package:safarni/core/widgets/custom_snack_bar.dart';
+import 'package:safarni/features/auth/presentation/controller/cubit/auth_cubit.dart';
 
 import '../../../../core/constants/navigation.dart';
 import '../../../../core/constants/routes.dart';
@@ -69,25 +70,25 @@ class _VerifyEmailState extends State<VerifyEmail> {
             padding: const EdgeInsets.all(24),
             child: Column(
               children: [
-                const SizedBox(height: 20),
+                const Gap(20),
                 const Icon(Icons.email_outlined, size: 40),
-                const SizedBox(height: 16),
+                const Gap(16),
                 const Text(
                   "Verify Code",
                   style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
                 ),
-                const SizedBox(height: 8),
+                const Gap(8),
                 Text(
                   "Enter the code sent to\n${widget.email}",
                   textAlign: TextAlign.center,
                   style: const TextStyle(color: AppColors.greyColor),
                 ),
-                const SizedBox(height: 24),
+                const Gap(24),
                 Text(
                   "00:${_seconds.toString().padLeft(2, '0')}",
                   style: const TextStyle(fontSize: 18),
                 ),
-                const SizedBox(height: 24),
+                const Gap(24),
                 PinCodeTextField(
                   length: 4,
                   appContext: context,
@@ -103,14 +104,14 @@ class _VerifyEmailState extends State<VerifyEmail> {
                     inactiveColor: AppColors.primaryColor,
                   ),
                 ),
-                const SizedBox(height: 20),
+                const Gap(20),
                 state is AuthLoading
                     ? const CircularProgressIndicator()
                     : CustomButton(
                         title: "Verify",
                         onPressed: () {
                           if (otpCode.length == 4) {
-                            context.read<AuthCubit>().verfiy(
+                            context.read<AuthCubit>().verify(
                               email: widget.email,
                               code: otpCode,
                             );

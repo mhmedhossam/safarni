@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:round_8_mobile_safarni_team3/core/constants/navigation.dart';
+import 'package:safarni/core/constants/navigation.dart';
 
 class CustomBackButton extends StatelessWidget {
   const CustomBackButton({super.key, this.onTap});

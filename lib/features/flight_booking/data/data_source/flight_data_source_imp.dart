@@ -1,8 +1,6 @@
-import 'dart:developer';
-
-import 'package:round_8_mobile_safarni_team3/core/services/api/network/dio_provider.dart';
-import 'package:round_8_mobile_safarni_team3/core/services/api/network/main_endpoint.dart';
-import 'package:round_8_mobile_safarni_team3/features/flight_booking/data/data_source/flight_data_source.dart';
+import 'package:safarni/core/services/api/network/dio_provider.dart';
+import 'package:safarni/core/services/api/network/main_endpoint.dart';
+import 'package:safarni/features/flight_booking/data/data_source/flight_data_source.dart';
 
 import '../../../../core/error/failure.dart';
 import '../../domain/entities/search_flight_param.dart';
@@ -14,9 +12,6 @@ class FlightDataSourceImp extends FlightDataSource {
   Future<SearchFlightModel> searchAvailableFlights({
     required SearchFlightParam param,
   }) async {
-    log(
-      "Searching flights with params: origin=${param.origin}, destination=${param.destination}, date=${param.date}",
-    );
     final response = await DioProvider.get(
       MainEndpoint.searchFlight,
       queryParameters: {
@@ -37,7 +32,7 @@ class FlightDataSourceImp extends FlightDataSource {
 
   @override
   Future<FlightSeatModel> getFlightSeats({required String flightId}) async {
-    log("Fetching seats for flight ID: $flightId");
+    //log("Fetching seats for flight ID: $flightId");
 
     try {
       final response = await DioProvider.get(
@@ -55,7 +50,7 @@ class FlightDataSourceImp extends FlightDataSource {
 
       return FlightSeatModel.fromJson(response.data!);
     } catch (e) {
-      log("Error fetching seats: $e");
+      //log("Error fetching seats: $e");
       throw ServerFailure(e.toString());
     }
   }

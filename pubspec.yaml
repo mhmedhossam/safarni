@@ -1,4 +1,4 @@
-name: round_8_mobile_safarni_team3
+name: safarni
 description: "A new Flutter project."
 # The following line prevents the package from being accidentally published to
 # pub.dev using `flutter pub publish`. This is preferred for private packages.
@@ -48,7 +48,7 @@ dependencies:
   latlong2: ^0.9.1
   logger: ^2.6.2
   mask_text_input_formatter: ^2.9.0
- 
+
   pin_code_fields: ^8.0.1
   shared_preferences: ^2.5.4
   sliver_app_bar_builder: ^1.1.0

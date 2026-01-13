@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:round_8_mobile_safarni_team3/core/utils/app_colors.dart';
-import 'package:round_8_mobile_safarni_team3/core/widgets/custom_text_form_field.dart';
+import 'package:gap/gap.dart';
+import 'package:safarni/core/utils/app_colors.dart';
+import 'package:safarni/core/widgets/custom_text_form_field.dart';
 
 class CustomPersonInfo extends StatelessWidget {
   const CustomPersonInfo({
@@ -28,7 +29,7 @@ class CustomPersonInfo extends StatelessWidget {
             ),
           ),
         ),
-        SizedBox(height: 5),
+        Gap(5),
         CustomTextForm(hint: hint, readonly: true, prefix: Icon(icon)),
       ],
     );
