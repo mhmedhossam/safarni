@@ -1,5 +1,6 @@
 import 'package:carousel_slider_plus/carousel_slider_plus.dart';
 import 'package:flutter/material.dart';
+import 'package:gap/gap.dart';
 import 'package:round_8_mobile_safarni_team3/core/widgets/custom_button.dart';
 import 'package:round_8_mobile_safarni_team3/features/page_view.dart/presentation/widgets/on__boarding__header.dart';
 import 'package:round_8_mobile_safarni_team3/features/page_view.dart/presentation/widgets/smoth_indicator.dart';
@@ -16,18 +17,59 @@ class OnBoarding extends StatefulWidget {
   State<OnBoarding> createState() => _OnBoardingState();
 }
 
-class _OnBoardingState extends State<OnBoarding> {
+class _OnBoardingState extends State<OnBoarding> with TickerProviderStateMixin {
+  late AnimationController _animationController;
+  late Animation<double> animation;
   final CarouselSliderController _pageViewConttroller =
       CarouselSliderController();
   int currentIndex = 0;
+  List<String> texts = [
+    "Find Your Dream Adventure\n Here",
+    "Easily save your favorite\n  journeys",
+    "Plan Your Dream Trip With\n TripMate",
+  ];
+  List<String> images = [Assets.imagesPv1, Assets.imagesPv2, Assets.imagesPv3];
+  @override
+  void initState() {
+    _animationController = AnimationController(
+      vsync: this,
+      duration: Duration(milliseconds: 800),
+    );
+    animation = CurvedAnimation(
+      parent: _animationController,
+      curve: Curves.easeIn,
+    );
+    _animationController.forward();
+    super.initState();
+  }
+
+  void _onPageChanged(int index) {
+    setState(() {
+      currentIndex = index;
+    });
+    _animationController
+      ..reset()
+      ..forward();
+    return;
+  }
+
+  void _onNextPressed() {
+    if (currentIndex != 2) {
+      _pageViewConttroller.nextPage();
+      _animationController.reset();
+    } else if (currentIndex == 2) {
+      Navigation.go(context, Routes.welcom);
+    }
+  }
+
+  @override
+  void dispose() {
+    _animationController.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
-    List<String> images = [
-      Assets.imagesPv1,
-      Assets.imagesPv2,
-      Assets.imagesPv3,
-    ];
     var width = MediaQuery.of(context).size.width;
     var height = MediaQuery.of(context).size.height;
     return Scaffold(
@@ -75,11 +117,8 @@ class _OnBoardingState extends State<OnBoarding> {
                             aspectRatio: 16 / 9,
                             autoPlayAnimationDuration: Duration(seconds: 2),
                             enlargeCenterPage: true,
-                            onPageChanged: (index, reason) {
-                              setState(() {
-                                currentIndex = index;
-                              });
-                            },
+                            onPageChanged: (index, reason) =>
+                                _onPageChanged(index),
                           ),
                         ),
                       ),
@@ -87,56 +126,30 @@ class _OnBoardingState extends State<OnBoarding> {
                   ),
                 ],
               ),
-              // SizedBox(height: 10),
               SmothIndicator(currentIndex: currentIndex, images: images),
-              SizedBox(height: 20),
-              currentIndex == 0
-                  ? Text(
-                      textAlign: TextAlign.center,
-                      "Find Your Dream Adventure\n Here",
-                      style: TextStyle(
-                        color: AppColors.blackColor,
-                        fontSize: 24,
-                        fontWeight: FontWeight.w600,
-                      ),
-                    )
-                  : currentIndex == 1
-                  ? Text(
-                      textAlign: TextAlign.center,
+              Gap(20),
 
-                      "Easily save your favorite\n  journeys",
-                      style: TextStyle(
-                        color: AppColors.blackColor,
-                        fontSize: 24,
-                        fontWeight: FontWeight.w600,
-                      ),
-                    )
-                  : Text(
-                      textAlign: TextAlign.center,
-                      "Plan Your Dream Trip With\n TripMate",
-                      style: TextStyle(
-                        color: AppColors.blackColor,
-                        fontSize: 24,
-                        fontWeight: FontWeight.w600,
-                      ),
-                    ),
-              SizedBox(height: 30),
+              FadeTransition(
+                opacity: animation,
+                child: Text(
+                  texts[currentIndex],
+                  textAlign: TextAlign.center,
+                  style: TextStyle(
+                    color: AppColors.blackColor,
+                    fontSize: 24,
+                    fontWeight: FontWeight.w600,
+                  ),
+                ),
+              ),
+
+              Gap(30),
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 16.0),
                 child: CustomButton(
                   backgroundColor: AppColors.primaryColor,
                   title: currentIndex != 2 ? "Next" : "Get Start",
                   onPressed: () {
-                    if (currentIndex != 2) {
-                      setState(() {
-                        currentIndex++;
-                      });
-                      _pageViewConttroller.nextPage();
-                    } else if (currentIndex == 2) {
-                      setState(() {
-                        Navigation.go(context, Routes.welcom);
-                      });
-                    }
+                    _onNextPressed();
                   },
                 ),
               ),

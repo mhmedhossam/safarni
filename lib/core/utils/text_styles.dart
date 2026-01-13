@@ -17,8 +17,9 @@ class TextStyles {
   );
   static final TextStyle header = const TextStyle(
     fontFamily: AppFonts.header,
-    fontSize: 24,
-    color: AppColors.blackColor,
+    fontSize: 30,
+
+    color: AppColors.primaryColor,
     fontWeight: FontWeight.bold,
   );
 }

@@ -24,11 +24,11 @@ class SharedPref {
     }
   }
 
-  static String getToken() {
-    return getData(ktoken) as String;
+  static String? getToken() {
+    return getData(ktoken) as String?;
   }
 
-  static Future<void> setToken(String token) async {
+  static Future<void> setToken(String? token) async {
     await setData(ktoken, token);
   }
 
