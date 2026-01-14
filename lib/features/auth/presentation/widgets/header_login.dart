@@ -29,14 +29,14 @@ class HeaderLogin extends StatelessWidget {
           Gap(height * 0.015),
           Text(
             textAlign: TextAlign.center,
-            "Welcome Again",
+            "Welcome",
             style: TextStyle(fontSize: 18, fontWeight: FontWeight.w600),
           ),
           Gap(height * 0.01),
 
           Text(
             textAlign: TextAlign.center,
-            "welcome back! please fill your Daata",
+            "welcome back! please fill your Data",
             style: TextStyle(fontSize: 14, fontWeight: FontWeight.w400),
           ),
         ],

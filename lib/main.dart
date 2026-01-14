@@ -5,7 +5,7 @@ import 'package:safarni/core/bloc/app_bloc_observer.dart';
 import 'package:safarni/core/constants/routes.dart';
 import 'package:safarni/core/di/service_locator.dart';
 import 'package:safarni/core/utils/app_theme.dart';
-import 'package:safarni/features/auth/presentation/controller/cubit/auth_cubit.dart';
+import 'package:safarni/features/auth/presentation/cubit/auth_cubit.dart';
 
 final GlobalKey<NavigatorState> navigatorKey = GlobalKey<NavigatorState>();
 

@@ -8,7 +8,7 @@ import '../../../../core/functions/validation.dart';
 import '../../../../core/utils/app_colors.dart';
 import '../../../../core/widgets/custom_snack_bar.dart';
 import '../../../../core/widgets/custom_text_form_field.dart';
-import '../controller/cubit/auth_cubit.dart';
+import '../cubit/auth_cubit.dart';
 
 class ForgetPassword extends StatefulWidget {
   const ForgetPassword({super.key});

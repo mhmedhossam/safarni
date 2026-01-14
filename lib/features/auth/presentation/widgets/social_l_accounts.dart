@@ -5,7 +5,12 @@ import 'package:safarni/core/utils/app_colors.dart';
 import 'package:safarni/generated/assets.dart';
 
 class SocialLAccounts extends StatelessWidget {
-  const SocialLAccounts({super.key, required this.height});
+  final Social social;
+  const SocialLAccounts({
+    super.key,
+    required this.height,
+    required this.social,
+  });
 
   final double height;
 
@@ -27,7 +32,9 @@ class SocialLAccounts extends StatelessWidget {
                 SvgPicture.asset(Assets.iconsGoogle, height: 24, width: 24),
                 Gap(10),
                 Text(
-                  "Sign in with Google",
+                  social == Social.signIn
+                      ? "Sign in with Google"
+                      : "Sign up with Google",
                   style: TextStyle(
                     color: AppColors.blackColor,
                     fontSize: 16,
@@ -54,7 +61,9 @@ class SocialLAccounts extends StatelessWidget {
                 SvgPicture.asset(Assets.iconsFacebook, height: 24, width: 24),
                 Gap(10),
                 Text(
-                  "Sign in with Facebook",
+                  social == Social.signIn
+                      ? "Sign in with facebook"
+                      : "Sign up with facebook",
                   style: TextStyle(
                     color: AppColors.blackColor,
                     fontSize: 16,
@@ -80,7 +89,10 @@ class SocialLAccounts extends StatelessWidget {
                 SvgPicture.asset(Assets.iconsApple, height: 24, width: 24),
                 Gap(10),
                 Text(
-                  "Sign in with Apple",
+                  social == Social.signIn
+                      ? "Sign in with Apple"
+                      : "Sign up with Apple",
+
                   style: TextStyle(
                     color: AppColors.blackColor,
                     fontSize: 16,
@@ -95,3 +107,5 @@ class SocialLAccounts extends StatelessWidget {
     );
   }
 }
+
+enum Social { signIn, signUp }

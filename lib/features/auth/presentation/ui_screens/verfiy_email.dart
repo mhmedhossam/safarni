@@ -5,7 +5,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:pin_code_fields/pin_code_fields.dart';
 import 'package:safarni/core/widgets/custom_button.dart';
 import 'package:safarni/core/widgets/custom_snack_bar.dart';
-import 'package:safarni/features/auth/presentation/controller/cubit/auth_cubit.dart';
+import 'package:safarni/features/auth/presentation/cubit/auth_cubit.dart';
 
 import '../../../../core/constants/navigation.dart';
 import '../../../../core/constants/routes.dart';

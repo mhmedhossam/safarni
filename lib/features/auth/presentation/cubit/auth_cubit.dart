@@ -1,24 +1,32 @@
 import 'package:bloc/bloc.dart';
+import 'package:flutter/material.dart';
 import 'package:meta/meta.dart';
+import 'package:safarni/core/services/local/shared_pref.dart';
 
-import '../../../domain/usecases/use_cases.dart';
+import '../../domain/usecases/use_cases.dart';
 
 part 'auth_state.dart';
 
 class AuthCubit extends Cubit<AuthState> {
   AuthCubit({
     required this.registerUseCase,
-    required this.verfiyUseCase,
+    required this.verifyUseCase,
     required this.loginUseCase,
     required this.logoutUseCase,
     required this.forgotPasswordUseCase,
   }) : super(AuthInitial());
   final RegisterUseCase registerUseCase;
-  final VerfiyUseCase verfiyUseCase;
+  final VerifyUseCase verifyUseCase;
   final LoginUseCase loginUseCase;
   final LogoutUseCase logoutUseCase;
-  final ForgotPasswordUseCase forgotPasswordUseCase;
 
+  final ForgotPasswordUseCase forgotPasswordUseCase;
+  bool x = false;
+  bool y = false;
+  final emailController = TextEditingController();
+  final nameController = TextEditingController();
+  final passwordController = TextEditingController();
+  final formKey = GlobalKey<FormState>();
   Future<void> register({
     required String name,
     required String email,
@@ -30,7 +38,7 @@ class AuthCubit extends Cubit<AuthState> {
       name: name,
       email: email,
       password: password,
-      passwordcon: conPassword,
+      passwordCon: conPassword,
     );
 
     data.fold(
@@ -41,11 +49,11 @@ class AuthCubit extends Cubit<AuthState> {
 
   Future<void> verify({required String email, required String code}) async {
     emit(AuthLoading());
-    final data = await verfiyUseCase.call(email: email, code: code);
+    final data = await verifyUseCase.call(email: email, code: code);
 
     data.fold(
       (failure) => emit(AuthFailure(message: failure.message)),
-      (data) => emit(AuthSuccess(message: "email verfied")),
+      (data) => emit(AuthSuccess(message: "email verified")),
     );
   }
 
@@ -60,26 +68,40 @@ class AuthCubit extends Cubit<AuthState> {
   }
 
   Future<void> logout() async {
-    //log('🎬 Cubit: Logout called');
     emit(AuthLoading());
 
     final result = await logoutUseCase.call();
 
     result.fold(
       (failure) {
-        //log('❌ Cubit: Logout failure - ${failure.message}');
         emit(AuthFailure(message: failure.message));
       },
       (_) {
-        //log('✅ Cubit: Logout success');
-        emit(AuthInitial());
+        SharedPref.delete(SharedPref.ktoken);
+        emit(AuthSuccess(message: "log out succeed"));
       },
     );
   }
 
   void reset() {
-    //log('🔄 Cubit: Reset to initial state');
     emit(AuthInitial());
+  }
+
+  void mustValidate(String? value) {
+    if (value != null && value.length >= 8) {
+      x = true;
+      emit(AuthMustValSuccess());
+    } else {
+      x = false;
+      emit(AuthMustValSuccess());
+    }
+    if (value != null && value.contains(RegExp(r'[!@#$%^&*(),.?":{}|<>]'))) {
+      y = true;
+      emit(AuthMustValSuccess());
+    } else {
+      y = false;
+      emit(AuthMustValSuccess());
+    }
   }
 
   Future<void> forgotPassword(String email) async {

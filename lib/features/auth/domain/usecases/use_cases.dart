@@ -13,13 +13,13 @@ class RegisterUseCase {
     required String name,
     required String email,
     required String password,
-    required String passwordcon,
+    required String passwordCon,
   }) {
     return repo.register(
       name: name,
       email: email,
       password: password,
-      passwordcon: passwordcon,
+      passwordcon: passwordCon,
     );
   }
 }
@@ -39,10 +39,10 @@ class LoginUseCase {
 }
 
 //==================>verfiy
-class VerfiyUseCase {
+class VerifyUseCase {
   final AuthRepo repo;
 
-  VerfiyUseCase({required this.repo});
+  VerifyUseCase({required this.repo});
 
   Future<Either<Failure, void>> call({
     required String email,

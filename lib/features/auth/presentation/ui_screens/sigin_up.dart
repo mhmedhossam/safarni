@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:gap/gap.dart';
+import 'package:safarni/core/widgets/custom_back_button.dart';
+import 'package:safarni/features/auth/presentation/cubit/auth_cubit.dart';
 import 'package:safarni/features/auth/presentation/widgets/footer.dart';
 import 'package:safarni/features/auth/presentation/widgets/header_login.dart';
 import 'package:safarni/features/auth/presentation/widgets/row_divider.dart';
@@ -9,37 +12,24 @@ import '../../../../core/constants/navigation.dart';
 import '../../../../core/constants/routes.dart';
 import '../widgets/registre_body.dart';
 
-class SiginUp extends StatefulWidget {
-  const SiginUp({super.key});
-
-  @override
-  State<SiginUp> createState() => _SiginUpState();
-}
-
-class _SiginUpState extends State<SiginUp> {
-  final TextEditingController _emailController = TextEditingController();
-  final TextEditingController _nameController = TextEditingController();
-  final TextEditingController _passwordController = TextEditingController();
-  final _formKey = GlobalKey<FormState>();
-
-  @override
-  void dispose() {
-    _emailController.dispose();
-    _nameController.dispose();
-    _passwordController.dispose();
-    super.dispose();
-  }
+class SignUp extends StatelessWidget {
+  const SignUp({super.key});
 
   @override
   Widget build(BuildContext context) {
+    var cubit = context.read<AuthCubit>();
     var height = MediaQuery.of(context).size.height;
     var width = MediaQuery.of(context).size.width;
     return Scaffold(
+      appBar: AppBar(
+        automaticallyImplyLeading: false,
+        leading: CustomBackButton(),
+      ),
       body: SafeArea(
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 16.0),
           child: Form(
-            key: _formKey,
+            key: cubit.formKey,
             child: SingleChildScrollView(
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.start,
@@ -49,23 +39,17 @@ class _SiginUpState extends State<SiginUp> {
 
                   HeaderLogin(width: width, height: height),
                   Gap(height * 0.01),
-                  RegistreBody(
-                    nameController: _nameController,
-                    height: height,
-                    emailController: _emailController,
-                    passwordController: _passwordController,
-                    formKey: _formKey,
-                  ),
+                  RegisterBody(height: height),
                   Gap(height * 0.03),
                   RowDivider(),
                   Gap(height * 0.02),
-                  SocialLAccounts(height: height),
+                  SocialLAccounts(height: height, social: Social.signUp),
                   Gap(height * 0.02),
                   Footer(
                     infoText: "Have an account",
                     text: "Log In",
                     onPressed: () {
-                      Navigation.go(context, Routes.login);
+                      Navigation.pushReplacement(context, Routes.login);
                     },
                   ),
                   Gap(height * 0.02),

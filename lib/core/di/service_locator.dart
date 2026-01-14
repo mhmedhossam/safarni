@@ -36,7 +36,7 @@ import 'package:safarni/features/auth/data/remote/remote_data_source_impl.dart';
 import 'package:safarni/features/auth/data/repo_impl/auth_repo_impl.dart';
 import 'package:safarni/features/auth/domain/repo/auth_repo.dart';
 import 'package:safarni/features/auth/domain/usecases/use_cases.dart';
-import 'package:safarni/features/auth/presentation/controller/cubit/auth_cubit.dart';
+import 'package:safarni/features/auth/presentation/cubit/auth_cubit.dart';
 
 import '../../features/auth/data/remote/remote_data_source.dart';
 
@@ -72,14 +72,14 @@ class ServiceLocator {
     gi.registerLazySingleton<AuthRepo>(() => AuthRepoImpl(remote: gi()));
     gi.registerLazySingleton<RemoteDataSource>(() => RemoteDataSourceImpl());
     gi.registerLazySingleton(() => RegisterUseCase(repo: gi()));
-    gi.registerLazySingleton(() => VerfiyUseCase(repo: gi()));
+    gi.registerLazySingleton(() => VerifyUseCase(repo: gi()));
     gi.registerLazySingleton(() => LoginUseCase(repository: gi()));
     gi.registerLazySingleton(() => LogoutUseCase(repo: gi()));
     gi.registerLazySingleton(() => ForgotPasswordUseCase(gi()));
     gi.registerLazySingleton(
       () => AuthCubit(
         registerUseCase: gi(),
-        verfiyUseCase: gi(),
+        verifyUseCase: gi(),
         loginUseCase: gi(),
         logoutUseCase: gi(),
         forgotPasswordUseCase: gi(),

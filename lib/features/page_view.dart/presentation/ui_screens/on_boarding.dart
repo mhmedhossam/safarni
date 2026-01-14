@@ -65,6 +65,7 @@ class _OnBoardingState extends State<OnBoarding> with TickerProviderStateMixin {
   @override
   void dispose() {
     _animationController.dispose();
+
     super.dispose();
   }
 
@@ -114,6 +115,8 @@ class _OnBoardingState extends State<OnBoarding> with TickerProviderStateMixin {
                           options: CarouselOptions(
                             enlargeFactor: 0.4,
                             height: height * 0.50,
+                            autoPlay: currentIndex < 2 ? true : false,
+
                             aspectRatio: 16 / 9,
                             autoPlayAnimationDuration: Duration(seconds: 2),
                             enlargeCenterPage: true,

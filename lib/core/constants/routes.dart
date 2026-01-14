@@ -189,7 +189,7 @@ class Routes {
       ),
       GoRoute(path: welcom, builder: (context, state) => const Welcome()),
       GoRoute(path: login, builder: (context, state) => const Login()),
-      GoRoute(path: siginUp, builder: (context, state) => const SiginUp()),
+      GoRoute(path: siginUp, builder: (context, state) => const SignUp()),
       GoRoute(
         path: mybookingScreen,
         builder: (context, state) => const MyBookingView(),
