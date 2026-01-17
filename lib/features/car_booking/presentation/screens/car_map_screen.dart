@@ -57,87 +57,90 @@ class _CarMapScreenState extends State<CarMapScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Stack(
-        children: [
-          FlutterMap(
-            mapController: _mapController,
-            options: const MapOptions(
-              initialCenter: LatLng(37.7570, -122.4194),
-              initialZoom: 15.0,
-            ),
-            children: [
-              TileLayer(
-                urlTemplate: "https://tile.openstreetmap.org/{z}/{x}/{y}.png",
+    return SafeArea(
+      top: false,
+      child: Scaffold(
+        body: Stack(
+          children: [
+            FlutterMap(
+              mapController: _mapController,
+              options: const MapOptions(
+                initialCenter: LatLng(37.7570, -122.4194),
+                initialZoom: 15.0,
               ),
-              PolylineLayer(
-                polylines: [
-                  Polyline(
-                    points: staticPoints,
-                    color: Colors.orange,
-                    strokeWidth: 4,
-                  ),
-                ],
-              ),
-              MarkerLayer(
-                markers: [
-                  Marker(
-                    point: staticPoints.first,
-                    width: 40,
-                    height: 40,
-                    child: const Icon(
-                      Icons.location_on,
-                      color: Colors.orange,
-                      size: 30,
-                    ),
-                  ),
-                  ...markers,
-                ],
-              ),
-            ],
-          ),
-
-          Positioned(
-            top: 50,
-            left: 20,
-            child: CircleAvatar(
-              backgroundColor: Colors.white,
-              child: IconButton(
-                icon: const Icon(
-                  Icons.arrow_back_ios_new,
-                  color: Colors.black,
-                  size: 18,
+              children: [
+                TileLayer(
+                  urlTemplate: "https://tile.openstreetmap.org/{z}/{x}/{y}.png",
                 ),
-                onPressed: () => Navigator.pop(context),
+                PolylineLayer(
+                  polylines: [
+                    Polyline(
+                      points: staticPoints,
+                      color: Colors.orange,
+                      strokeWidth: 4,
+                    ),
+                  ],
+                ),
+                MarkerLayer(
+                  markers: [
+                    Marker(
+                      point: staticPoints.first,
+                      width: 40,
+                      height: 40,
+                      child: const Icon(
+                        Icons.location_on,
+                        color: Colors.orange,
+                        size: 30,
+                      ),
+                    ),
+                    ...markers,
+                  ],
+                ),
+              ],
+            ),
+
+            Positioned(
+              top: 50,
+              left: 20,
+              child: CircleAvatar(
+                backgroundColor: Colors.white,
+                child: IconButton(
+                  icon: const Icon(
+                    Icons.arrow_back_ios_new,
+                    color: Colors.black,
+                    size: 18,
+                  ),
+                  onPressed: () => Navigator.pop(context),
+                ),
               ),
             ),
-          ),
 
-          Positioned(
-            top: 50,
-            right: 20,
-            child: CircleAvatar(
-              radius: 25,
-              backgroundImage: AssetImage(Assets.imagesUserAvatar),
-            ),
-          ),
-
-          Positioned(
-            top: 120,
-            right: 20,
-            child: CircleAvatar(
-              backgroundColor: Colors.white,
-              child: IconButton(
-                icon: const Icon(Icons.my_location, color: Colors.grey),
-                onPressed: () {
-                  getMyCurrentLocation();
-                },
+            Positioned(
+              top: 50,
+              right: 20,
+              child: CircleAvatar(
+                radius: 25,
+                backgroundImage: AssetImage(Assets.imagesUserAvatar),
               ),
             ),
-          ),
 
-          Positioned(bottom: 20, left: 15, right: 15, child: MapCardDetail()),
-        ],
+            Positioned(
+              top: 120,
+              right: 20,
+              child: CircleAvatar(
+                backgroundColor: Colors.white,
+                child: IconButton(
+                  icon: const Icon(Icons.my_location, color: Colors.grey),
+                  onPressed: () {
+                    getMyCurrentLocation();
+                  },
+                ),
+              ),
+            ),
+
+            Positioned(bottom: 20, left: 15, right: 15, child: MapCardDetail()),
+          ],
+        ),
       ),
     );
   }

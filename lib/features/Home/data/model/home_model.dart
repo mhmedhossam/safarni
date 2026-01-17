@@ -10,6 +10,7 @@ class HomeModel extends HomeEntity {
   });
 
   factory HomeModel.fromJson(dynamic json) {
+    print("hamadarrrrr"); //----
     return HomeModel(
       categories: (json["categories"] as List<dynamic>).map((e) {
         return CategoryModel.fromJson(e as Map<String, dynamic>);

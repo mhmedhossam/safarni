@@ -6,10 +6,12 @@ import 'package:safarni/core/constants/navigation.dart';
 import 'package:safarni/core/constants/routes.dart';
 import 'package:safarni/core/utils/app_colors.dart';
 import 'package:safarni/core/utils/text_styles.dart';
+import 'package:safarni/core/widgets/custom_button.dart';
 import 'package:safarni/core/widgets/custom_text_form_field.dart';
 import 'package:safarni/features/Home/presentation/cubit/home_cubit/home_cubit.dart';
 import 'package:safarni/features/Home/presentation/cubit/home_cubit/home_states.dart';
 import 'package:safarni/features/Home/domain/entities/recommendation_entity.dart';
+import 'package:safarni/features/auth/presentation/cubit/auth_cubit.dart';
 import 'package:safarni/generated/assets.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -169,7 +171,7 @@ class HomeScreen extends StatelessWidget {
 
 class _CategoryItem extends StatelessWidget {
   final IconData icon;
-  final String label;
+  final String? label;
   final VoidCallback onTap;
   const _CategoryItem({
     required this.icon,
@@ -193,7 +195,7 @@ class _CategoryItem extends StatelessWidget {
           ),
           Gap(8),
           Text(
-            label,
+            label ?? "",
             style: const TextStyle(
               fontSize: 16,
               fontWeight: FontWeight.bold,
@@ -399,7 +401,11 @@ class _VerticalTourCard extends StatelessWidget {
                     Gap(5),
                     Text(
                       recommendationEntity.title ?? "",
-                      style: TextStyle(fontWeight: FontWeight.bold),
+                      maxLines: 1,
+                      style: TextStyle(
+                        fontWeight: FontWeight.bold,
+                        overflow: TextOverflow.ellipsis,
+                      ),
                     ),
                     Gap(5),
                     RichText(

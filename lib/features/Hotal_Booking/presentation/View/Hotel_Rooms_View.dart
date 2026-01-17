@@ -21,78 +21,81 @@ class HotelRoomsView extends StatelessWidget {
       create: (context) =>
           HotelsRoomsCubit(ServiceLocator.gi<HotelsRoomUsecase>())
             ..fetchRoomsHotels(hotelId: hotelsmodels.id!),
-      child: Scaffold(
-        appBar: AppBar(
-          leading: IconButton(
-            icon: const Icon(
-              Icons.arrow_back_ios_new_rounded,
-              color: Colors.black,
+      child: SafeArea(
+        top: false,
+        child: Scaffold(
+          appBar: AppBar(
+            leading: IconButton(
+              icon: const Icon(
+                Icons.arrow_back_ios_new_rounded,
+                color: Colors.black,
+              ),
+              onPressed: () {
+                Navigator.pop(context);
+              },
             ),
-            onPressed: () {
-              Navigator.pop(context);
-            },
           ),
-        ),
-        body: Padding(
-          padding: const EdgeInsets.all(12),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              //  CustomSearchHotals(),
-              //    Gap(  18),
-              Text(
-                'Available Rooms ',
-                style: TextStyles.details.copyWith(
-                  fontSize: 18,
-                  fontWeight: FontWeight.w500,
-                  color: Color(0xFF111928),
+          body: Padding(
+            padding: const EdgeInsets.all(12),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                //  CustomSearchHotals(),
+                //    Gap(  18),
+                Text(
+                  'Available Rooms ',
+                  style: TextStyles.details.copyWith(
+                    fontSize: 18,
+                    fontWeight: FontWeight.w500,
+                    color: Color(0xFF111928),
+                  ),
                 ),
-              ),
-              Gap(8),
-              BlocBuilder<HotelsRoomsCubit, HotelsRoomsState>(
-                builder: (context, state) {
-                  if (state is HotelsRoomsSuccess) {
-                    return Expanded(
-                      child: GridView.builder(
-                        gridDelegate:
-                            const SliverGridDelegateWithFixedCrossAxisCount(
-                              crossAxisCount: 2,
-                              crossAxisSpacing: 12,
-                              mainAxisSpacing: 2,
-                              childAspectRatio: 0.82,
-                            ),
-                        itemCount: state.rooms.length,
-                        itemBuilder: (context, index) {
-                          HotelsandroomModels hotelandRooms =
-                              HotelsandroomModels(
-                                hotelsModels: hotelsmodels,
-                                roomsModels: state.rooms[index],
-                              );
-                          return RoomCard(
-                            room: state.rooms[index],
-                            onTap: () {
-                              GoRouter.of(context).push(
-                                Routes.rooomsDetailsScreen,
-                                extra: hotelandRooms,
-                              );
-                            },
-                          );
-                        },
-                      ),
-                    );
-                  } else if (state is HotelsRoomsFailure) {
-                    return Center(
-                      child: Text(
-                        state.errorMessage,
-                        style: TextStyles.details,
-                      ),
-                    );
-                  } else {
-                    return const Center(child: CircularProgressIndicator());
-                  }
-                },
-              ),
-            ],
+                Gap(8),
+                BlocBuilder<HotelsRoomsCubit, HotelsRoomsState>(
+                  builder: (context, state) {
+                    if (state is HotelsRoomsSuccess) {
+                      return Expanded(
+                        child: GridView.builder(
+                          gridDelegate:
+                              const SliverGridDelegateWithFixedCrossAxisCount(
+                                crossAxisCount: 2,
+                                crossAxisSpacing: 12,
+                                mainAxisSpacing: 2,
+                                childAspectRatio: 0.82,
+                              ),
+                          itemCount: state.rooms.length,
+                          itemBuilder: (context, index) {
+                            HotelsandroomModels hotelandRooms =
+                                HotelsandroomModels(
+                                  hotelsModels: hotelsmodels,
+                                  roomsModels: state.rooms[index],
+                                );
+                            return RoomCard(
+                              room: state.rooms[index],
+                              onTap: () {
+                                GoRouter.of(context).push(
+                                  Routes.rooomsDetailsScreen,
+                                  extra: hotelandRooms,
+                                );
+                              },
+                            );
+                          },
+                        ),
+                      );
+                    } else if (state is HotelsRoomsFailure) {
+                      return Center(
+                        child: Text(
+                          state.errorMessage,
+                          style: TextStyles.details,
+                        ),
+                      );
+                    } else {
+                      return const Center(child: CircularProgressIndicator());
+                    }
+                  },
+                ),
+              ],
+            ),
           ),
         ),
       ),

@@ -26,107 +26,110 @@ class _SeatSelectionScreenState extends State<SeatSelectionScreen> {
   double totalPrice = 0;
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: Colors.white,
-      appBar: CustomAppBar(title: "choose Seats"),
-      body: BlocBuilder<FlightCubit, FlightState>(
-        builder: (context, state) {
-          if (state is FlightSeatsLoading) {
-            return const Center(child: CircularProgressIndicator());
-          } else if (state is FlightSeatsFailure) {
-            return Center(
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [Text("Error: ${state.errorMessage}")],
-              ),
-            );
-          } else if (state is FlightSeatsSuccess) {
-            final seats = state.flightSeatModel.data?.seatsByClass;
+    return SafeArea(
+      top: false,
+      child: Scaffold(
+        backgroundColor: Colors.white,
+        appBar: CustomAppBar(title: "choose Seats"),
+        body: BlocBuilder<FlightCubit, FlightState>(
+          builder: (context, state) {
+            if (state is FlightSeatsLoading) {
+              return const Center(child: CircularProgressIndicator());
+            } else if (state is FlightSeatsFailure) {
+              return Center(
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [Text("Error: ${state.errorMessage}")],
+                ),
+              );
+            } else if (state is FlightSeatsSuccess) {
+              final seats = state.flightSeatModel.data?.seatsByClass;
 
-            return Padding(
-              padding: const EdgeInsets.all(20.0),
-              child: Column(
-                children: [
-                  const Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceAround,
-                    children: [
-                      LegendItem(
-                        color: AppColors.primaryColor,
-                        text: "Available",
-                      ),
-                      LegendItem(
-                        color: AppColors.brightGreen,
-                        text: "Selected",
-                      ),
-                      LegendItem(
-                        color: AppColors.darkGrey,
-                        text: "Locked/Booked",
-                      ),
-                    ],
-                  ),
-                  const Gap(40),
-                  Expanded(
-                    child: SingleChildScrollView(
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Column(
-                            children: [
-                              Padding(
-                                padding: const EdgeInsets.symmetric(
-                                  vertical: 5,
+              return Padding(
+                padding: const EdgeInsets.all(20.0),
+                child: Column(
+                  children: [
+                    const Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceAround,
+                      children: [
+                        LegendItem(
+                          color: AppColors.primaryColor,
+                          text: "Available",
+                        ),
+                        LegendItem(
+                          color: AppColors.brightGreen,
+                          text: "Selected",
+                        ),
+                        LegendItem(
+                          color: AppColors.darkGrey,
+                          text: "Locked/Booked",
+                        ),
+                      ],
+                    ),
+                    const Gap(40),
+                    Expanded(
+                      child: SingleChildScrollView(
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Column(
+                              children: [
+                                Padding(
+                                  padding: const EdgeInsets.symmetric(
+                                    vertical: 5,
+                                  ),
+                                  child: Text(
+                                    "Business Class",
+                                    style: TextStyles.title,
+                                  ),
                                 ),
-                                child: Text(
-                                  "Business Class",
-                                  style: TextStyles.title,
-                                ),
-                              ),
-                              buildSeatGrid(seats!.business!, 5, 0),
-                            ],
-                          ),
+                                buildSeatGrid(seats!.business!, 5, 0),
+                              ],
+                            ),
 
-                          const Gap(50),
+                            const Gap(50),
 
-                          Column(
-                            children: [
-                              Padding(
-                                padding: const EdgeInsets.symmetric(
-                                  vertical: 5,
+                            Column(
+                              children: [
+                                Padding(
+                                  padding: const EdgeInsets.symmetric(
+                                    vertical: 5,
+                                  ),
+                                  child: Text(
+                                    "Economy Class",
+                                    style: TextStyles.title,
+                                  ),
                                 ),
-                                child: Text(
-                                  "Economy Class",
-                                  style: TextStyles.title,
+                                buildSeatGrid(
+                                  seats.economy!,
+                                  5,
+                                  seats.business!.length,
                                 ),
-                              ),
-                              buildSeatGrid(
-                                seats.economy!,
-                                5,
-                                seats.business!.length,
-                              ),
-                            ],
-                          ),
-                        ],
+                              ],
+                            ),
+                          ],
+                        ),
                       ),
                     ),
-                  ),
 
-                  PriceSection(
-                    selectedSeats: selectedSeatsObjects,
-                    totalPrice: totalPrice,
-                    onContinue: () {
-                      Navigation.push(context, Routes.boardingPassScreen, {
-                        'flight': widget.flight,
-                        'selectedSeats': selectedSeatsObjects,
-                        'totalPrice': totalPrice,
-                      });
-                    },
-                  ),
-                ],
-              ),
-            );
-          }
-          return const SizedBox.shrink();
-        },
+                    PriceSection(
+                      selectedSeats: selectedSeatsObjects,
+                      totalPrice: totalPrice,
+                      onContinue: () {
+                        Navigation.push(context, Routes.boardingPassScreen, {
+                          'flight': widget.flight,
+                          'selectedSeats': selectedSeatsObjects,
+                          'totalPrice': totalPrice,
+                        });
+                      },
+                    ),
+                  ],
+                ),
+              );
+            }
+            return const SizedBox.shrink();
+          },
+        ),
       ),
     );
   }

@@ -1,8 +1,8 @@
 class CategoryEntity {
-  final int id;
-  final String name;
-  final String slug;
-  final String iconUrl;
+  final int? id;
+  final String? name;
+  final String? slug;
+  final String? iconUrl;
   CategoryEntity({
     required this.iconUrl,
     required this.id,

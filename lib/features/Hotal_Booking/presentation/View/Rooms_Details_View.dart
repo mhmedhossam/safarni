@@ -40,187 +40,190 @@ class _RoomsDetailsViewState extends State<RoomsDetailsView> {
                 ..fetchReviewRoom(hotelId: widget.rooms.roomsModels.hotelId!),
         ),
       ],
-      child: Scaffold(
-        body: CustomScrollView(
-          slivers: [
-            // صورة الفندق العلوية
-            CustomSliverAppBar(heigthmodels: false),
-            SliverToBoxAdapter(
-              child: Padding(
-                padding: const EdgeInsets.all(16),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    const Gap(8),
-
-                    Row(
-                      children: [
-                        Container(
-                          decoration: BoxDecoration(
-                            color: Color(0xFFEBF5FF),
-                            borderRadius: BorderRadius.circular(20),
-                          ),
-                          child: Row(
-                            children: [
-                              Text(
-                                "${widget.rooms.hotelsModels.discount}% off",
-                                style: TextStyles.details.copyWith(
-                                  fontSize: 12,
-                                  color: Color(0xFF3A86FF),
-                                ),
-                              ),
-                            ],
-                          ),
-                        ),
-                        Spacer(),
-                        const Icon(Icons.star, size: 14, color: Colors.amber),
-
-                        const Gap(4),
-                        Text(
-                          widget.rooms.hotelsModels.rating.toString(),
-                          style: TextStyles.details.copyWith(fontSize: 13),
-                        ),
-                        Gap(4),
-                        Text(
-                          '(356 reviews)',
-                          style: TextStyles.details.copyWith(fontSize: 13),
-                        ),
-                      ],
-                    ),
-                    const Gap(8),
-                    Text(
-                      widget.rooms.hotelsModels.name.toString(),
-                      style: TextStyles.details.copyWith(
-                        fontSize: 20,
-                        fontWeight: FontWeight.w500,
-                        color: Color(0xFF111928),
-                      ),
-                    ),
-                    const Gap(4),
-                    Text(
-                      widget.rooms.hotelsModels.address.toString(),
-                      style: TextStyles.details.copyWith(
-                        fontSize: 16,
-                        fontWeight: FontWeight.w400,
-
-                        color: Colors.grey,
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-            ),
-
-            SliverList(
-              delegate: SliverChildListDelegate([
-                // Three Tabs Bar
-                Padding(
-                  padding: const EdgeInsets.all(12),
-                  child: Row(
-                    //mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      child: SafeArea(
+        top: false,
+        child: Scaffold(
+          body: CustomScrollView(
+            slivers: [
+              // صورة الفندق العلوية
+              CustomSliverAppBar(heigthmodels: false),
+              SliverToBoxAdapter(
+                child: Padding(
+                  padding: const EdgeInsets.all(16),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      _buildTab("About", 0),
-                      Spacer(),
-                      _buildTab("Gallery", 1),
-                      Spacer(),
+                      const Gap(8),
 
-                      _buildTab("Review", 2),
+                      Row(
+                        children: [
+                          Container(
+                            decoration: BoxDecoration(
+                              color: Color(0xFFEBF5FF),
+                              borderRadius: BorderRadius.circular(20),
+                            ),
+                            child: Row(
+                              children: [
+                                Text(
+                                  "${widget.rooms.hotelsModels.discount}% off",
+                                  style: TextStyles.details.copyWith(
+                                    fontSize: 12,
+                                    color: Color(0xFF3A86FF),
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                          Spacer(),
+                          const Icon(Icons.star, size: 14, color: Colors.amber),
+
+                          const Gap(4),
+                          Text(
+                            widget.rooms.hotelsModels.rating.toString(),
+                            style: TextStyles.details.copyWith(fontSize: 13),
+                          ),
+                          Gap(4),
+                          Text(
+                            '(356 reviews)',
+                            style: TextStyles.details.copyWith(fontSize: 13),
+                          ),
+                        ],
+                      ),
+                      const Gap(8),
+                      Text(
+                        widget.rooms.hotelsModels.name.toString(),
+                        style: TextStyles.details.copyWith(
+                          fontSize: 20,
+                          fontWeight: FontWeight.w500,
+                          color: Color(0xFF111928),
+                        ),
+                      ),
+                      const Gap(4),
+                      Text(
+                        widget.rooms.hotelsModels.address.toString(),
+                        style: TextStyles.details.copyWith(
+                          fontSize: 16,
+                          fontWeight: FontWeight.w400,
+
+                          color: Colors.grey,
+                        ),
+                      ),
                     ],
                   ),
                 ),
+              ),
 
-                // Content based on selected tab
-                Padding(
-                  padding: const EdgeInsets.all(16),
-                  child: selectedTab == 0
-                      ? _buildAboutContent(room: widget.rooms.roomsModels)
-                      : selectedTab == 1
-                      ? GalleryContent()
-                      : ReviewContent(),
-                ),
+              SliverList(
+                delegate: SliverChildListDelegate([
+                  // Three Tabs Bar
+                  Padding(
+                    padding: const EdgeInsets.all(12),
+                    child: Row(
+                      //mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        _buildTab("About", 0),
+                        Spacer(),
+                        _buildTab("Gallery", 1),
+                        Spacer(),
 
-                const Gap(100),
-              ]),
-            ),
-          ],
-        ),
-        bottomNavigationBar: Container(
-          height: 125,
-          padding: const EdgeInsets.only(left: 16, right: 16),
-          decoration: BoxDecoration(
-            color: Colors.white,
-            boxShadow: [
-              BoxShadow(
-                color: Colors.grey.withValues(alpha: 0.2),
-                spreadRadius: 1,
-                blurRadius: 5,
-                offset: const Offset(0, -2),
+                        _buildTab("Review", 2),
+                      ],
+                    ),
+                  ),
+
+                  // Content based on selected tab
+                  Padding(
+                    padding: const EdgeInsets.all(16),
+                    child: selectedTab == 0
+                        ? _buildAboutContent(room: widget.rooms.roomsModels)
+                        : selectedTab == 1
+                        ? GalleryContent()
+                        : ReviewContent(),
+                  ),
+
+                  const Gap(100),
+                ]),
               ),
             ],
           ),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Column(
-                // mainAxisSize: MainAxisSize.min,
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Gap(16),
-                  Text(
-                    'Total price',
-                    style: TextStyles.details.copyWith(
-                      fontSize: 16,
-                      fontWeight: FontWeight.w400,
-                      color: Color(0xFF111928),
+          bottomNavigationBar: Container(
+            height: 125,
+            padding: const EdgeInsets.only(left: 16, right: 16),
+            decoration: BoxDecoration(
+              color: Colors.white,
+              boxShadow: [
+                BoxShadow(
+                  color: Colors.grey.withValues(alpha: 0.2),
+                  spreadRadius: 1,
+                  blurRadius: 5,
+                  offset: const Offset(0, -2),
+                ),
+              ],
+            ),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Column(
+                  // mainAxisSize: MainAxisSize.min,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Gap(16),
+                    Text(
+                      'Total price',
+                      style: TextStyles.details.copyWith(
+                        fontSize: 16,
+                        fontWeight: FontWeight.w400,
+                        color: Color(0xFF111928),
+                      ),
+                    ),
+                    Gap(8),
+                    Row(
+                      children: [
+                        Text(
+                          '${widget.rooms.roomsModels.pricePerNight}',
+                          style: TextStyle(
+                            fontSize: 20,
+                            fontWeight: FontWeight.bold,
+                            color: Color(0xFF2E5CFF),
+                          ),
+                        ),
+                        Text(
+                          '/Night',
+                          style: TextStyle(
+                            fontSize: 15,
+                            fontWeight: FontWeight.bold,
+                            color: Color(0xFF6B7280),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ],
+                ),
+                ElevatedButton(
+                  onPressed: () {
+                    GoRouter.of(context).push(Routes.checkoutandinScreen);
+                  },
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: const Color(0xFF1E429F),
+                    padding: const EdgeInsets.symmetric(
+                      horizontal: 48,
+                      vertical: 16,
+                    ),
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(12),
                     ),
                   ),
-                  Gap(8),
-                  Row(
-                    children: [
-                      Text(
-                        '${widget.rooms.roomsModels.pricePerNight}',
-                        style: TextStyle(
-                          fontSize: 20,
-                          fontWeight: FontWeight.bold,
-                          color: Color(0xFF2E5CFF),
-                        ),
-                      ),
-                      Text(
-                        '/Night',
-                        style: TextStyle(
-                          fontSize: 15,
-                          fontWeight: FontWeight.bold,
-                          color: Color(0xFF6B7280),
-                        ),
-                      ),
-                    ],
-                  ),
-                ],
-              ),
-              ElevatedButton(
-                onPressed: () {
-                  GoRouter.of(context).push(Routes.checkoutandinScreen);
-                },
-                style: ElevatedButton.styleFrom(
-                  backgroundColor: const Color(0xFF1E429F),
-                  padding: const EdgeInsets.symmetric(
-                    horizontal: 48,
-                    vertical: 16,
-                  ),
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(12),
+                  child: Text(
+                    'Book Now',
+                    style: TextStyles.details.copyWith(
+                      fontSize: 16,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.white,
+                    ),
                   ),
                 ),
-                child: Text(
-                  'Book Now',
-                  style: TextStyles.details.copyWith(
-                    fontSize: 16,
-                    fontWeight: FontWeight.bold,
-                    color: Colors.white,
-                  ),
-                ),
-              ),
-            ],
+              ],
+            ),
           ),
         ),
       ),

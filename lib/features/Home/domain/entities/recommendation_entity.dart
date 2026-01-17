@@ -8,7 +8,7 @@ class RecommendationEntity {
   final String? startDate;
   final PriceEntity? price;
   final String? endDate;
-  final double? rating;
+  final dynamic rating;
   final String? thumbnail;
   final bool? isFeatured;
   const RecommendationEntity({

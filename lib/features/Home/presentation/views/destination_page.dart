@@ -57,11 +57,17 @@ class _DestinationBodyState extends State<DestinationBody> {
               children: [
                 Row(
                   children: [
-                    Text(
-                      widget.recommendationEntity.slug ?? "",
-                      style: TextStyles.details.copyWith(
-                        fontSize: 12,
-                        fontWeight: FontWeight.w600,
+                    SizedBox(
+                      width: 160,
+                      child: Text(
+                        widget.recommendationEntity.slug ?? "",
+                        maxLines: 1,
+                        overflow: TextOverflow.ellipsis,
+                        style: TextStyles.details.copyWith(
+                          fontSize: 12,
+
+                          fontWeight: FontWeight.w600,
+                        ),
                       ),
                     ),
                     Spacer(),

@@ -27,135 +27,142 @@ class _SelectFlightScreenState extends State<SelectFlightScreen> {
   Widget build(BuildContext context) {
     final height = MediaQuery.of(context).size.height;
     final bool isEmpty = widget.flights.isEmpty;
-    return Scaffold(
-      backgroundColor: AppColors.whiteColor,
-      body: Stack(
-        children: [
-          CustomScrollView(
-            slivers: [
-              SliverAppBar(
-                expandedHeight: MediaQuery.of(context).size.height * 0.3,
-                pinned: true,
-                floating: true,
-                stretch: true,
-                backgroundColor: AppColors.primaryColor,
-                leading: IconButton(
-                  icon: Icon(Icons.arrow_back_ios, color: AppColors.whiteColor),
-                  onPressed: () => Navigator.pop(context),
-                ),
-                flexibleSpace: FlexibleSpaceBar(
-                  centerTitle: true,
-                  title: Text(
-                    "Select Your Flight",
-                    style: TextStyles.title.copyWith(
+    return SafeArea(
+      top: false,
+
+      child: Scaffold(
+        backgroundColor: AppColors.whiteColor,
+        body: Stack(
+          children: [
+            CustomScrollView(
+              slivers: [
+                SliverAppBar(
+                  expandedHeight: MediaQuery.of(context).size.height * 0.3,
+                  pinned: true,
+                  floating: true,
+                  stretch: true,
+                  backgroundColor: AppColors.primaryColor,
+                  leading: IconButton(
+                    icon: Icon(
+                      Icons.arrow_back_ios,
                       color: AppColors.whiteColor,
-                      fontSize: 18,
-                      fontWeight: FontWeight.bold,
                     ),
+                    onPressed: () => Navigator.pop(context),
                   ),
-                  background: Image.asset(
-                    Assets.imagesFlight,
-                    fit: BoxFit.cover,
-                  ),
-                ),
-              ),
-
-              if (isEmpty)
-                SliverFillRemaining(
-                  hasScrollBody: false,
-                  child: _buildEmptyState(),
-                )
-              else ...[
-                SliverToBoxAdapter(
-                  child: Padding(
-                    padding: EdgeInsets.symmetric(horizontal: 20),
-                    child: Column(
-                      children: [
-                        Gap(20),
-                        Row(
-                          children: [
-                            Expanded(
-                              child: _buildDateInfo(
-                                "Dec 16th, 2025",
-                                Icons.calendar_today,
-                              ),
-                            ),
-                            Gap(15),
-                            Expanded(
-                              child: _buildDateInfo(
-                                "Jan 6th, 2025",
-                                Icons.person_outline,
-                              ),
-                            ),
-                          ],
-                        ),
-                      ],
+                  flexibleSpace: FlexibleSpaceBar(
+                    centerTitle: true,
+                    title: Text(
+                      "Select Your Flight",
+                      style: TextStyles.title.copyWith(
+                        color: AppColors.whiteColor,
+                        fontSize: 18,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                    background: Image.asset(
+                      Assets.imagesFlight,
+                      fit: BoxFit.cover,
                     ),
                   ),
                 ),
 
-                SliverPadding(
-                  padding: EdgeInsets.only(
-                    top: MediaQuery.of(context).size.height * 0.04,
-                    bottom: MediaQuery.of(context).size.height * 0.12,
-                  ),
-                  sliver: SliverFixedExtentList(
-                    itemExtent: height * 0.22,
-                    delegate: SliverChildBuilderDelegate(
-                      (context, index) {
-                        final isSelected = _selectedFlightIndex == index;
-                        final flight = widget.flights[index];
-                        return Padding(
-                          padding: EdgeInsets.symmetric(horizontal: 20),
-                          child: GestureDetector(
-                            onTap: () {
-                              setState(() {
-                                _selectedFlightIndex = index;
-                              });
-                            },
-                            child: SelectFlightCard(
-                              model: flight,
-                              isSelected: isSelected,
-                            ),
+                if (isEmpty)
+                  SliverFillRemaining(
+                    hasScrollBody: false,
+                    child: _buildEmptyState(),
+                  )
+                else ...[
+                  SliverToBoxAdapter(
+                    child: Padding(
+                      padding: EdgeInsets.symmetric(horizontal: 20),
+                      child: Column(
+                        children: [
+                          Gap(20),
+                          Row(
+                            children: [
+                              Expanded(
+                                child: _buildDateInfo(
+                                  "Dec 16th, 2025",
+                                  Icons.calendar_today,
+                                ),
+                              ),
+                              Gap(15),
+                              Expanded(
+                                child: _buildDateInfo(
+                                  "Jan 6th, 2025",
+                                  Icons.person_outline,
+                                ),
+                              ),
+                            ],
                           ),
-                        );
-                      },
-                      childCount: widget.flights.length,
-                      addAutomaticKeepAlives: true,
-                      addRepaintBoundaries: true,
+                        ],
+                      ),
                     ),
                   ),
-                ),
+
+                  SliverPadding(
+                    padding: EdgeInsets.only(
+                      top: MediaQuery.of(context).size.height * 0.04,
+                      bottom: MediaQuery.of(context).size.height * 0.12,
+                    ),
+                    sliver: SliverFixedExtentList(
+                      itemExtent: height * 0.22,
+                      delegate: SliverChildBuilderDelegate(
+                        (context, index) {
+                          final isSelected = _selectedFlightIndex == index;
+                          final flight = widget.flights[index];
+                          return Padding(
+                            padding: EdgeInsets.symmetric(horizontal: 20),
+                            child: GestureDetector(
+                              onTap: () {
+                                setState(() {
+                                  _selectedFlightIndex = index;
+                                });
+                              },
+                              child: SelectFlightCard(
+                                model: flight,
+                                isSelected: isSelected,
+                              ),
+                            ),
+                          );
+                        },
+                        childCount: widget.flights.length,
+                        addAutomaticKeepAlives: true,
+                        addRepaintBoundaries: true,
+                      ),
+                    ),
+                  ),
+                ],
               ],
-            ],
-          ),
-
-          if (!isEmpty)
-            Positioned(
-              bottom: height * 0.03,
-              left: 20,
-              right: 20,
-              child: CustomButton(
-                onPressed: () {
-                  if (_selectedFlightIndex != null) {
-                    final selectedFlight =
-                        widget.flights[_selectedFlightIndex!];
-
-                    Navigation.push(context, Routes.seatSelection, {
-                      'flight': selectedFlight,
-                      'flightId': selectedFlight.id,
-                    });
-                  } else {
-                    CustomSnackBar.showWarning(
-                      context,
-                      "Please select a flight first",
-                    );
-                  }
-                },
-                title: "Continue",
-              ),
             ),
-        ],
+
+            if (!isEmpty)
+              Positioned(
+                bottom: height * 0.03,
+                left: 20,
+                right: 20,
+                child: CustomButton(
+                  onPressed: () {
+                    if (_selectedFlightIndex != null) {
+                      final selectedFlight =
+                          widget.flights[_selectedFlightIndex!];
+
+                      Navigation.push(context, Routes.seatSelection, {
+                        'flight': selectedFlight,
+                        'flightId': selectedFlight.id,
+                      });
+                    } else {
+                      CustomSnackBar.showWarning(
+                        context,
+                        "Please select a flight first",
+                      );
+                    }
+                  },
+                  title: "Continue",
+                ),
+              ),
+          ],
+        ),
       ),
     );
   }
@@ -210,8 +217,10 @@ class _SelectFlightScreenState extends State<SelectFlightScreen> {
       child: Row(
         children: [
           Icon(icon, size: 18, color: Colors.grey[700]),
-          Gap(10),
-          Text(text, style: TextStyle(fontWeight: FontWeight.w500)),
+          Gap(5),
+          Expanded(
+            child: Text(text, style: TextStyle(fontWeight: FontWeight.w500)),
+          ),
         ],
       ),
     );

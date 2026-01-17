@@ -23,13 +23,10 @@ class Safarni extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocProvider(
-      create: (context) => ServiceLocator.gi<AuthCubit>(),
-      child: MaterialApp.router(
-        theme: AppTheme.themeDate,
-        debugShowCheckedModeBanner: false,
-        routerConfig: Routes.routes,
-      ),
+    return MaterialApp.router(
+      theme: AppTheme.themeDate,
+      debugShowCheckedModeBanner: false,
+      routerConfig: Routes.routes,
     );
   }
 }

@@ -76,7 +76,7 @@ class ServiceLocator {
     gi.registerLazySingleton(() => LoginUseCase(repository: gi()));
     gi.registerLazySingleton(() => LogoutUseCase(repo: gi()));
     gi.registerLazySingleton(() => ForgotPasswordUseCase(gi()));
-    gi.registerLazySingleton(
+    gi.registerFactory(
       () => AuthCubit(
         registerUseCase: gi(),
         verifyUseCase: gi(),

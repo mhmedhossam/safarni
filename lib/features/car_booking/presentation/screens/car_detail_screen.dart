@@ -14,67 +14,70 @@ class CarDetailScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: Colors.white,
-      appBar: CustomAppBar(title: 'Car Detail'),
-      body: Padding(
-        padding: const EdgeInsets.all(20),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            ClipRRect(
-              child: Image.asset(
-                Assets.imagesCar1,
-                height: 150,
-                width: double.infinity,
-                fit: BoxFit.cover,
+    return SafeArea(
+      top: false,
+      child: Scaffold(
+        backgroundColor: Colors.white,
+        appBar: CustomAppBar(title: 'Car Detail'),
+        body: Padding(
+          padding: const EdgeInsets.all(20),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              ClipRRect(
+                child: Image.asset(
+                  Assets.imagesCar1,
+                  height: 150,
+                  width: double.infinity,
+                  fit: BoxFit.cover,
+                ),
               ),
-            ),
-            const Gap(20),
-            const Text("Popular Cars", style: TextStyle(color: Colors.grey)),
-            const Text(
-              "S 500 Sedan",
-              style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
-            ),
-            const Gap(20),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceAround,
-              children: [
-                _buildSpecItem("Power", "429 hp"),
-                _buildSpecItem("Max Speed", "280 km/h"),
-                _buildSpecItem("Acceleration", "4.9 sec"),
-              ],
-            ),
-            const Gap(30),
-            const Text("Plan", style: TextStyle(fontWeight: FontWeight.bold)),
-            const Gap(10),
-            Row(
-              children: [
-                PlanCardSection(
-                  title: "Hourly Rent",
-                  subTitle: "Best for business appointments",
-                  price: "10",
-                  icon: Icons.access_time,
-                  isSelected: true,
-                ),
-                const Gap(15),
-                PlanCardSection(
-                  title: "Daily Rent",
-                  subTitle: "Best for business appointments",
-                  price: "80",
-                  icon: Icons.calendar_today_outlined,
-                  isSelected: false,
-                ),
-              ],
-            ),
-            const Spacer(),
-            CustomButton(
-              title: "Pick Up",
-              onPressed: () {
-                Navigation.push(context, Routes.carMapScreen);
-              },
-            ),
-          ],
+              const Gap(20),
+              const Text("Popular Cars", style: TextStyle(color: Colors.grey)),
+              const Text(
+                "S 500 Sedan",
+                style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
+              ),
+              const Gap(20),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                children: [
+                  _buildSpecItem("Power", "429 hp"),
+                  _buildSpecItem("Max Speed", "280 km/h"),
+                  _buildSpecItem("Acceleration", "4.9 sec"),
+                ],
+              ),
+              const Gap(30),
+              const Text("Plan", style: TextStyle(fontWeight: FontWeight.bold)),
+              const Gap(10),
+              Row(
+                children: [
+                  PlanCardSection(
+                    title: "Hourly Rent",
+                    subTitle: "Best for business appointments",
+                    price: "10",
+                    icon: Icons.access_time,
+                    isSelected: true,
+                  ),
+                  const Gap(15),
+                  PlanCardSection(
+                    title: "Daily Rent",
+                    subTitle: "Best for business appointments",
+                    price: "80",
+                    icon: Icons.calendar_today_outlined,
+                    isSelected: false,
+                  ),
+                ],
+              ),
+              const Spacer(),
+              CustomButton(
+                title: "Pick Up",
+                onPressed: () {
+                  Navigation.push(context, Routes.carMapScreen);
+                },
+              ),
+            ],
+          ),
         ),
       ),
     );

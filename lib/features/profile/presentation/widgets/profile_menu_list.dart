@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:safarni/core/services/local/shared_pref.dart';
 
 import '../../../../core/constants/navigation.dart';
 import '../../../../core/constants/routes.dart';
@@ -47,6 +48,7 @@ class ProfileMenuList extends StatelessWidget {
           showArrow: false,
           onTap: () {
             Navigation.go(context, Routes.login);
+            SharedPref.delete(SharedPref.ktoken);
           },
         ),
       ],

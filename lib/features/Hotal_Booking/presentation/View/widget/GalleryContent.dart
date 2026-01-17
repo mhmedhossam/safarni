@@ -56,6 +56,12 @@ class GalleryContent extends StatelessWidget {
                 ),
                 itemCount: state.galleryRooms.length,
                 itemBuilder: (context, index) {
+                  print(state.galleryRooms[index].url);
+                  print(state.galleryRooms[index].url);
+                  print(state.galleryRooms[index].url);
+                  print(state.galleryRooms[index].url);
+                  print(state.galleryRooms[index].url);
+                  print(state.galleryRooms[index].url);
                   return Container(
                     decoration: BoxDecoration(
                       color: Colors.grey[300],

@@ -75,7 +75,7 @@ class MapCardDetail extends StatelessWidget {
               ),
               Image.asset(
                 Assets.imagesCar1,
-                width: 150,
+                width: 140,
                 height: 120,
                 errorBuilder: (context, error, stackTrace) =>
                     const Icon(Icons.directions_car, size: 50),

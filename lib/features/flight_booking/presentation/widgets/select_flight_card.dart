@@ -24,7 +24,7 @@ class SelectFlightCard extends StatelessWidget {
     }
 
     return Container(
-      margin: EdgeInsets.only(bottom: 15),
+      margin: EdgeInsets.only(bottom: 10),
       padding: EdgeInsets.all(20),
       decoration: BoxDecoration(
         color: isSelected ? AppColors.lightGrey : Colors.white,

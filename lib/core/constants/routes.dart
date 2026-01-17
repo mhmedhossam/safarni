@@ -15,6 +15,7 @@ import 'package:safarni/features/Hotal_Booking/presentation/View/Hotel_Rooms_Vie
 import 'package:safarni/features/Hotal_Booking/presentation/View/Review_View.dart';
 import 'package:safarni/features/Hotal_Booking/presentation/View/Rooms_Details_View.dart';
 import 'package:safarni/features/Hotal_Booking/presentation/View/widget/custom_search_hotals.dart';
+import 'package:safarni/features/auth/presentation/cubit/auth_cubit.dart';
 import 'package:safarni/features/car_booking/presentation/screens/car_booking_screen.dart';
 import 'package:safarni/features/favourite/presentation/screens/favorite_screen.dart';
 import 'package:safarni/features/flight_booking/data/model/search_flight_model.dart';
@@ -188,8 +189,20 @@ class Routes {
         ),
       ),
       GoRoute(path: welcom, builder: (context, state) => const Welcome()),
-      GoRoute(path: login, builder: (context, state) => const Login()),
-      GoRoute(path: siginUp, builder: (context, state) => const SignUp()),
+      GoRoute(
+        path: login,
+        builder: (context, state) => BlocProvider(
+          create: (context) => ServiceLocator.gi<AuthCubit>(),
+          child: const Login(),
+        ),
+      ),
+      GoRoute(
+        path: siginUp,
+        builder: (context, state) => BlocProvider(
+          create: (context) => ServiceLocator.gi<AuthCubit>(),
+          child: const SignUp(),
+        ),
+      ),
       GoRoute(
         path: mybookingScreen,
         builder: (context, state) => const MyBookingView(),

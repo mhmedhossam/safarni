@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:safarni/core/utils/text_styles.dart';
 import 'package:safarni/core/widgets/custom_appbar.dart';
+import 'package:safarni/features/Home/data/model/recommendation_model.dart';
 
 import '../../../../core/constants/navigation.dart';
 import '../../../../core/constants/routes.dart';
@@ -26,7 +27,18 @@ class FavoriteScreen extends StatelessWidget {
           itemBuilder: (context, index) {
             return GestureDetector(
               onTap: () {
-                Navigation.push(context, Routes.destinationScreen);
+                Navigation.push(
+                  context,
+                  Routes.destinationScreen,
+                  RecommendationModel(
+                    id: 1,
+                    title: "Eiffel Tower",
+                    thumbnail: "Full Day",
+                    rating: 5,
+                    location: "egypt",
+                    slug: "full Day",
+                  ),
+                );
               },
               child: FavoriteCard(),
             );

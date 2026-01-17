@@ -11,7 +11,9 @@ class HomeRemoteDataSourceImpl extends HomeRemoteDataSource {
   Future<BaseModel<HomeModel>> getHome() async {
     try {
       var response = await DioProvider.get(MainEndpoint.home);
-
+      print(response.statusCode);
+      print(response.statusMessage);
+      print("response.statusMessage");
       if (response.data is Map<String, dynamic>) {
         return BaseModel.fromJson(response.data as Map<String, dynamic>, (
           json,
@@ -19,14 +21,13 @@ class HomeRemoteDataSourceImpl extends HomeRemoteDataSource {
           if (json is List && json.isEmpty) {
             throw ServerFailure("error please try again later ");
           }
-          return HomeModel.fromJson(json);
+          return HomeModel.fromJson(json as Map<String, dynamic>);
         });
       } else {
         throw ServerFailure("error in server now try again later");
       }
     } catch (e) {
-      //print(e.toString());
-
+      print(e.toString());
       throw ErrorHandler.handle(e);
     }
   }
