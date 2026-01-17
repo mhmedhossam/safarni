@@ -33,8 +33,8 @@ class AuthRepoImpl extends AuthRepo {
       }
 
       return Left(ServerFailure(baseModel.message ?? 'Login failed'));
-    } catch (e) {
-      return Left(ServerFailure(e.toString()));
+    } on Failure catch (e) {
+      return Left(e);
     }
   }
 

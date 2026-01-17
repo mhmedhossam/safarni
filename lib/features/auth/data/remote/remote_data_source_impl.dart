@@ -15,14 +15,15 @@ class RemoteDataSourceImpl extends RemoteDataSource {
       final response = await DioProvider.post(
         MainEndpoint.login,
         data: {'email': email, 'password': password},
+        headres: {
+          'Accept': 'application/json',
+          'Content-Type': 'application/json',
+        },
       );
-      if (response.statusCode == 200) {
-        return response.data!;
-      } else {
-        throw ServerFailure(response.data?['message'] ?? 'Login failed');
-      }
-    } on Exception catch (e) {
-      throw ServerFailure(e.toString());
+
+      return response.data!;
+    } catch (e) {
+      throw ErrorHandler.handle(e);
     }
   }
 
@@ -43,14 +44,12 @@ class RemoteDataSourceImpl extends RemoteDataSource {
           'password': password,
           "password_confirmation": passwordCon,
         },
+        headres: {
+          'Accept': 'application/json',
+          'Content-Type': 'application/json',
+        },
       );
-      if (response.statusCode == 201) {
-        return response.data!;
-      } else {
-        throw ServerFailure(
-          response.data?['message'] ?? "registeration failed",
-        );
-      }
+      return response.data!;
     } catch (e) {
       throw ErrorHandler.handle(e);
     }
@@ -66,28 +65,33 @@ class RemoteDataSourceImpl extends RemoteDataSource {
       final response = await DioProvider.post(
         MainEndpoint.verfiy,
         data: {'email': email, 'code': code},
+        headres: {
+          'Accept': 'application/json',
+          'Content-Type': 'application/json',
+        },
       );
-      if (response.statusCode == 200) {
-        return response.data!;
-      } else {
-        throw ServerFailure(response.data?['message'] ?? 'Verification failed');
-      }
-    } on Exception catch (e) {
+
+      return response.data!;
+    } catch (e) {
       throw ErrorHandler.handle(e);
     }
   }
 
   @override
   Future<Map<String, dynamic>> forgetPassword({required String email}) async {
-    final response = await DioProvider.post(
-      MainEndpoint.forgotPassword,
-      data: {'email': email},
-    );
+    try {
+      final response = await DioProvider.post(
+        MainEndpoint.forgotPassword,
+        data: {'email': email},
+        headres: {
+          'Accept': 'application/json',
+          'Content-Type': 'application/json',
+        },
+      );
 
-    if (response.statusCode == 200) {
       return response.data!;
+    } catch (e) {
+      throw ErrorHandler.handle(e);
     }
-
-    throw ServerFailure('Failed to send reset code');
   }
 }
